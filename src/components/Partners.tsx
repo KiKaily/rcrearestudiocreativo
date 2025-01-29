@@ -10,7 +10,7 @@ const partners = [
 
 export const Partners = () => {
   return (
-    <section className="py-20 px-4 bg-gradient-to-br from-[#FFB1B1] to-[#9FEFE7]">
+    <section className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-12 text-white">
           Hemos trabajado con
