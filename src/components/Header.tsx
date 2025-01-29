@@ -14,7 +14,7 @@ export const Header = () => {
   ];
 
   return (
-    <header className="fixed w-full z-50 bg-gradient-to-br from-[#FFB1B1] to-[#9FEFE7] bg-opacity-90 backdrop-blur-sm">
+    <header className="fixed w-full z-50 bg-transparent backdrop-blur-sm">
       <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
         <a href="#" className="text-white text-2xl font-bold">
           Crear
@@ -34,16 +34,17 @@ export const Header = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden"
+            className="overflow-hidden bg-black/30 backdrop-blur-sm"
           >
             <nav className="px-4 pb-4">
-              <ul className="space-y-2">
+              <ul className="space-y-2 flex flex-col items-center">
                 {menuItems.map((item) => (
                   <motion.li
                     key={item.name}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
+                    className="w-full text-center"
                   >
                     <a
                       href={item.href}

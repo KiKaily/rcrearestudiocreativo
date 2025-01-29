@@ -16,6 +16,21 @@ const projects = [
     description: "Branding y diseño",
     image: "/lovable-uploads/ad1f47f2-9950-4d60-ad70-217fec9cdab1.png",
   },
+  {
+    title: "Café Aroma",
+    description: "Identidad visual",
+    image: "/lovable-uploads/ad1f47f2-9950-4d60-ad70-217fec9cdab1.png",
+  },
+  {
+    title: "Tech Solutions",
+    description: "Diseño web",
+    image: "/lovable-uploads/ad1f47f2-9950-4d60-ad70-217fec9cdab1.png",
+  },
+  {
+    title: "Green Garden",
+    description: "Branding ecológico",
+    image: "/lovable-uploads/ad1f47f2-9950-4d60-ad70-217fec9cdab1.png",
+  },
 ];
 
 export const Portfolio = () => {
