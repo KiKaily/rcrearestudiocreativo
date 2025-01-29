@@ -13,7 +13,7 @@ const team = [
     name: "Noel cresencio",
     role: "creativo, comunicador, fotógrafo y editor de vídeo",
     image: "/lovable-uploads/noel.jpg",
-    description: "Especialista en diseño digital y branding, Noé aporta una perspectiva fresca y contemporánea a cada proyecto. Su trabajo se caracteriza por la atención al detalle y la búsqueda constante de la excelencia.",
+    description: "Responsable de comunicación, web y redes sociales. Formado en educación viva, terapeuta psico-corporal y comunicación consciente. El más autodidacta y multidisciplinar del equipo. El solucionador de problemas. Capaz de crear una web sin ser programador. Curioso por naturaleza, de acción eficiente y pensamiento innovador. Apasionado sobre cómo funciona el mundo y las relaciones humanas. Pregúntale sobre cualquier cosa y te podrá decir algo interesante al respecto. Colabora en los diseños, webs, fotos, videos y procesos en redes sociales.",
   },
 ];
 
