@@ -2,33 +2,28 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
-    title: "Leonardo Masclef",
-    description: "Fotografía profesional",
+    title: "Leonardo Moscoso",
+    description: "diseño de marca, web, redes sociales",
+    image: "/lovable-uploads/leonardo.png",
+  },
+  {
+    title: "Kun Koro",
+    description: "diseño de marca, web",
+    image: "/lovable-uploads/kunkoro.png",
+  },
+  {
+    title: "Librería Macondo",
+    description: "diseño de marca",
     image: "/lovable-uploads/ad1f47f2-9950-4d60-ad70-217fec9cdab1.png",
   },
   {
-    title: "Sun Koro",
-    description: "Diseño de marca",
+    title: "Experiencia Educativa El roure",
+    description: "web, diseño gráfico, redes sociales",
     image: "/lovable-uploads/ad1f47f2-9950-4d60-ad70-217fec9cdab1.png",
   },
   {
-    title: "Librería Artesanal",
-    description: "Branding y diseño",
-    image: "/lovable-uploads/ad1f47f2-9950-4d60-ad70-217fec9cdab1.png",
-  },
-  {
-    title: "Café Aroma",
-    description: "Identidad visual",
-    image: "/lovable-uploads/ad1f47f2-9950-4d60-ad70-217fec9cdab1.png",
-  },
-  {
-    title: "Tech Solutions",
-    description: "Diseño web",
-    image: "/lovable-uploads/ad1f47f2-9950-4d60-ad70-217fec9cdab1.png",
-  },
-  {
-    title: "Green Garden",
-    description: "Branding ecológico",
+    title: "Begoña González Minguillón",
+    description: "diseño gráfico, redes sociales",
     image: "/lovable-uploads/ad1f47f2-9950-4d60-ad70-217fec9cdab1.png",
   },
 ];

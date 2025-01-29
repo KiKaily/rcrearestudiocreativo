@@ -25,7 +25,7 @@ export const Partners = () => {
               className="flex items-center justify-center"
             >
               <img
-                src="/lovable-uploads/ad1f47f2-9950-4d60-ad70-217fec9cdab1.png"
+                src="/lovable-uploads/1.jpg"
                 alt={partner}
                 className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
               />

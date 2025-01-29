@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { AlignLeft } from "lucide-react";
 
 export const Hero = () => {
   return (
@@ -30,7 +31,11 @@ export const Hero = () => {
           transition={{ delay: 0.3 }}
           whileHover={{ scale: 1.02 }}
         >
-          Transformamos ideas en experiencias digitales únicas y memorables
+          <text-align><p><b>estudio creativo</b></p></text-align>
+          
+          <text-align><p>diseño gráfico</p></text-align>
+          
+          <text-align><p>comunicación honesta</p></text-align>
         </motion.p>
       </motion.div>
     </section>

@@ -10,14 +10,11 @@ export const Footer = () => {
           transition={{ delay: 0.1 }}
           className="text-white"
         >
-          <h3 className="text-xl font-bold mb-4">Contacto</h3>
+          <h3 className="text-xl font-bold mb-4">¿hablamos?</h3>
           <p className="opacity-90">
-            Email: info@empresa.com
+            rcrear.com@gmail.com.com
             <br />
-            Tel: +34 123 456 789
-            <br />
-            Dirección: Calle Principal 123
-          </p>
+            Barcelona, España</p>
         </motion.div>
 
         <motion.div
@@ -26,12 +23,12 @@ export const Footer = () => {
           transition={{ delay: 0.2 }}
           className="text-white"
         >
-          <h3 className="text-xl font-bold mb-4">Enlaces</h3>
+          <h3 className="text-xl font-bold mb-4">enlaces</h3>
           <ul className="space-y-2 opacity-90">
-            <li><a href="#inicio" className="hover:underline">Inicio</a></li>
-            <li><a href="#portafolio" className="hover:underline">Portafolio</a></li>
-            <li><a href="#nosotros" className="hover:underline">Sobre Nosotros</a></li>
-            <li><a href="#partners" className="hover:underline">Partners</a></li>
+            <li><a href="#inicio" className="hover:underline">inicio</a></li>
+            <li><a href="#portafolio" className="hover:underline">trabajos</a></li>
+            <li><a href="#nosotros" className="hover:underline">nosotros</a></li>
+            <li><a href="#partners" className="hover:underline">hemos trabajado con</a></li>
           </ul>
         </motion.div>
 
@@ -41,12 +38,10 @@ export const Footer = () => {
           transition={{ delay: 0.3 }}
           className="text-white"
         >
-          <h3 className="text-xl font-bold mb-4">Síguenos</h3>
+          <h3 className="text-xl font-bold mb-4">¿conectamos?</h3>
           <ul className="space-y-2 opacity-90">
-            <li><a href="#" className="hover:underline">Instagram</a></li>
-            <li><a href="#" className="hover:underline">Twitter</a></li>
-            <li><a href="#" className="hover:underline">LinkedIn</a></li>
-            <li><a href="#" className="hover:underline">Facebook</a></li>
+            <li><a href="https://www.instagram.com/rcrear.estudio/" className="hover:underline">instagram</a></li>
+            <li><a href="https://www.linkedin.com/company/105742337/" className="hover:underline">linkedin</a></li>
           </ul>
         </motion.div>
       </div>

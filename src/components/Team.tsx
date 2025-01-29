@@ -4,15 +4,15 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 
 const team = [
   {
-    name: "Cristina García",
-    role: "Directora Creativa",
-    image: "/lovable-uploads/ad1f47f2-9950-4d60-ad70-217fec9cdab1.png",
+    name: "Cristina Casas",
+    role: "diseñadora gráfica y desarrolladora web",
+    image: "/lovable-uploads/cris.jpg",
     description: "Con más de 10 años de experiencia en diseño y dirección creativa, Cristina lidera nuestro equipo con pasión y visión innovadora. Su enfoque único combina estrategia y creatividad para entregar resultados excepcionales.",
   },
   {
-    name: "Noé Greenwood",
-    role: "Diseñador Senior",
-    image: "/lovable-uploads/ad1f47f2-9950-4d60-ad70-217fec9cdab1.png",
+    name: "Noel cresencio",
+    role: "creativo, comunicador, fotógrafo y editor de vídeo",
+    image: "/lovable-uploads/noel.jpg",
     description: "Especialista en diseño digital y branding, Noé aporta una perspectiva fresca y contemporánea a cada proyecto. Su trabajo se caracteriza por la atención al detalle y la búsqueda constante de la excelencia.",
   },
 ];
