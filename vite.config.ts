@@ -5,7 +5,6 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/rcrear/", // 🔥 Esto arregla las rutas en GitHub Pages, aconsejado por el chatgpt
   server: {
     host: "::",
     port: 8080,
@@ -21,4 +20,3 @@ export default defineConfig(({ mode }) => ({
     },
   },
 }));
-
