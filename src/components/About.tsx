@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 
 export const About = () => {
   const paragraphs = [
-    "Somos un estudio creativo especializado en transformar ideas en experiencias visuales memorables. Nuestro enfoque combina diseño innovador con estrategias efectivas para crear soluciones únicas.",
-    "Con años de experiencia en el sector, hemos desarrollado un proceso creativo que garantiza resultados excepcionales. Cada proyecto es una oportunidad para crear algo extraordinario.",
-    "Trabajamos en estrecha colaboración con nuestros clientes, asegurándonos de que cada detalle refleje su visión y objetivos. La comunicación y la transparencia son fundamentales en nuestro proceso.",
-    "Nuestro compromiso con la excelencia y la innovación nos impulsa a mantenernos a la vanguardia de las últimas tendencias y tecnologías en diseño y comunicación visual.",
+    "Somos Rcrear, un estudio creativo, de diseño gráfico y comunicación honesta",
+    "Creamos marcas y comunicación con alma, transmitiendo mensajes de forma honesta",
+    "La comunicación honesta se centra en la transparencia y el respeto por el receptor, la no invasión, uso de formas agresivas ni manipulación calculada",
+    "Nuestros procesos destacan por involucrar a las personas detrás de cada marca, dando especial importancia a la presencialidad y a los procesos creativos físicos y tangibles, como valiosas fuentes de imagen e inspiración",
   ];
 
   return (
