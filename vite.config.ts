@@ -5,7 +5,7 @@ import path from 'path';
 import { componentTagger } from 'lovable-tagger';
 
 export default defineConfig(({ mode }) => ({
-  base: '/rcrear/', // Configuración correcta para GitHub Pages
+  base: "/rcrear/", // 👈 Esto es clave para GitHub Pages
   server: {
     host: "::",
     port: 8080,
