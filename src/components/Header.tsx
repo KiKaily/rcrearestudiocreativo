@@ -16,16 +16,27 @@ export const Header = () => {
   return (
     <header className="fixed w-full z-50 bg-transparent backdrop-blur-sm">
       <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="#" className="text-white text-2xl font-bold">
-          Crear
-        </a>
+        <motion.a 
+          href="#" 
+          className="h-12 w-32 relative"
+          whileHover={{ scale: 1.05 }}
+          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+        >
+          <img 
+            src="/logo.png" 
+            alt="Logo" 
+            className="w-full h-full object-contain"
+          />
+        </motion.a>
         
-        <button
+        <motion.button
           onClick={() => setIsOpen(!isOpen)}
           className="text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        </motion.button>
       </div>
 
       <AnimatePresence>
@@ -34,7 +45,7 @@ export const Header = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden bg-black/30 backdrop-blur-sm"
+            className="overflow-hidden bg-white/30 backdrop-blur-sm"
           >
             <nav className="px-4 pb-4">
               <ul className="space-y-2 flex flex-col items-center">
@@ -46,13 +57,15 @@ export const Header = () => {
                     exit={{ opacity: 0, x: -20 }}
                     className="w-full text-center"
                   >
-                    <a
+                    <motion.a
                       href={item.href}
                       className="block text-white py-2 px-4 hover:bg-white/10 rounded-lg transition-colors"
                       onClick={() => setIsOpen(false)}
+                      whileHover={{ scale: 1.05, x: 10 }}
+                      whileTap={{ scale: 0.95 }}
                     >
                       {item.name}
-                    </a>
+                    </motion.a>
                   </motion.li>
                 ))}
               </ul>
