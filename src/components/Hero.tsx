@@ -20,9 +20,14 @@ export const Hero = () => {
             dragElastic={0.1}
           >
             <img 
-              src="/rcrear/public/logo.png" 
+              src="/logo.png" 
               alt="Logo" 
               className="w-full h-full object-contain"
+              onError={(e) => {
+                console.error('Image failed to load:', e);
+                const imgElement = e.target as HTMLImageElement;
+                imgElement.src = 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e';
+              }}
             />
           </motion.div>
           <motion.div 
