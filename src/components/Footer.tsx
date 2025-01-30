@@ -12,7 +12,7 @@ export const Footer = () => {
         >
           <h3 className="text-xl font-bold mb-4">¿hablamos?</h3>
           <p className="opacity-90">
-          <li><a href="mailto:rcrear.com@gmail.com.com" className="hover:underline">rcrear.com@gmail.com.com</a></li>
+          <a href="mailto:rcrear.com@gmail.com.com" className="hover:underline">rcrear.com@gmail.com.com</a>
             <br />
             Barcelona, España</p>
         </motion.div>

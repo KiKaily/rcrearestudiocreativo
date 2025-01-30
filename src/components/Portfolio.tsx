@@ -4,32 +4,32 @@ const projects = [
   {
     title: "Leonardo Moscoso",
     description: "diseño de marca, web, redes sociales",
-    image: "/rcrearestuciocreativo/public/leonardo.png",
+    image: "/rcrear/public/leonardo.png",
   },
   {
     title: "Begoña González Minguillón",
     description: "diseño gráfico, redes sociales",
-    image: "/rcrearestuciocreativo/public/begona.png",
+    image: "/rcrear/public/begona.png",
   },
   {
     title: "Kun Koro",
     description: "diseño de marca, web",
-    image: "/rcrearestuciocreativo/public/kunkoro.png",
+    image: "/rcrear/public/kunkoro.png",
   },
   {
     title: "Librería Macondo",
     description: "diseño de marca",
-    image: "/rcrearestuciocreativo/public/macondo.png",
+    image: "/rcrear/public/macondo.png",
   },
   {
     title: "Experiencia Educativa El roure",
     description: "web, diseño gráfico, redes sociales",
-    image: "/rcrearestuciocreativo/public/elroure.png",
+    image: "/rcrear/public/elroure.png",
   },
   {
     title: "Cristina Minguillón",
     description: "diseño gráfico, redes sociales",
-    image: "/rcrearestuciocreativo/public/babel.png",
+    image: "/rcrear/public/babel.png",
   },
 ];
 
