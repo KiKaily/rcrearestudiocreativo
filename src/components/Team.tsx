@@ -7,7 +7,7 @@ const team = [
     name: "Cristina Casas",
     role: "diseñadora gráfica y desarrolladora web",
     image: "/rcrear/public/cris.jpg",
-    description: "Con más de 10 años de experiencia en diseño y dirección creativa, Cristina lidera nuestro equipo con pasión y visión innovadora. Su enfoque único combina estrategia y creatividad para entregar resultados excepcionales.",
+    description: "Con más de 10 años de experiencia en diseño y dirección creativa, Cristina lidera nuestros equipo de diseño gráfico con profesionalidad, pasión y visión innovadora. Su enfoque único combina estrategia y creatividad para entregar resultados excepcionales.",
   },
   {
     name: "Noel cresencio",
