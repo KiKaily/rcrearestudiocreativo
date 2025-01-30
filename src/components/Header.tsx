@@ -6,11 +6,11 @@ export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    { name: "Inicio", href: "#inicio" },
-    { name: "Portafolio", href: "#portafolio" },
-    { name: "Nosotros", href: "#nosotros" },
-    { name: "Partners", href: "#partners" },
-    { name: "Contacto", href: "#contacto" },
+    { name: "inicio", href: "#inicio" },
+    { name: "trabajos", href: "#trabajos" },
+    { name: "nosotros", href: "#nosotros" },
+    { name: "hemos trabajado con", href: "#hemostrabajadocon" },
+    { name: "contacto", href: "#footer" },
   ];
 
   return (
@@ -23,7 +23,7 @@ export const Header = () => {
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
         >
           <img 
-            src="/rcrear/logo.png" 
+            src="/rcrear/public/logo.png" 
             alt="Logo" 
             className="w-full h-full object-contain"
           />
