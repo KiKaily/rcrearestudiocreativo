@@ -34,6 +34,31 @@ export const Partners = () => {
                 alt={partner}
                 className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
               />
+              <img
+                src="/rcrear/public/begona_blanco.png"
+                alt={partner}
+                className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
+              />
+              <img
+                src="/rcrear/public/cm_blanco.png"
+                alt={partner}
+                className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
+              />
+              <img
+                src="/rcrear/public/ajuntament_blanco.png"
+                alt={partner}
+                className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
+              />
+              <img
+                src="/rcrear/public/kunkoro_blanco.png"
+                alt={partner}
+                className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
+              />
+              <img
+                src="/rcrear/public/casita_blanco.png"
+                alt={partner}
+                className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
+              />
             </motion.div>
           ))}
         </div>
