@@ -25,7 +25,7 @@ export const Partners = () => {
               className="flex items-center justify-center"
             >
               <img
-                src="/public/test.jpg"
+                src="/rcrear/public/test.jpg"
                 alt={partner}
                 className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
               />

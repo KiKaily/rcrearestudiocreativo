@@ -31,11 +31,11 @@ export const Hero = () => {
           transition={{ delay: 0.3 }}
           whileHover={{ scale: 1.02 }}
         >
-          <text-align><p><b>estudio creativo</b></p></text-align>
+          <p><b>estudio creativo</b></p>
           
-          <text-align><p>diseño gráfico</p></text-align>
+          <p>diseño gráfico</p>
           
-          <text-align><p>comunicación honesta</p></text-align>
+          <p>comunicación honesta</p>
         </motion.p>
       </motion.div>
     </section>
