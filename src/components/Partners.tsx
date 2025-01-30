@@ -25,37 +25,37 @@ export const Partners = () => {
               className="flex items-center justify-center"
             >
               <img
-                src="/rcrear/public/leo_blanco.png"
+                src="/rcrearestuciocreativo/public/leo_blanco.png"
                 alt={partner}
                 className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
               />
               <img
-                src="/rcrear/public/roure_blanco.png"
+                src="/rcrearestuciocreativo/public/roure_blanco.png"
                 alt={partner}
                 className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
               />
               <img
-                src="/rcrear/public/begona_blanco.png"
+                src="/rcrearestuciocreativo/public/begona_blanco.png"
                 alt={partner}
                 className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
               />
               <img
-                src="/rcrear/public/cm_blanco.png"
+                src="/rcrearestuciocreativo/public/cm_blanco.png"
                 alt={partner}
                 className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
               />
               <img
-                src="/rcrear/public/ajuntament_blanco.png"
+                src="/rcrearestuciocreativo/public/ajuntament_blanco.png"
                 alt={partner}
                 className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
               />
               <img
-                src="/rcrear/public/kunkoro_blanco.png"
+                src="/rcrearestuciocreativo/public/kunkoro_blanco.png"
                 alt={partner}
                 className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
               />
               <img
-                src="/rcrear/public/casita_blanco.png"
+                src="/rcrearestuciocreativo/public/casita_blanco.png"
                 alt={partner}
                 className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
               />

@@ -6,13 +6,13 @@ const team = [
   {
     name: "Cristina Casas",
     role: "diseñadora gráfica y desarrolladora web",
-    image: "/rcrear/public/cris.jpg",
+    image: "/rcrearestuciocreativo/public/cris.jpg",
     description: "Con más de 10 años de experiencia en diseño y dirección creativa, Cristina lidera nuestros equipo de diseño gráfico con profesionalidad, pasión y visión innovadora. Su enfoque único combina estrategia y creatividad para entregar resultados excepcionales.",
   },
   {
     name: "Noel cresencio",
     role: "creativo, comunicador, fotógrafo y editor de vídeo",
-    image: "/rcrear/public/noel.jpg",
+    image: "/rcrearestuciocreativo/public/noel.jpg",
     description: "Responsable de comunicación, web y redes sociales. Formado en educación viva, terapeuta psico-corporal y comunicación consciente. El más autodidacta y multidisciplinar del equipo. El solucionador de problemas. Capaz de crear una web sin ser programador. Curioso por naturaleza, de acción eficiente y pensamiento innovador. Apasionado sobre cómo funciona el mundo y las relaciones humanas. Pregúntale sobre cualquier cosa y te podrá decir algo interesante al respecto. Colabora en los diseños, webs, fotos, videos y procesos en redes sociales.",
   },
 ];
