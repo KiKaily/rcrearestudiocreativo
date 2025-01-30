@@ -7,6 +7,11 @@ const projects = [
     image: "/rcrear/public/leonardo.png",
   },
   {
+    title: "Begoña González Minguillón",
+    description: "diseño gráfico, redes sociales",
+    image: "/rcrear/public/begona.png",
+  },
+  {
     title: "Kun Koro",
     description: "diseño de marca, web",
     image: "/rcrear/public/kunkoro.png",
@@ -22,9 +27,9 @@ const projects = [
     image: "/rcrear/public/elroure.png",
   },
   {
-    title: "Begoña González Minguillón",
+    title: "Cristina Minguillón",
     description: "diseño gráfico, redes sociales",
-    image: "/rcrear/public/begona.png",
+    image: "/rcrear/public/babel.png",
   },
 ];
 
