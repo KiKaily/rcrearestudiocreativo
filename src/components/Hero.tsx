@@ -19,7 +19,7 @@ export const Hero = () => {
           dragElastic={0.1}
         >
           <img 
-            src="/rcrear/logo.png" 
+            src="/rcrear/public/logo.png" 
             alt="Logo" 
             className="w-full h-full object-contain"
           />

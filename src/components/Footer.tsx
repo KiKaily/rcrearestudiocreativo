@@ -25,7 +25,7 @@ export const Footer = () => {
         >
           <h3 className="text-xl font-bold mb-4">secciones</h3>
           <ul className="space-y-2 opacity-90">
-            <li><a href="#inicio" className="hover:underline">inicio</a></li>
+            <li><a href="#Index" className="hover:underline">inicio</a></li>
             <li><a href="#trabajos" className="hover:underline">trabajos</a></li>
             <li><a href="#nosotros" className="hover:underline">nosotros</a></li>
             <li><a href="#hemostrabajadocon" className="hover:underline">hemos trabajado con</a></li>

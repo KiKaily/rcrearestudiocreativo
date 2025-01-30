@@ -9,22 +9,22 @@ const projects = [
   {
     title: "Kun Koro",
     description: "diseño de marca, web",
-    image: "/lovable-uploads/kunkoro.png",
+    image: "/public/kunkoro.png",
   },
   {
     title: "Librería Macondo",
     description: "diseño de marca",
-    image: "/lovable-uploads/ad1f47f2-9950-4d60-ad70-217fec9cdab1.png",
+    image: "/public/macondo.png",
   },
   {
     title: "Experiencia Educativa El roure",
     description: "web, diseño gráfico, redes sociales",
-    image: "/lovable-uploads/ad1f47f2-9950-4d60-ad70-217fec9cdab1.png",
+    image: "/public/elroure.png",
   },
   {
     title: "Begoña González Minguillón",
     description: "diseño gráfico, redes sociales",
-    image: "/lovable-uploads/ad1f47f2-9950-4d60-ad70-217fec9cdab1.png",
+    image: "/public/begona.png",
   },
 ];
 
@@ -32,7 +32,7 @@ export const Portfolio = () => {
   return (
     <section className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-12 text-white">Nuestro Trabajo</h2>
+        <h2 className="text-4xl font-bold text-center mb-12 text-white">trabajos</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
