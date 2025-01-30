@@ -9,9 +9,10 @@ export const Hero = () => {
         transition={{ duration: 0.8 }}
         className="w-full max-w-6xl px-4"
       >
-        <div className="flex flex-col items-start space-y-4">
+        {/* Invisible box container */}
+        <div className="max-w-[35rem] mx-auto flex flex-col items-center">
           <motion.div
-            className="w-96 h-96 md:w-[35rem] md:h-[35rem] mx-auto"
+            className="w-96 h-96 md:w-[35rem] md:h-[35rem]"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             drag
@@ -25,7 +26,7 @@ export const Hero = () => {
             />
           </motion.div>
           <motion.div 
-            className="text-white text-xl md:text-2xl w-full max-w-2xl text-left space-y-2 pl-4 md:pl-8"
+            className="text-white text-xl md:text-2xl w-full text-left space-y-2 mt-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
