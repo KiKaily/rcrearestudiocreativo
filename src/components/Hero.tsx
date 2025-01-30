@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { AlignLeft } from "lucide-react";
 
 export const Hero = () => {
   return (
@@ -8,35 +7,35 @@ export const Hero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-center px-4"
+        className="w-full max-w-6xl px-4"
       >
-        <motion.div
-          className="w-64 h-64 md:w-96 md:h-96 mx-auto mb-8"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          drag
-          dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-          dragElastic={0.1}
-        >
-          <img 
-            src="/rcrear/public/logo.png" 
-            alt="Logo" 
-            className="w-full h-full object-contain"
-          />
-        </motion.div>
-        <motion.p 
-          className="text-white text-xl md:text-2xl max-w-2xl mx-auto opacity-90"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          whileHover={{ scale: 1.02 }}
-        >
-          <p><b>estudio creativo</b></p>
-          
-          <p>diseño gráfico</p>
-          
-          <p>comunicación honesta</p>
-        </motion.p>
+        <div className="flex flex-col items-center space-y-8">
+          <motion.div
+            className="w-80 h-80 md:w-[30rem] md:h-[30rem]"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            drag
+            dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+            dragElastic={0.1}
+          >
+            <img 
+              src="/rcrear/public/logo.png" 
+              alt="Logo" 
+              className="w-full h-full object-contain"
+            />
+          </motion.div>
+          <motion.div 
+            className="text-white text-xl md:text-2xl w-full max-w-2xl text-left space-y-2"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            whileHover={{ scale: 1.02 }}
+          >
+            <p className="font-bold">estudio creativo</p>
+            <p>diseño gráfico</p>
+            <p>comunicación honesta</p>
+          </motion.div>
+        </div>
       </motion.div>
     </section>
   );
