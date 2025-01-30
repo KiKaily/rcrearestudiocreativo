@@ -13,7 +13,7 @@ export const Partners = () => {
     <section className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-12 text-white">
-          Hemos trabajado con
+          hemos trabajado con
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center">
           {partners.map((partner, index) => (
@@ -25,7 +25,12 @@ export const Partners = () => {
               className="flex items-center justify-center"
             >
               <img
-                src="/rcrear/public/test.jpg"
+                src="/rcrear/public/leo_blanco.png"
+                alt={partner}
+                className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
+              />
+              <img
+                src="/rcrear/public/roure_blanco.png"
                 alt={partner}
                 className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
               />
