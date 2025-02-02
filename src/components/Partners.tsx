@@ -25,37 +25,37 @@ export const Partners = () => {
               className="flex items-center justify-center"
             >
               <img
-                src="/rcrear/leo_blanco.png"
+                src="/rcrearestudiocreativo/leo_blanco.png"
                 alt={partner}
                 className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
               />
               <img
-                src="/rcrear/roure_blanco.png"
+                src="/rcrearestudiocreativo/roure_blanco.png"
                 alt={partner}
                 className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
               />
               <img
-                src="/rcrear/begona_blanco.png"
+                src="/rcrearestudiocreativo/begona_blanco.png"
                 alt={partner}
                 className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
               />
               <img
-                src="/rcrear/cm_blanco.png"
+                src="/rcrearestudiocreativo/cm_blanco.png"
                 alt={partner}
                 className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
               />
               <img
-                src="/rcrear/ajuntament_blanco.png"
+                src="/rcrearestudiocreativo/ajuntament_blanco.png"
                 alt={partner}
                 className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
               />
               <img
-                src="/rcrear/kunkoro_blanco.png"
+                src="/rcrearestudiocreativo/kunkoro_blanco.png"
                 alt={partner}
                 className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
               />
               <img
-                src="/rcrear/casita_blanco.png"
+                src="/rcrearestudiocreativo/casita_blanco.png"
                 alt={partner}
                 className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
               />
