@@ -9,7 +9,6 @@ export const Hero = () => {
         transition={{ duration: 0.8 }}
         className="w-full max-w-6xl px-4"
       >
-        {/* Invisible box container */}
         <div className="max-w-[35rem] mx-auto flex flex-col items-center">
           <motion.div
             className="w-96 h-96 md:w-[35rem] md:h-[35rem]"
@@ -20,7 +19,7 @@ export const Hero = () => {
             dragElastic={0.1}
           >
             <img 
-              src="/rcrear/public/logo.png" 
+              src="/rcrear/logo.png" 
               alt="Logo" 
               className="w-full h-full object-contain"
               onError={(e) => {
