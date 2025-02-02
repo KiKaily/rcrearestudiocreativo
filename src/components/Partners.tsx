@@ -25,37 +25,37 @@ export const Partners = () => {
               className="flex items-center justify-center"
             >
               <img
-                src="/rcrearestudiocreativo/leo_blanco.png"
+                src="./leo_blanco.png"
                 alt={partner}
                 className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
               />
               <img
-                src="/rcrearestudiocreativo/roure_blanco.png"
+                src="./roure_blanco.png"
                 alt={partner}
                 className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
               />
               <img
-                src="/rcrearestudiocreativo/begona_blanco.png"
+                src="./begona_blanco.png"
                 alt={partner}
                 className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
               />
               <img
-                src="/rcrearestudiocreativo/cm_blanco.png"
+                src="./cm_blanco.png"
                 alt={partner}
                 className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
               />
               <img
-                src="/rcrearestudiocreativo/ajuntament_blanco.png"
+                src="./ajuntament_blanco.png"
                 alt={partner}
                 className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
               />
               <img
-                src="/rcrearestudiocreativo/kunkoro_blanco.png"
+                src="./kunkoro_blanco.png"
                 alt={partner}
                 className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
               />
               <img
-                src="/rcrearestudiocreativo/casita_blanco.png"
+                src="./casita_blanco.png"
                 alt={partner}
                 className="max-h-12 opacity-50 hover:opacity-100 transition-opacity duration-300"
               />

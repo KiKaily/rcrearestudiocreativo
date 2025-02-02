@@ -23,7 +23,7 @@ export const Header = () => {
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
         >
           <img 
-            src="/rcrearestudiocreativo/logo.png" 
+            src="./logo.png" 
             alt="Logo" 
             className="w-full h-full object-contain"
           />
