@@ -5,7 +5,7 @@ import path from 'path';
 import { componentTagger } from 'lovable-tagger';
 
 export default defineConfig(({ mode }) => ({
-  base: "/rcrear/", // 👈 Esto es clave para GitHub Pages
+  base: "/rcrearestudiocreativo/", // Updated repository name
   server: {
     host: "::",
     port: 8080,
@@ -20,4 +20,3 @@ export default defineConfig(({ mode }) => ({
     },
   },
 }));
-

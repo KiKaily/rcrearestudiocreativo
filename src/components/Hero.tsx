@@ -20,7 +20,7 @@ export const Hero = () => {
             dragElastic={0.1}
           >
             <img 
-              src="/rcrear/public/logo.png" 
+              src="/rcrearestudiocreativo/public/logo.png" 
               alt="Logo" 
               className="w-full h-full object-contain"
               onError={(e) => {
