@@ -47,8 +47,8 @@ export const Header = () => {
             exit={{ opacity: 0, height: 0 }}
             className="overflow-hidden bg-white/30 backdrop-blur-sm"
           >
-            <nav className="px-4 pb-4">
-              <ul className="space-y-2 flex flex-col items-center">
+            <nav className="px-4 py-8">
+              <ul className="space-y-4 flex flex-col items-center">
                 {menuItems.map((item) => (
                   <motion.li
                     key={item.name}
@@ -59,7 +59,7 @@ export const Header = () => {
                   >
                     <motion.a
                       href={item.href}
-                      className="block text-white py-2 px-4 hover:bg-white/10 rounded-lg transition-colors"
+                      className="block text-white py-3 px-4 hover:bg-white/10 rounded-lg transition-colors"
                       onClick={() => setIsOpen(false)}
                       whileHover={{ scale: 1.05, x: 10 }}
                       whileTap={{ scale: 0.95 }}
