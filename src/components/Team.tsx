@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ChevronDown, ChevronUp, Linkedin, Instagram } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 const team = [
   {
@@ -38,24 +38,6 @@ export const Team = () => {
     );
   };
 
-  const BehanceIcon = () => (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="w-6 h-6"
-    >
-      <path d="M8 21h8a5 5 0 0 0 5-5V8a5 5 0 0 0-5-5H8a5 5 0 0 0-5 5v8a5 5 0 0 0 5 5z" />
-      <path d="M10 8h3a2.5 2.5 0 0 1 0 5h-3" />
-      <path d="M14 16h-4" />
-      <path d="M16 10.5h4" />
-      <path d="M16 13.5h4" />
-    </svg>
-  );
-
   return (
     <section id="Team" className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
@@ -85,17 +67,22 @@ export const Team = () => {
               <div className="flex justify-center gap-4 mb-4">
                 {member.social.linkedin && (
                   <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer">
-                    <Linkedin className="w-6 h-6 text-white hover:text-gray-300" />
+                    <img src="./linkedin.png" alt="LinkedIn" className="w-6 h-6" />
                   </a>
                 )}
                 {member.social.behance && (
                   <a href={member.social.behance} target="_blank" rel="noopener noreferrer">
-                    <BehanceIcon />
+                    <img src="./behance.png" alt="Behance" className="w-6 h-6" />
                   </a>
                 )}
                 {member.social.instagram && (
                   <a href={member.social.instagram} target="_blank" rel="noopener noreferrer">
-                    <Instagram className="w-6 h-6 text-white hover:text-gray-300" />
+                    <img src="./instagram.png" alt="Instagram" className="w-6 h-6" />
+                  </a>
+                )}
+                {member.social.pinterest && (
+                  <a href={member.social.pinterest} target="_blank" rel="noopener noreferrer">
+                    <img src="./pinterest.png" alt="Pinterest" className="w-6 h-6" />
                   </a>
                 )}
               </div>

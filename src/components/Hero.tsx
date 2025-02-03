@@ -11,7 +11,7 @@ export const Hero = () => {
       >
         <div className="max-w-[35rem] mx-auto flex flex-col items-center">
           <motion.div
-            className="w-96 h-96 md:w-[35rem] md:h-[35rem]"
+            className="w-64 h-64 md:w-[35rem] md:h-[35rem] mx-8"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             drag
