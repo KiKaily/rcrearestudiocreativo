@@ -9,9 +9,9 @@ const team = [
     image: "./cris.jpg",
     description: "Con más de 10 años de experiencia en diseño y dirección creativa, Cristina lidera nuestros equipo de diseño gráfico con profesionalidad, pasión y visión innovadora. Su enfoque único combina estrategia y creatividad para entregar resultados excepcionales.",
     social: {
-      linkedin: "https://linkedin.com/in/your-profile",
-      behance: "https://behance.net/your-profile",
-      pinterest: "https://pinterest.com/your-profile"
+      linkedin: "https://www.linkedin.com/in/cristinacasasdesign/",
+      behance: "https://www.behance.net/cristinacasasdesign?locale=es_ES",
+      pinterest: "https://es.pinterest.com/cristinacasas/"
     }
   },
   {
@@ -20,9 +20,9 @@ const team = [
     image: "./noel.jpg",
     description: "Responsable de comunicación, web y redes sociales. Formado en educación viva, terapeuta psico-corporal y comunicación consciente. El más autodidacta y multidisciplinar del equipo. El solucionador de problemas. Capaz de crear una web sin ser programador. Curioso por naturaleza, de acción eficiente y pensamiento innovador. Apasionado sobre cómo funciona el mundo y las relaciones humanas. Pregúntale sobre cualquier cosa y te podrá decir algo interesante al respecto. Colabora en los diseños, webs, fotos, videos y procesos en redes sociales.",
     social: {
-      instagram: "https://instagram.com/your-profile",
-      linkedin: "https://linkedin.com/in/your-profile",
-      behance: "https://behance.net/your-profile"
+      instagram: "https://www.instagram.com/noelcrefoto/",
+      linkedin: "https://www.linkedin.com/in/noelcresencio/",
+      behance: "https://www.behance.net/noelcresencio"
     }
   },
 ];
