@@ -8,7 +8,7 @@ import { Header } from "@/components/Header";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#FFB1B1] to-[#9FEFE7] bg-fixed">
+    <div className="min-h-screen" style={{ background: `linear-gradient(135deg, #FD7F7F 0%, #77C6BD 100%)` }}>
       <Header />
       <div id="inicio">
         <Hero />
