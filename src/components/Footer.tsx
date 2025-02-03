@@ -14,7 +14,7 @@ export const Footer = () => {
           <p className="opacity-90">
             <a href="mailto:rcrear.com@gmail.com" className="hover:underline">rcrear.com@gmail.com</a>
             <br />
-            Barcelona, España
+            barcelona, españa
           </p>
         </motion.div>
 
