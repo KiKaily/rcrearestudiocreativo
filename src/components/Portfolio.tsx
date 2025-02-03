@@ -12,8 +12,8 @@ const projects = [
     image: "./begona.png",
   },
   {
-    title: "Kun Koro",
-    description: "diseño de marca, web",
+    title: "Cristina Minguillón",
+    description: "diseño gráfico, redes sociales",
     image: "./babel.png",
   },
   {
@@ -27,10 +27,11 @@ const projects = [
     image: "./elroure.png",
   },
   {
-    title: "Cristina Minguillón",
-    description: "diseño gráfico, redes sociales",
+    title: "Kun Koro",
+    description: "diseño de marca, web",
     image: "./kunkoro.png",
   },
+  
 ];
 
 export const Portfolio = () => {
