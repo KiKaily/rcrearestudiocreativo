@@ -14,7 +14,7 @@ const projects = [
   {
     title: "Kun Koro",
     description: "diseño de marca, web",
-    image: "./kunkoro.png",
+    image: "./babel.png",
   },
   {
     title: "Librería Macondo",
@@ -29,7 +29,7 @@ const projects = [
   {
     title: "Cristina Minguillón",
     description: "diseño gráfico, redes sociales",
-    image: "./babel.png",
+    image: "./kunkoro.png",
   },
 ];
 
