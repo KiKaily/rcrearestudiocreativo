@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronUp, Linkedin, Instagram, Behance } from "lucide-react";
 
 const team = [
   {
@@ -8,12 +8,22 @@ const team = [
     role: "diseñadora gráfica y desarrolladora web",
     image: "./cris.jpg",
     description: "Con más de 10 años de experiencia en diseño y dirección creativa, Cristina lidera nuestros equipo de diseño gráfico con profesionalidad, pasión y visión innovadora. Su enfoque único combina estrategia y creatividad para entregar resultados excepcionales.",
+    social: {
+      linkedin: "https://linkedin.com/in/your-profile",
+      behance: "https://behance.net/your-profile",
+      pinterest: "https://pinterest.com/your-profile"
+    }
   },
   {
     name: "Noel cresencio",
     role: "creativo, comunicador, fotógrafo y editor de vídeo",
     image: "./noel.jpg",
     description: "Responsable de comunicación, web y redes sociales. Formado en educación viva, terapeuta psico-corporal y comunicación consciente. El más autodidacta y multidisciplinar del equipo. El solucionador de problemas. Capaz de crear una web sin ser programador. Curioso por naturaleza, de acción eficiente y pensamiento innovador. Apasionado sobre cómo funciona el mundo y las relaciones humanas. Pregúntale sobre cualquier cosa y te podrá decir algo interesante al respecto. Colabora en los diseños, webs, fotos, videos y procesos en redes sociales.",
+    social: {
+      instagram: "https://instagram.com/your-profile",
+      linkedin: "https://linkedin.com/in/your-profile",
+      behance: "https://behance.net/your-profile"
+    }
   },
 ];
 
@@ -29,9 +39,9 @@ export const Team = () => {
   };
 
   return (
-    <section className="py-20 px-4">
+    <section id="Team" className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center text-white mb-12">
+        <h2 className="text-4xl font-bold text-center text-[#443427] mb-12">
           nosotros
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
@@ -54,6 +64,23 @@ export const Team = () => {
                 {member.name}
               </h3>
               <p className="text-white opacity-90 mb-4">{member.role}</p>
+              <div className="flex justify-center gap-4 mb-4">
+                {member.social.linkedin && (
+                  <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer">
+                    <Linkedin className="w-6 h-6 text-white hover:text-gray-300" />
+                  </a>
+                )}
+                {member.social.behance && (
+                  <a href={member.social.behance} target="_blank" rel="noopener noreferrer">
+                    <Behance className="w-6 h-6 text-white hover:text-gray-300" />
+                  </a>
+                )}
+                {member.social.instagram && (
+                  <a href={member.social.instagram} target="_blank" rel="noopener noreferrer">
+                    <Instagram className="w-6 h-6 text-white hover:text-gray-300" />
+                  </a>
+                )}
+              </div>
               <button
                 onClick={() => toggleMember(member.name)}
                 className="flex items-center justify-center space-x-2 mx-auto text-white hover:text-white/80 transition-colors"

@@ -10,9 +10,9 @@ export const About = () => {
   ];
 
   return (
-    <section className="min-h-screen flex items-center justify-center py-20 px-4">
+    <section className="py-12 md:py-16 px-4">
       <div className="max-w-4xl mx-auto">
-        <div className="space-y-12">
+        <div className="space-y-8 md:space-y-12">
           {paragraphs.map((text, index) => (
             <motion.div
               key={index}

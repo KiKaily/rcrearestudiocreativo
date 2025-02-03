@@ -18,7 +18,7 @@ export const Header = () => {
       <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
         <motion.a 
           href="#" 
-          className="h-12 w-32 relative"
+          className="h-8 md:h-12 w-24 md:w-32 relative"
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
         >
