@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ChevronDown, ChevronUp, Linkedin, Instagram, Behance } from "lucide-react";
+import { ChevronDown, ChevronUp, Linkedin, Instagram } from "lucide-react";
 
 const team = [
   {
@@ -38,6 +38,24 @@ export const Team = () => {
     );
   };
 
+  const BehanceIcon = () => (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="w-6 h-6"
+    >
+      <path d="M8 21h8a5 5 0 0 0 5-5V8a5 5 0 0 0-5-5H8a5 5 0 0 0-5 5v8a5 5 0 0 0 5 5z" />
+      <path d="M10 8h3a2.5 2.5 0 0 1 0 5h-3" />
+      <path d="M14 16h-4" />
+      <path d="M16 10.5h4" />
+      <path d="M16 13.5h4" />
+    </svg>
+  );
+
   return (
     <section id="Team" className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
@@ -72,7 +90,7 @@ export const Team = () => {
                 )}
                 {member.social.behance && (
                   <a href={member.social.behance} target="_blank" rel="noopener noreferrer">
-                    <Behance className="w-6 h-6 text-white hover:text-gray-300" />
+                    <BehanceIcon />
                   </a>
                 )}
                 {member.social.instagram && (
