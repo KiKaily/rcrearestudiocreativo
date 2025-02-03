@@ -67,22 +67,22 @@ export const Team = () => {
               <div className="flex justify-center gap-4 mb-4">
                 {member.social.linkedin && (
                   <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer">
-                    <img src="./linkedin.png" alt="LinkedIn" className="w-6 h-6" />
+                    <img src="./linkedin.svg" alt="LinkedIn" className="w-6 h-6" />
                   </a>
                 )}
                 {member.social.behance && (
                   <a href={member.social.behance} target="_blank" rel="noopener noreferrer">
-                    <img src="./behance.png" alt="Behance" className="w-6 h-6" />
+                    <img src="./behance.svg" alt="Behance" className="w-6 h-6" />
                   </a>
                 )}
                 {member.social.instagram && (
                   <a href={member.social.instagram} target="_blank" rel="noopener noreferrer">
-                    <img src="./instagram.png" alt="Instagram" className="w-6 h-6" />
+                    <img src="./instagram.svg" alt="Instagram" className="w-6 h-6" />
                   </a>
                 )}
                 {member.social.pinterest && (
                   <a href={member.social.pinterest} target="_blank" rel="noopener noreferrer">
-                    <img src="./pinterest.png" alt="Pinterest" className="w-6 h-6" />
+                    <img src="./pinterest.svg" alt="Pinterest" className="w-6 h-6" />
                   </a>
                 )}
               </div>
