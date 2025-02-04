@@ -7,7 +7,7 @@ const team = [
     name: "Cristina Casas",
     role: "diseñadora gráfica y desarrolladora web",
     image: "./cris.jpg",
-    description: "Con más de 10 años de experiencia en diseño y dirección creativa, Cristina lidera nuestros equipo de diseño gráfico con profesionalidad, pasión y visión innovadora. Su enfoque único combina estrategia y creatividad para entregar resultados excepcionales.",
+    description: "Con más de 10 años de experiencia en diseño y dirección creativa, Cristina lidera nuestro equipo de diseño gráfico con profesionalismo, pasión y una visión innovadora. Su enfoque único combina estrategia y creatividad, especializándose en la conexión con la esencia de la marca.",
     social: {
       linkedin: "https://www.linkedin.com/in/cristinacasasdesign/",
       behance: "https://www.behance.net/cristinacasasdesign?locale=es_ES",
