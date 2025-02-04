@@ -6,11 +6,11 @@ export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    { name: "inicio", href: "#Hero" },
-    { name: "trabajos", href: "#Portfolio" },
-    { name: "nosotros", href: "#Team" },
-    { name: "hemos trabajado con", href: "#Partners" },
-    { name: "contacto", href: "#Footer" },
+    { name: "inicio", href: "#inicio" },
+    { name: "trabajos", href: "#portafolio" },
+    { name: "nosotros", href: "#nosotros" },
+    { name: "hemos trabajado con", href: "#partners" },
+    { name: "contacto", href: "#contacto" },
   ];
 
   return (
