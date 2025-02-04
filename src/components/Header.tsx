@@ -7,8 +7,8 @@ export const Header = () => {
 
   const menuItems = [
     { name: "inicio", href: "#inicio" },
-    { name: "trabajos", href: "#Portfolio" },
-    { name: "nosotros", href: "#Team" },
+    { name: "trabajos", href: "#portafolio" },
+    { name: "nosotros", href: "#nosotros" },
     { name: "hemos trabajado con", href: "#partners" },
     { name: "contacto", href: "#contacto" },
   ];
