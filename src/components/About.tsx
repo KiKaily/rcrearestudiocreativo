@@ -7,6 +7,7 @@ export const About = () => {
     "Nuestros procesos destacan por involucrar a las personas detrás de cada marca, dando especial importancia a la presencialidad y a los procesos creativos físicos y tangibles, como valiosas fuentes de imagen e inspiración",
     "Nos relacionamos con un trato cálido y ofrecemos una visión y trabajo integral",
     "diseño de marca, web, gestión de redes sociales, fotografía, vídeo, packaging, asesoramiento...",
+    "WEB EN CONSTRUCCIÓN..."
   ];
 
   return (
