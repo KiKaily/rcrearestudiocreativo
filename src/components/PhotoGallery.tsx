@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useState } from "react";
@@ -61,7 +60,7 @@ export const PhotoGallery = () => {
   );
 
   return (
-    <section id="photo-gallery" className="py-24 px-4 relative overflow-hidden">
+    <section id="foto" className="py-24 px-4 relative overflow-hidden">
       {/* Decorative elements */}
       <motion.div 
         className="absolute top-[10%] right-[15%] w-20 h-80 bg-white/5 rounded-full blur-xl"
@@ -95,7 +94,7 @@ export const PhotoGallery = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            fototeca
+            foto
           </motion.span>
         </h2>
         
