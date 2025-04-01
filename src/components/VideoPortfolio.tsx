@@ -15,24 +15,24 @@ type VideoItem = {
 const videoItems: VideoItem[] = [
   {
     id: "1",
-    title: "Espacios Vivos",
-    description: "Narrativas visuales de espacios transformados",
-    thumbnailUrl: "./babel.png",
-    videoUrl: "#",
+    title: "Video Portfolio 1",
+    description: "Una selección de clips grabados para otros trabajos",
+    thumbnailUrl: "./portfolioreel.png",
+    videoUrl: "https://www.instagram.com/p/DHqRqzbIik9/",
   },
   {
     id: "2",
-    title: "Ritmos Internos",
-    description: "Experiencias sensoriales a través del movimiento",
-    thumbnailUrl: "./marypepper.jpg",
-    videoUrl: "#",
+    title: "10 Anys d'arts amb caliu",
+    description: "Reel resumen de evento.",
+    thumbnailUrl: "./artsambcaliureel.jpg",
+    videoUrl: "https://www.instagram.com/p/DD6q-OgIt-a/",
   },
   {
     id: "3",
-    title: "Transparencias",
-    description: "El diálogo entre luz y sombra",
-    thumbnailUrl: "./macondo.png",
-    videoUrl: "#",
+    title: "Testimonio de Débora",
+    description: "Reel de promoción de la formación Savia, de El Roure.",
+    thumbnailUrl: "./deborareel.jpg",
+    videoUrl: "hhttps://www.instagram.com/reel/Cwubm0etmKl/",
   },
 ];
 
