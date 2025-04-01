@@ -25,7 +25,7 @@ const videoItems: VideoItem[] = [
     title: "10 Anys d'arts amb caliu",
     description: "Reel resumen de evento",
     thumbnailUrl: "./artsambcaliureel.jpg",
-    videoUrl: "https://www.instagram.com/p/DD6q-OgIt-a/",
+    videoUrl: "https://drive.google.com/file/d/1o3edZxYlJ-le_L1mavztVYIwrq8T4-tP/view?usp=sharing",
   },
   {
     id: "3",
