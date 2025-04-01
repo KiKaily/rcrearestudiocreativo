@@ -31,7 +31,7 @@ export const Footer = () => {
             <li><a href="#Portfolio" className="hover:underline">diseño gráfico y web</a></li>
             <li><a href="#PhotoGallery" className="hover:underline">foto</a></li>
             <li><a href="#VideoPortfolio" className="hover:underline">video</a></li>
-            <li><a href="#Team" className="hover:underline">nosotros</a></li>
+            <li><a href="#Team.tsx" className="hover:underline">nosotros</a></li>
             <li><a href="#Partners" className="hover:underline">hemos trabajado con</a></li>
           </ul>
         </motion.div>
