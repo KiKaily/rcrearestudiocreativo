@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,9 +9,10 @@ export const Header = () => {
   const menuItems = [
     { name: "inicio", href: "#inicio" },
     { name: "trabajos", href: "#portafolio" },
+    { name: "foto", href: "#fototeca" },
+    { name: "video", href: "#videoteca" },
     { name: "nosotros", href: "#nosotros" },
     { name: "hemos trabajado con", href: "#partners" },
-    { name: "contacto", href: "#contacto" },
   ];
 
   return (
