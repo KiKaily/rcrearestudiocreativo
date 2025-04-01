@@ -22,7 +22,7 @@ const Index = () => {
       <div id="portafolio">
         <Portfolio />
       </div>
-      <div id="fototeca">
+      <div id="foto">
         <PhotoGallery />
       </div>
       <div id="videoteca">
