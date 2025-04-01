@@ -37,7 +37,7 @@ export const Hero = () => {
             whileHover={{ scale: 1.02 }}
           >
             <p className="font-bold">estudio creativo</p>
-            <p>diseño gráfico, foto y video</p>
+            <p>diseño gráfico, web, foto y video</p>
             <p>comunicación honesta</p>
           </motion.div>
         </div>
