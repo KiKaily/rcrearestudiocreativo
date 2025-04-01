@@ -15,22 +15,22 @@ type VideoItem = {
 const videoItems: VideoItem[] = [
   {
     id: "1",
-    title: "Video Portfolio 1",
+    title: "Video Portfolio",
     description: "Una selección de clips grabados para otros trabajos",
-    thumbnailUrl: "./portfolioreel.png",
+    thumbnailUrl: "./portfolioreel.jpg",
     videoUrl: "https://www.instagram.com/p/DHqRqzbIik9/",
   },
   {
     id: "2",
     title: "10 Anys d'arts amb caliu",
-    description: "Reel resumen de evento.",
+    description: "Reel resumen de evento",
     thumbnailUrl: "./artsambcaliureel.jpg",
     videoUrl: "https://www.instagram.com/p/DD6q-OgIt-a/",
   },
   {
     id: "3",
     title: "Testimonio de Débora",
-    description: "Reel de promoción de la formación Savia, de El Roure.",
+    description: "Reel de promoción de la formación Savia, de El Roure",
     thumbnailUrl: "./deborareel.jpg",
     videoUrl: "hhttps://www.instagram.com/reel/Cwubm0etmKl/",
   },
