@@ -230,16 +230,21 @@ export const VideoPortfolio = () => {
         </div>
 
         <motion.div 
-          className="text-center mt-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <button className="group flex items-center gap-2 text-white mx-auto border border-white/30 py-2 px-6 rounded-full hover:bg-white/10 transition-all duration-300">
-            <span>Ver más en instagram</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </button>
-        </motion.div>
+  className="text-center mt-12"
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+>
+  <a 
+    href="https://www.instagram.com/rcrear.estudio/" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="group flex items-center gap-2 text-white mx-auto border border-white/30 py-2 px-6 rounded-full hover:bg-white/10 transition-all duration-300"
+  >
+    <span>Ver más en instagram</span>
+    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+  </a>
+</motion.div>
       </div>
     </section>
   );
