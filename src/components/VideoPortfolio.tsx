@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Play, Pause, ArrowRight, ArrowLeft } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
@@ -32,7 +32,7 @@ const videoItems: VideoItem[] = [
     title: "Testimonio de Débora",
     description: "Reel de promoción de la formación Savia, de El Roure",
     thumbnailUrl: "./deborareel.jpg",
-    videoUrl: "hhttps://www.instagram.com/reel/Cwubm0etmKl/",
+    videoUrl: "https://www.instagram.com/reel/Cwubm0etmKl/",
   },
 ];
 
@@ -40,13 +40,38 @@ export const VideoPortfolio = () => {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const videoRefs = useRef<{[key: string]: HTMLVideoElement | null}>({});
 
   const togglePlay = (id: string) => {
     if (activeVideo === id) {
-      setIsPlaying(!isPlaying);
+      const videoElement = videoRefs.current[id];
+      if (videoElement) {
+        if (isPlaying) {
+          videoElement.pause();
+        } else {
+          videoElement.play();
+        }
+        setIsPlaying(!isPlaying);
+      }
     } else {
+      // If another video was playing, pause it
+      if (activeVideo && videoRefs.current[activeVideo]) {
+        videoRefs.current[activeVideo]?.pause();
+      }
+      
       setActiveVideo(id);
       setIsPlaying(true);
+      
+      // Play the new video after a small delay to ensure the state has updated
+      setTimeout(() => {
+        const videoElement = videoRefs.current[id];
+        if (videoElement) {
+          videoElement.play().catch(err => {
+            console.error("Error playing video:", err);
+            setIsPlaying(false);
+          });
+        }
+      }, 50);
     }
   };
 
@@ -63,7 +88,7 @@ export const VideoPortfolio = () => {
   const needsNavigation = videoItems.length > 1;
 
   return (
-    <section id="video-portfolio" className="py-24 px-4 relative overflow-hidden">
+    <section id="video" className="py-24 px-4 relative overflow-hidden">
       {/* Decorative elements */}
       <motion.div 
         className="absolute top-[20%] left-[10%] w-16 h-64 bg-white/10 rounded-full blur-xl"
@@ -97,7 +122,7 @@ export const VideoPortfolio = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            videoteca
+            video
           </motion.span>
         </h2>
         
@@ -111,6 +136,24 @@ export const VideoPortfolio = () => {
         </motion.p>
 
         <div className="relative">
+          {/* Navigation arrows for both desktop and mobile */}
+          {needsNavigation && (
+            <div className="flex justify-between absolute top-1/2 left-0 right-0 -translate-y-1/2 px-2 z-10">
+              <button 
+                onClick={prevVideo}
+                className="bg-white/10 border border-white/20 text-white p-2 rounded-full hover:bg-white/20 transition-colors"
+              >
+                <ArrowLeft className="w-5 h-5" />
+              </button>
+              <button 
+                onClick={nextVideo}
+                className="bg-white/10 border border-white/20 text-white p-2 rounded-full hover:bg-white/20 transition-colors"
+              >
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
+          )}
+          
           {/* Desktop View: Grid of videos */}
           <div className="hidden md:grid md:grid-cols-3 gap-8 mb-16">
             {videoItems.map((item, index) => (
@@ -123,11 +166,27 @@ export const VideoPortfolio = () => {
               >
                 <div className="relative overflow-hidden rounded-lg bg-black/20 backdrop-blur-sm border border-white/10">
                   <AspectRatio ratio={9/16} className="bg-black">
-                    <img 
-                      src={item.thumbnailUrl} 
-                      alt={item.title}
-                      className="object-cover w-full h-full opacity-80 transition-transform hover:scale-105 duration-700"
-                    />
+                    {activeVideo === item.id ? (
+                      <video 
+                        ref={el => { videoRefs.current[item.id] = el }}
+                        src={item.videoUrl} 
+                        poster={item.thumbnailUrl}
+                        className="object-cover w-full h-full"
+                        playsInline
+                        loop
+                        onEnded={() => setIsPlaying(false)}
+                        onError={() => {
+                          console.error(`Error with video: ${item.videoUrl}`);
+                          setIsPlaying(false);
+                        }}
+                      />
+                    ) : (
+                      <img 
+                        src={item.thumbnailUrl} 
+                        alt={item.title}
+                        className="object-cover w-full h-full opacity-80 transition-transform hover:scale-105 duration-700"
+                      />
+                    )}
                   </AspectRatio>
                   <button 
                     onClick={() => togglePlay(item.id)}
@@ -163,11 +222,27 @@ export const VideoPortfolio = () => {
                 >
                   <div className="relative overflow-hidden rounded-lg bg-black/20 backdrop-blur-sm border border-white/10">
                     <AspectRatio ratio={9/16} className="bg-black">
-                      <img 
-                        src={item.thumbnailUrl} 
-                        alt={item.title}
-                        className="object-cover w-full h-full opacity-80"
-                      />
+                      {activeVideo === item.id ? (
+                        <video 
+                          ref={el => { videoRefs.current[item.id] = el }}
+                          src={item.videoUrl} 
+                          poster={item.thumbnailUrl}
+                          className="object-cover w-full h-full"
+                          playsInline
+                          loop
+                          onEnded={() => setIsPlaying(false)}
+                          onError={() => {
+                            console.error(`Error with video: ${item.videoUrl}`);
+                            setIsPlaying(false);
+                          }}
+                        />
+                      ) : (
+                        <img 
+                          src={item.thumbnailUrl} 
+                          alt={item.title}
+                          className="object-cover w-full h-full opacity-80"
+                        />
+                      )}
                     </AspectRatio>
                     <button 
                       onClick={() => togglePlay(item.id)}
@@ -189,62 +264,25 @@ export const VideoPortfolio = () => {
                 </motion.div>
               ))}
             </div>
-            
-            {needsNavigation && (
-              <div className="flex justify-between absolute top-1/2 left-0 right-0 -translate-y-1/2 px-2">
-                <button 
-                  onClick={prevVideo}
-                  className="bg-white/10 border border-white/20 text-white p-2 rounded-full hover:bg-white/20 transition-colors"
-                >
-                  <ArrowLeft className="w-5 h-5" />
-                </button>
-                <button 
-                  onClick={nextVideo}
-                  className="bg-white/10 border border-white/20 text-white p-2 rounded-full hover:bg-white/20 transition-colors"
-                >
-                  <ArrowRight className="w-5 h-5" />
-                </button>
-              </div>
-            )}
           </div>
-          
-          {/* Desktop navigation */}
-          {needsNavigation && (
-            <div className="hidden md:flex justify-center gap-8 mt-8">
-              <button 
-                onClick={prevVideo}
-                className="bg-white/10 border border-white/20 text-white hover:bg-white/20 p-3 rounded-full transition-colors"
-              >
-                <ArrowLeft className="w-5 h-5" />
-                <span className="sr-only">Anterior</span>
-              </button>
-              <button 
-                onClick={nextVideo}
-                className="bg-white/10 border border-white/20 text-white hover:bg-white/20 p-3 rounded-full transition-colors"
-              >
-                <ArrowRight className="w-5 h-5" />
-                <span className="sr-only">Siguiente</span>
-              </button>
-            </div>
-          )}
         </div>
 
         <motion.div 
-  className="text-center mt-12"
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6 }}
->
-  <a 
-    href="https://www.instagram.com/rcrear.estudio/" 
-    target="_blank" 
-    rel="noopener noreferrer"
-    className="group flex items-center gap-2 text-white mx-auto border border-white/30 py-2 px-6 rounded-full hover:bg-white/10 transition-all duration-300"
-  >
-    <span>Ver más en instagram</span>
-    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-  </a>
-</motion.div>
+          className="text-center mt-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <a 
+            href="https://www.instagram.com/rcrear.estudio/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-white mx-auto border border-white/30 py-2 px-6 rounded-full hover:bg-white/10 transition-all duration-300"
+          >
+            <span>Ver más en instagram</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </a>
+        </motion.div>
       </div>
     </section>
   );

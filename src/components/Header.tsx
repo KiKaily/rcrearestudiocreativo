@@ -1,19 +1,33 @@
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const menuItems = [
     { name: "inicio", href: "#inicio" },
-    { name: "trabajos", href: "#portafolio" },
+    { name: "diseño gráfico y web", href: "#portafolio" },
     { name: "foto", href: "#fototeca" },
     { name: "video", href: "#videoteca" },
     { name: "nosotros", href: "#nosotros" },
     { name: "hemos trabajado con", href: "#partners" },
   ];
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node) && isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
 
   return (
     <header className="fixed w-full z-50 bg-transparent backdrop-blur-sm">
@@ -44,6 +58,7 @@ export const Header = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            ref={menuRef}
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
