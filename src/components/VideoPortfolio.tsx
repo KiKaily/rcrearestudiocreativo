@@ -32,7 +32,7 @@ const videoItems: VideoItem[] = [
     title: "Testimonio de Débora",
     description: "Reel de promoción de la formación Savia, de El Roure",
     thumbnailUrl: "./deborareel.jpg",
-    videoUrl: "https://www.instagram.com/reel/Cwubm0etmKl/",
+    videoUrl: "deborareel.mp4",
   },
 ];
 
