@@ -5,7 +5,7 @@ import { useState } from "react";
 
 // Sample photo items
 const photoItems = [
-  { id: "1", title: "Llorar", thumbnailUrl: "./1.jpg" },
+  { id: "1", title: "Llorar", thumbnailUrl: "./fotos/1.jpg" },
   { id: "2", title: "Begoña", thumbnailUrl: "./2.jpg" },
   { id: "3", title: "Abeja", thumbnailUrl: "./3.jpg" },
   { id: "4", title: "Falda", thumbnailUrl: "./4.jpg" },
