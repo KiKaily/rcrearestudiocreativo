@@ -7,6 +7,7 @@ import { Partners } from "@/components/Partners";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { VideoPortfolio } from "@/components/VideoPortfolio";
+import { PhotoGallery } from "@/components/PhotoGallery";
 
 const Index = () => {
   return (
@@ -21,11 +22,14 @@ const Index = () => {
       <div id="portafolio">
         <Portfolio />
       </div>
-      <div id="nosotros">
-        <Team />
+      <div id="fototeca">
+        <PhotoGallery />
       </div>
       <div id="videoteca">
         <VideoPortfolio />
+      </div>
+      <div id="nosotros">
+        <Team />
       </div>
       <div id="partners">
         <Partners />
