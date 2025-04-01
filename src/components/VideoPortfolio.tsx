@@ -1,5 +1,5 @@
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Play, Pause, ArrowRight, ArrowLeft } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
@@ -32,7 +32,7 @@ const videoItems: VideoItem[] = [
     title: "Testimonio de Débora",
     description: "Reel de promoción de la formación Savia, de El Roure",
     thumbnailUrl: "./deborareel.jpg",
-    videoUrl: "./deborareel.mp4",
+    videoUrl: "deborareel.mp4",
   },
 ];
 
@@ -40,29 +40,7 @@ export const VideoPortfolio = () => {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [showControls, setShowControls] = useState<boolean>(true);
   const videoRefs = useRef<{[key: string]: HTMLVideoElement | null}>({});
-  const controlsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  useEffect(() => {
-    // Hide controls after a timeout
-    if (showControls) {
-      if (controlsTimeoutRef.current) {
-        clearTimeout(controlsTimeoutRef.current);
-      }
-      
-      controlsTimeoutRef.current = setTimeout(() => {
-        setShowControls(false);
-      }, 1000);
-    }
-    
-    // Cleanup on unmount
-    return () => {
-      if (controlsTimeoutRef.current) {
-        clearTimeout(controlsTimeoutRef.current);
-      }
-    };
-  }, [showControls]);
 
   const togglePlay = (id: string) => {
     if (activeVideo === id) {
@@ -71,10 +49,7 @@ export const VideoPortfolio = () => {
         if (isPlaying) {
           videoElement.pause();
         } else {
-          videoElement.play().catch(err => {
-            console.error("Error playing video:", err);
-            setIsPlaying(false);
-          });
+          videoElement.play();
         }
         setIsPlaying(!isPlaying);
       }
@@ -98,8 +73,6 @@ export const VideoPortfolio = () => {
         }
       }, 50);
     }
-    // Show controls when interacting with video
-    setShowControls(true);
   };
 
   const nextVideo = () => {
@@ -108,11 +81,6 @@ export const VideoPortfolio = () => {
 
   const prevVideo = () => {
     setCurrentIndex((prev) => (prev === 0 ? videoItems.length - 1 : prev - 1));
-  };
-
-  // Handle video container interactions
-  const handleVideoContainerInteraction = () => {
-    setShowControls(true);
   };
 
   // Create arrays of videos based on current index for mobile view
@@ -195,9 +163,6 @@ export const VideoPortfolio = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 className="relative"
-                onMouseEnter={handleVideoContainerInteraction}
-                onMouseMove={handleVideoContainerInteraction}
-                onClick={() => togglePlay(item.id)}
               >
                 <div className="relative overflow-hidden rounded-lg bg-black/20 backdrop-blur-sm border border-white/10">
                   <AspectRatio ratio={9/16} className="bg-black">
@@ -223,23 +188,18 @@ export const VideoPortfolio = () => {
                       />
                     )}
                   </AspectRatio>
-                  {showControls && (
-                    <button 
-                      onClick={(e) => {
-                        e.stopPropagation(); // Prevent the click from bubbling to parent
-                        togglePlay(item.id);
-                      }}
-                      className="absolute inset-0 flex items-center justify-center group"
-                    >
-                      <div className="bg-white/10 backdrop-blur-md p-4 rounded-full border border-white/20 transition-all duration-300 group-hover:bg-white/20">
-                        {activeVideo === item.id && isPlaying ? (
-                          <Pause className="w-6 h-6 text-white" />
-                        ) : (
-                          <Play className="w-6 h-6 text-white" />
-                        )}
-                      </div>
-                    </button>
-                  )}
+                  <button 
+                    onClick={() => togglePlay(item.id)}
+                    className="absolute inset-0 flex items-center justify-center group"
+                  >
+                    <div className="bg-white/10 backdrop-blur-md p-4 rounded-full border border-white/20 transition-all duration-300 group-hover:bg-white/20">
+                      {activeVideo === item.id && isPlaying ? (
+                        <Pause className="w-6 h-6 text-white" />
+                      ) : (
+                        <Play className="w-6 h-6 text-white" />
+                      )}
+                    </div>
+                  </button>
                   <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
                     <h3 className="text-xl font-bold text-white">{item.title}</h3>
                     <p className="text-white/70 text-sm">{item.description}</p>
@@ -259,8 +219,6 @@ export const VideoPortfolio = () => {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   className="w-full max-w-xs"
-                  onTouchStart={handleVideoContainerInteraction}
-                  onClick={() => togglePlay(item.id)}
                 >
                   <div className="relative overflow-hidden rounded-lg bg-black/20 backdrop-blur-sm border border-white/10">
                     <AspectRatio ratio={9/16} className="bg-black">
@@ -286,23 +244,18 @@ export const VideoPortfolio = () => {
                         />
                       )}
                     </AspectRatio>
-                    {showControls && (
-                      <button 
-                        onClick={(e) => {
-                          e.stopPropagation(); // Prevent the click from bubbling to parent
-                          togglePlay(item.id);
-                        }}
-                        className="absolute inset-0 flex items-center justify-center"
-                      >
-                        <div className="bg-white/10 backdrop-blur-md p-4 rounded-full border border-white/20">
-                          {activeVideo === item.id && isPlaying ? (
-                            <Pause className="w-6 h-6 text-white" />
-                          ) : (
-                            <Play className="w-6 h-6 text-white" />
-                          )}
-                        </div>
-                      </button>
-                    )}
+                    <button 
+                      onClick={() => togglePlay(item.id)}
+                      className="absolute inset-0 flex items-center justify-center"
+                    >
+                      <div className="bg-white/10 backdrop-blur-md p-4 rounded-full border border-white/20">
+                        {activeVideo === item.id && isPlaying ? (
+                          <Pause className="w-6 h-6 text-white" />
+                        ) : (
+                          <Play className="w-6 h-6 text-white" />
+                        )}
+                      </div>
+                    </button>
                     <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
                       <h3 className="text-xl font-bold text-white">{item.title}</h3>
                       <p className="text-white/70 text-sm">{item.description}</p>
@@ -325,7 +278,6 @@ export const VideoPortfolio = () => {
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-white mx-auto border border-white/30 py-2 px-6 rounded-full hover:bg-white/10 transition-all duration-300"
-            style={{ display: 'inline-flex', width: 'auto' }}
           >
             <span>Ver más en instagram</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
