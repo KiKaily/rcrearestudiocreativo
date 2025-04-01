@@ -107,8 +107,7 @@ export const VideoPortfolio = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          Narrativa visual que trasciende los límites convencionales, 
-          redefiniendo la verticalidad como nuevo estándar creativo.
+          
         </motion.p>
 
         <div className="relative">
@@ -237,7 +236,7 @@ export const VideoPortfolio = () => {
           transition={{ duration: 0.6 }}
         >
           <button className="group flex items-center gap-2 text-white mx-auto border border-white/30 py-2 px-6 rounded-full hover:bg-white/10 transition-all duration-300">
-            <span>Ver galería completa</span>
+            <span>Ver más en instagram</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
         </motion.div>

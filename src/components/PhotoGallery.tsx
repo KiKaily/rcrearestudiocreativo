@@ -94,7 +94,7 @@ export const PhotoGallery = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          Colección fotográfica que captura momentos, espacios y emociones en su esencia más pura.
+          
         </motion.p>
 
         <div className="relative">
