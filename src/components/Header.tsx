@@ -29,11 +29,22 @@ export const Header = () => {
     };
   }, [isOpen]);
 
+  const handleScrollToSection = (href: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    const targetId = href.replace('#', '');
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setIsOpen(false);
+    }
+  };
+
   return (
     <header className="fixed w-full z-50 bg-transparent backdrop-blur-sm">
       <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
         <motion.a 
           href="#hero" 
+          onClick={handleScrollToSection('#hero')}
           className="h-8 md:h-12 w-24 md:w-32 relative"
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -76,8 +87,8 @@ export const Header = () => {
                   >
                     <motion.a
                       href={item.href}
+                      onClick={handleScrollToSection(item.href)}
                       className="block text-white py-3 px-4 hover:bg-white/10 rounded-lg transition-colors"
-                      onClick={() => setIsOpen(false)}
                       whileHover={{ scale: 1.05, x: 10 }}
                       whileTap={{ scale: 0.95 }}
                     >
