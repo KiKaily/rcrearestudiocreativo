@@ -13,30 +13,30 @@ const Index = () => {
   return (
     <div className="min-h-screen" style={{ background: `linear-gradient(90deg, #FD7F7F 0%, #77C6BD 100%)` }}>
       <Header />
-      <div id="hero">
+      <section id="hero">
         <Hero />
-      </div>
-      <div id="about">
+      </section>
+      <section id="about">
         <About />
-      </div>
-      <div id="portfolio">
+      </section>
+      <section id="portfolio">
         <Portfolio />
-      </div>
-      <div id="foto">
+      </section>
+      <section id="foto">
         <PhotoGallery />
-      </div>
-      <div id="video">
+      </section>
+      <section id="video">
         <VideoPortfolio />
-      </div>
-      <div id="team">
+      </section>
+      <section id="team">
         <Team />
-      </div>
-      <div id="partners">
+      </section>
+      <section id="partners">
         <Partners />
-      </div>
-      <div id="contacto">
+      </section>
+      <section id="contacto">
         <Footer />
-      </div>
+      </section>
     </div>
   );
 };

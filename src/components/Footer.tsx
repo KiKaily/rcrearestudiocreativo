@@ -2,6 +2,15 @@
 import { motion } from "framer-motion";
 
 export const Footer = () => {
+  const handleScrollToSection = (href: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    const targetId = href.replace('#', '');
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer className="py-16 px-4">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -27,12 +36,12 @@ export const Footer = () => {
         >
           <h3 className="text-xl font-bold mb-4 text-white">secciones</h3>
           <ul className="space-y-2">
-            <li><a href="#hero" className="hover:underline">inicio</a></li>
-            <li><a href="#portfolio" className="hover:underline">diseño gráfico y web</a></li>
-            <li><a href="#foto" className="hover:underline">foto</a></li>
-            <li><a href="#video" className="hover:underline">video</a></li>
-            <li><a href="#team" className="hover:underline">nosotros</a></li>
-            <li><a href="#partners" className="hover:underline">hemos trabajado con</a></li>
+            <li><a href="#hero" onClick={handleScrollToSection('#hero')} className="hover:underline">inicio</a></li>
+            <li><a href="#portfolio" onClick={handleScrollToSection('#portfolio')} className="hover:underline">diseño gráfico y web</a></li>
+            <li><a href="#foto" onClick={handleScrollToSection('#foto')} className="hover:underline">foto</a></li>
+            <li><a href="#video" onClick={handleScrollToSection('#video')} className="hover:underline">video</a></li>
+            <li><a href="#team" onClick={handleScrollToSection('#team')} className="hover:underline">nosotros</a></li>
+            <li><a href="#partners" onClick={handleScrollToSection('#partners')} className="hover:underline">hemos trabajado con</a></li>
           </ul>
         </motion.div>
 
