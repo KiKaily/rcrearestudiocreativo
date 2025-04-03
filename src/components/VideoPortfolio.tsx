@@ -1,5 +1,4 @@
 
-import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
@@ -8,8 +7,8 @@ type VideoItem = {
   id: string;
   title: string;
   description: string;
-  thumbnailUrl: string;
-  videoUrl: string;
+  embedUrl: string;
+  isHorizontal?: boolean;
 };
 
 const videoItems: VideoItem[] = [
@@ -17,62 +16,35 @@ const videoItems: VideoItem[] = [
     id: "1",
     title: "Video Portfolio",
     description: "Una selección de clips grabados para otros trabajos",
-    thumbnailUrl: "./artsambcaliureel.jpg",
-    videoUrl: "./artsambcaliureel.mp4",
+    embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with your actual YouTube embed URL
+    isHorizontal: false,
   },
   {
     id: "2",
     title: "10 Anys d'arts amb caliu",
     description: "Reel resumen de evento",
-    thumbnailUrl: "./artsambcaliureel.jpg",
-    videoUrl: "./artsambcaliureel.mp4",
+    embedUrl: "https://player.vimeo.com/video/76979871", // Replace with your actual Vimeo embed URL
+    isHorizontal: false,
   },
   {
     id: "3",
     title: "Testimonio de Débora",
     description: "Reel de promoción de la formación Savia, de El Roure",
-    thumbnailUrl: "./deborareel.jpg",
-    videoUrl: "deborareel.mp4",
+    embedUrl: "https://www.youtube.com/embed/M7FIvfx5J10", // Replace with your actual YouTube embed URL
+    isHorizontal: false,
+  },
+  {
+    id: "4",
+    title: "Video Horizontal",
+    description: "Video en formato horizontal",
+    embedUrl: "https://www.youtube.com/embed/jNQXAC9IVRw", // Replace with your actual YouTube embed URL
+    isHorizontal: true,
   },
 ];
 
 export const VideoPortfolio = () => {
-  const [activeVideo, setActiveVideo] = useState<string | null>(null);
-  const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  const videoRefs = useRef<{[key: string]: HTMLVideoElement | null}>({});
-
-  const togglePlay = (id: string) => {
-    if (activeVideo === id) {
-      const videoElement = videoRefs.current[id];
-      if (videoElement) {
-        if (isPlaying) {
-          videoElement.pause();
-        } else {
-          videoElement.play();
-        }
-        setIsPlaying(!isPlaying);
-      }
-    } else {
-      // If another video was playing, pause it
-      if (activeVideo && videoRefs.current[activeVideo]) {
-        videoRefs.current[activeVideo]?.pause();
-      }
-      
-      setActiveVideo(id);
-      setIsPlaying(true);
-      
-      // Play the new video after a small delay to ensure the state has updated
-      setTimeout(() => {
-        const videoElement = videoRefs.current[id];
-        if (videoElement) {
-          videoElement.play().catch(err => {
-            console.error("Error playing video:", err);
-            setIsPlaying(false);
-          });
-        }
-      }, 50);
-    }
-  };
+  const verticalVideos = videoItems.filter(video => !video.isHorizontal);
+  const horizontalVideos = videoItems.filter(video => video.isHorizontal);
 
   return (
     <section id="video" className="py-24 px-4 relative overflow-hidden">
@@ -123,52 +95,64 @@ export const VideoPortfolio = () => {
         </motion.p>
 
         <div className="relative">
-          {/* Desktop View: Grid of videos */}
-          <div className="hidden md:grid md:grid-cols-3 gap-8 mb-16">
-            {videoItems.map((item, index) => (
+          {/* Desktop View: 3 vertical videos and 1 horizontal video */}
+          <div className="hidden md:block">
+            <div className="grid md:grid-cols-3 gap-8 mb-16">
+              {verticalVideos.slice(0, 3).map((item, index) => (
+                <motion.div
+                  key={item.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.2 }}
+                  className="relative"
+                >
+                  <div className="relative overflow-hidden rounded-lg bg-black/20 backdrop-blur-sm border border-white/10">
+                    <AspectRatio ratio={9/16} className="bg-black">
+                      <iframe 
+                        src={item.embedUrl}
+                        title={item.title}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        className="w-full h-full"
+                      />
+                    </AspectRatio>
+                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                      <h3 className="text-xl font-bold text-white">{item.title}</h3>
+                      <p className="text-white/70 text-sm">{item.description}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Horizontal video below */}
+            {horizontalVideos.length > 0 && (
               <motion.div
-                key={item.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="relative"
+                transition={{ duration: 0.5, delay: 0.6 }}
+                className="w-full max-w-4xl mx-auto mb-16"
               >
                 <div className="relative overflow-hidden rounded-lg bg-black/20 backdrop-blur-sm border border-white/10">
-                  <AspectRatio ratio={9/16} className="bg-black">
-                    {activeVideo === item.id ? (
-                      <video 
-                        ref={el => { videoRefs.current[item.id] = el }}
-                        src={item.videoUrl} 
-                        poster={item.thumbnailUrl}
-                        className="object-cover w-full h-full cursor-pointer"
-                        playsInline
-                        loop
-                        onClick={() => togglePlay(item.id)}
-                        onEnded={() => setIsPlaying(false)}
-                        onError={() => {
-                          console.error(`Error with video: ${item.videoUrl}`);
-                          setIsPlaying(false);
-                        }}
-                      />
-                    ) : (
-                      <img 
-                        src={item.thumbnailUrl} 
-                        alt={item.title}
-                        className="object-cover w-full h-full opacity-80 transition-transform hover:scale-105 duration-700 cursor-pointer"
-                        onClick={() => togglePlay(item.id)}
-                      />
-                    )}
+                  <AspectRatio ratio={16/9} className="bg-black">
+                    <iframe 
+                      src={horizontalVideos[0].embedUrl}
+                      title={horizontalVideos[0].title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                    />
                   </AspectRatio>
                   <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-                    <h3 className="text-xl font-bold text-white">{item.title}</h3>
-                    <p className="text-white/70 text-sm">{item.description}</p>
+                    <h3 className="text-xl font-bold text-white">{horizontalVideos[0].title}</h3>
+                    <p className="text-white/70 text-sm">{horizontalVideos[0].description}</p>
                   </div>
                 </div>
               </motion.div>
-            ))}
+            )}
           </div>
 
-          {/* Mobile View with all videos stacked */}
+          {/* Mobile View: All videos stacked */}
           <div className="md:hidden space-y-8">
             {videoItems.map((item) => (
               <motion.div
@@ -178,30 +162,14 @@ export const VideoPortfolio = () => {
                 className="w-full max-w-xs mx-auto"
               >
                 <div className="relative overflow-hidden rounded-lg bg-black/20 backdrop-blur-sm border border-white/10">
-                  <AspectRatio ratio={9/16} className="bg-black">
-                    {activeVideo === item.id ? (
-                      <video 
-                        ref={el => { videoRefs.current[item.id] = el }}
-                        src={item.videoUrl} 
-                        poster={item.thumbnailUrl}
-                        className="object-cover w-full h-full cursor-pointer"
-                        playsInline
-                        loop
-                        onClick={() => togglePlay(item.id)}
-                        onEnded={() => setIsPlaying(false)}
-                        onError={() => {
-                          console.error(`Error with video: ${item.videoUrl}`);
-                          setIsPlaying(false);
-                        }}
-                      />
-                    ) : (
-                      <img 
-                        src={item.thumbnailUrl} 
-                        alt={item.title}
-                        className="object-cover w-full h-full opacity-80 cursor-pointer"
-                        onClick={() => togglePlay(item.id)}
-                      />
-                    )}
+                  <AspectRatio ratio={item.isHorizontal ? 16/9 : 9/16} className="bg-black">
+                    <iframe 
+                      src={item.embedUrl}
+                      title={item.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                    />
                   </AspectRatio>
                   <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
                     <h3 className="text-xl font-bold text-white">{item.title}</h3>

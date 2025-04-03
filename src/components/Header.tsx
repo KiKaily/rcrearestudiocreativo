@@ -69,9 +69,9 @@ export const Header = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-16 left-0 w-full bg-white/80 backdrop-blur-sm text-black"
+            className="absolute top-16 left-0 w-full bg-white/25 backdrop-blur-sm text-white"
           >
-            <ul className="space-y-4 p-4 text-center">
+            <ul className="space-y-6 p-4 text-center">
               {menuItems.map((item) => (
                 <li key={item.name}>
                   <a
