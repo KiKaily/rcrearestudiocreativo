@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 
 const partners = [
@@ -40,7 +41,7 @@ const partners = [
 
 export const Partners = () => {
   return (
-    <section id="partners" className="py-20 px-4">
+    <section className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-12 text-white">
           hemos trabajado con

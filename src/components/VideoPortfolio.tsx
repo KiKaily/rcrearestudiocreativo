@@ -1,7 +1,7 @@
 
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { Play, Pause, ArrowRight, ArrowLeft } from "lucide-react";
+import { ArrowRight, ArrowLeft } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 type VideoItem = {
@@ -171,9 +171,10 @@ export const VideoPortfolio = () => {
                         ref={el => { videoRefs.current[item.id] = el }}
                         src={item.videoUrl} 
                         poster={item.thumbnailUrl}
-                        className="object-cover w-full h-full"
+                        className="object-cover w-full h-full cursor-pointer"
                         playsInline
                         loop
+                        onClick={() => togglePlay(item.id)}
                         onEnded={() => setIsPlaying(false)}
                         onError={() => {
                           console.error(`Error with video: ${item.videoUrl}`);
@@ -184,22 +185,11 @@ export const VideoPortfolio = () => {
                       <img 
                         src={item.thumbnailUrl} 
                         alt={item.title}
-                        className="object-cover w-full h-full opacity-80 transition-transform hover:scale-105 duration-700"
+                        className="object-cover w-full h-full opacity-80 transition-transform hover:scale-105 duration-700 cursor-pointer"
+                        onClick={() => togglePlay(item.id)}
                       />
                     )}
                   </AspectRatio>
-                  <button 
-                    onClick={() => togglePlay(item.id)}
-                    className="absolute inset-0 flex items-center justify-center group"
-                  >
-                    <div className="bg-white/10 backdrop-blur-md p-4 rounded-full border border-white/20 transition-all duration-300 group-hover:bg-white/20">
-                      {activeVideo === item.id && isPlaying ? (
-                        <Pause className="w-6 h-6 text-white" />
-                      ) : (
-                        <Play className="w-6 h-6 text-white" />
-                      )}
-                    </div>
-                  </button>
                   <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
                     <h3 className="text-xl font-bold text-white">{item.title}</h3>
                     <p className="text-white/70 text-sm">{item.description}</p>
@@ -227,9 +217,10 @@ export const VideoPortfolio = () => {
                           ref={el => { videoRefs.current[item.id] = el }}
                           src={item.videoUrl} 
                           poster={item.thumbnailUrl}
-                          className="object-cover w-full h-full"
+                          className="object-cover w-full h-full cursor-pointer"
                           playsInline
                           loop
+                          onClick={() => togglePlay(item.id)}
                           onEnded={() => setIsPlaying(false)}
                           onError={() => {
                             console.error(`Error with video: ${item.videoUrl}`);
@@ -240,22 +231,11 @@ export const VideoPortfolio = () => {
                         <img 
                           src={item.thumbnailUrl} 
                           alt={item.title}
-                          className="object-cover w-full h-full opacity-80"
+                          className="object-cover w-full h-full opacity-80 cursor-pointer"
+                          onClick={() => togglePlay(item.id)}
                         />
                       )}
                     </AspectRatio>
-                    <button 
-                      onClick={() => togglePlay(item.id)}
-                      className="absolute inset-0 flex items-center justify-center"
-                    >
-                      <div className="bg-white/10 backdrop-blur-md p-4 rounded-full border border-white/20">
-                        {activeVideo === item.id && isPlaying ? (
-                          <Pause className="w-6 h-6 text-white" />
-                        ) : (
-                          <Play className="w-6 h-6 text-white" />
-                        )}
-                      </div>
-                    </button>
                     <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
                       <h3 className="text-xl font-bold text-white">{item.title}</h3>
                       <p className="text-white/70 text-sm">{item.description}</p>
