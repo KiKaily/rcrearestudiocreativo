@@ -8,11 +8,11 @@ export const Header = () => {
   const menuRef = useRef<HTMLDivElement>(null);
 
   const menuItems = [
-    { name: "inicio", href: "#inicio" },
-    { name: "diseño gráfico y web", href: "#portafolio" },
+    { name: "inicio", href: "#hero" },
+    { name: "diseño gráfico y web", href: "#portfolio" },
     { name: "foto", href: "#foto" },
-    { name: "video", href: "#videoteca" },
-    { name: "nosotros", href: "#nosotros" },
+    { name: "video", href: "#video" },
+    { name: "nosotros", href: "#team" },
     { name: "hemos trabajado con", href: "#partners" },
   ];
 
@@ -33,7 +33,7 @@ export const Header = () => {
     <header className="fixed w-full z-50 bg-transparent backdrop-blur-sm">
       <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
         <motion.a 
-          href="#inicio" 
+          href="#hero" 
           className="h-8 md:h-12 w-24 md:w-32 relative"
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
