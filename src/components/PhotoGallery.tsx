@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useState } from "react";
@@ -43,7 +44,7 @@ const photoItems = [
 
 export const PhotoGallery = () => {
   const [currentPage, setCurrentPage] = useState(0);
-  const photosPerPage = 20;
+  const photosPerPage = 15; // Reduced from 20 to 15 to fit 3 rows (5 photos per row)
   const totalPages = Math.ceil(photoItems.length / photosPerPage);
   
   const nextPage = () => {

@@ -1,15 +1,14 @@
 
-import { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowLeft } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 type VideoItem = {
   id: string;
   title: string;
   description: string;
-  thumbnailUrl: string;
-  videoUrl: string;
+  embedUrl: string;
+  isHorizontal?: boolean;
 };
 
 const videoItems: VideoItem[] = [
@@ -17,75 +16,35 @@ const videoItems: VideoItem[] = [
     id: "1",
     title: "Video Portfolio",
     description: "Una selección de clips grabados para otros trabajos",
-    thumbnailUrl: "./artsambcaliureel.jpg",
-    videoUrl: "./artsambcaliureel.mp4",
+    embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with your actual YouTube embed URL
+    isHorizontal: false,
   },
   {
     id: "2",
     title: "10 Anys d'arts amb caliu",
     description: "Reel resumen de evento",
-    thumbnailUrl: "./artsambcaliureel.jpg",
-    videoUrl: "./artsambcaliureel.mp4",
+    embedUrl: "https://player.vimeo.com/video/76979871", // Replace with your actual Vimeo embed URL
+    isHorizontal: false,
   },
   {
     id: "3",
     title: "Testimonio de Débora",
     description: "Reel de promoción de la formación Savia, de El Roure",
-    thumbnailUrl: "./deborareel.jpg",
-    videoUrl: "deborareel.mp4",
+    embedUrl: "https://www.youtube.com/embed/M7FIvfx5J10", // Replace with your actual YouTube embed URL
+    isHorizontal: false,
+  },
+  {
+    id: "4",
+    title: "Video Horizontal",
+    description: "Video en formato horizontal",
+    embedUrl: "https://www.youtube.com/embed/jNQXAC9IVRw", // Replace with your actual YouTube embed URL
+    isHorizontal: true,
   },
 ];
 
 export const VideoPortfolio = () => {
-  const [activeVideo, setActiveVideo] = useState<string | null>(null);
-  const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const videoRefs = useRef<{[key: string]: HTMLVideoElement | null}>({});
-
-  const togglePlay = (id: string) => {
-    if (activeVideo === id) {
-      const videoElement = videoRefs.current[id];
-      if (videoElement) {
-        if (isPlaying) {
-          videoElement.pause();
-        } else {
-          videoElement.play();
-        }
-        setIsPlaying(!isPlaying);
-      }
-    } else {
-      // If another video was playing, pause it
-      if (activeVideo && videoRefs.current[activeVideo]) {
-        videoRefs.current[activeVideo]?.pause();
-      }
-      
-      setActiveVideo(id);
-      setIsPlaying(true);
-      
-      // Play the new video after a small delay to ensure the state has updated
-      setTimeout(() => {
-        const videoElement = videoRefs.current[id];
-        if (videoElement) {
-          videoElement.play().catch(err => {
-            console.error("Error playing video:", err);
-            setIsPlaying(false);
-          });
-        }
-      }, 50);
-    }
-  };
-
-  const nextVideo = () => {
-    setCurrentIndex((prev) => (prev + 1) % videoItems.length);
-  };
-
-  const prevVideo = () => {
-    setCurrentIndex((prev) => (prev === 0 ? videoItems.length - 1 : prev - 1));
-  };
-
-  // Create arrays of videos based on current index for mobile view
-  const visibleVideos = videoItems.slice(currentIndex, currentIndex + 1);
-  const needsNavigation = videoItems.length > 1;
+  const verticalVideos = videoItems.filter(video => !video.isHorizontal);
+  const horizontalVideos = videoItems.filter(video => video.isHorizontal);
 
   return (
     <section id="video" className="py-24 px-4 relative overflow-hidden">
@@ -136,105 +95,26 @@ export const VideoPortfolio = () => {
         </motion.p>
 
         <div className="relative">
-          {/* Navigation arrows for both desktop and mobile */}
-          {needsNavigation && (
-            <div className="flex justify-between absolute top-1/2 left-0 right-0 -translate-y-1/2 px-2 z-10">
-              <button 
-                onClick={prevVideo}
-                className="bg-white/10 border border-white/20 text-white p-2 rounded-full hover:bg-white/20 transition-colors"
-              >
-                <ArrowLeft className="w-5 h-5" />
-              </button>
-              <button 
-                onClick={nextVideo}
-                className="bg-white/10 border border-white/20 text-white p-2 rounded-full hover:bg-white/20 transition-colors"
-              >
-                <ArrowRight className="w-5 h-5" />
-              </button>
-            </div>
-          )}
-          
-          {/* Desktop View: Grid of videos */}
-          <div className="hidden md:grid md:grid-cols-3 gap-8 mb-16">
-            {videoItems.map((item, index) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="relative"
-              >
-                <div className="relative overflow-hidden rounded-lg bg-black/20 backdrop-blur-sm border border-white/10">
-                  <AspectRatio ratio={9/16} className="bg-black">
-                    {activeVideo === item.id ? (
-                      <video 
-                        ref={el => { videoRefs.current[item.id] = el }}
-                        src={item.videoUrl} 
-                        poster={item.thumbnailUrl}
-                        className="object-cover w-full h-full cursor-pointer"
-                        playsInline
-                        loop
-                        onClick={() => togglePlay(item.id)}
-                        onEnded={() => setIsPlaying(false)}
-                        onError={() => {
-                          console.error(`Error with video: ${item.videoUrl}`);
-                          setIsPlaying(false);
-                        }}
-                      />
-                    ) : (
-                      <img 
-                        src={item.thumbnailUrl} 
-                        alt={item.title}
-                        className="object-cover w-full h-full opacity-80 transition-transform hover:scale-105 duration-700 cursor-pointer"
-                        onClick={() => togglePlay(item.id)}
-                      />
-                    )}
-                  </AspectRatio>
-                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-                    <h3 className="text-xl font-bold text-white">{item.title}</h3>
-                    <p className="text-white/70 text-sm">{item.description}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Mobile View with Navigation Arrows */}
-          <div className="md:hidden relative">
-            <div className="flex justify-center">
-              {visibleVideos.map((item) => (
+          {/* Desktop View: 3 vertical videos and 1 horizontal video */}
+          <div className="hidden md:block">
+            <div className="grid md:grid-cols-3 gap-8 mb-16">
+              {verticalVideos.slice(0, 3).map((item, index) => (
                 <motion.div
                   key={item.id}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="w-full max-w-xs"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.2 }}
+                  className="relative"
                 >
                   <div className="relative overflow-hidden rounded-lg bg-black/20 backdrop-blur-sm border border-white/10">
                     <AspectRatio ratio={9/16} className="bg-black">
-                      {activeVideo === item.id ? (
-                        <video 
-                          ref={el => { videoRefs.current[item.id] = el }}
-                          src={item.videoUrl} 
-                          poster={item.thumbnailUrl}
-                          className="object-cover w-full h-full cursor-pointer"
-                          playsInline
-                          loop
-                          onClick={() => togglePlay(item.id)}
-                          onEnded={() => setIsPlaying(false)}
-                          onError={() => {
-                            console.error(`Error with video: ${item.videoUrl}`);
-                            setIsPlaying(false);
-                          }}
-                        />
-                      ) : (
-                        <img 
-                          src={item.thumbnailUrl} 
-                          alt={item.title}
-                          className="object-cover w-full h-full opacity-80 cursor-pointer"
-                          onClick={() => togglePlay(item.id)}
-                        />
-                      )}
+                      <iframe 
+                        src={item.embedUrl}
+                        title={item.title}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        className="w-full h-full"
+                      />
                     </AspectRatio>
                     <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
                       <h3 className="text-xl font-bold text-white">{item.title}</h3>
@@ -244,6 +124,60 @@ export const VideoPortfolio = () => {
                 </motion.div>
               ))}
             </div>
+
+            {/* Horizontal video below */}
+            {horizontalVideos.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+                className="w-full max-w-4xl mx-auto mb-16"
+              >
+                <div className="relative overflow-hidden rounded-lg bg-black/20 backdrop-blur-sm border border-white/10">
+                  <AspectRatio ratio={16/9} className="bg-black">
+                    <iframe 
+                      src={horizontalVideos[0].embedUrl}
+                      title={horizontalVideos[0].title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                    />
+                  </AspectRatio>
+                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                    <h3 className="text-xl font-bold text-white">{horizontalVideos[0].title}</h3>
+                    <p className="text-white/70 text-sm">{horizontalVideos[0].description}</p>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </div>
+
+          {/* Mobile View: All videos stacked */}
+          <div className="md:hidden space-y-8">
+            {videoItems.map((item) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="w-full max-w-xs mx-auto"
+              >
+                <div className="relative overflow-hidden rounded-lg bg-black/20 backdrop-blur-sm border border-white/10">
+                  <AspectRatio ratio={item.isHorizontal ? 16/9 : 9/16} className="bg-black">
+                    <iframe 
+                      src={item.embedUrl}
+                      title={item.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                    />
+                  </AspectRatio>
+                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                    <h3 className="text-xl font-bold text-white">{item.title}</h3>
+                    <p className="text-white/70 text-sm">{item.description}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
 
