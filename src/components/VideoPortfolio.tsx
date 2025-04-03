@@ -17,7 +17,7 @@ const videoItems: VideoItem[] = [
     id: "1",
     title: "Video Portfolio",
     description: "Una selección de clips grabados para otros trabajos",
-    thumbnailUrl: "./portfolioreel.jpg",
+    thumbnailUrl: "./artsambcaliureel.jpg",
     videoUrl: "./artsambcaliureel.mp4",
   },
   {
