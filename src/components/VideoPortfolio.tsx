@@ -16,28 +16,28 @@ const videoItems: VideoItem[] = [
     id: "1",
     title: "Video Portfolio",
     description: "Una selección de clips grabados para otros trabajos",
-    embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with your actual YouTube embed URL
+    embedUrl: "https://www.youtube.com/shorts/zhMRi2sR3ls", // Replace with your actual YouTube embed URL
     isHorizontal: false,
   },
   {
     id: "2",
     title: "10 Anys d'arts amb caliu",
     description: "Reel resumen de evento",
-    embedUrl: "https://player.vimeo.com/video/76979871", // Replace with your actual Vimeo embed URL
+    embedUrl: "https://www.youtube.com/shorts/NBMx4Dhvul0", // Replace with your actual Vimeo embed URL
     isHorizontal: false,
   },
   {
     id: "3",
     title: "Testimonio de Débora",
     description: "Reel de promoción de la formación Savia, de El Roure",
-    embedUrl: "https://www.youtube.com/embed/M7FIvfx5J10", // Replace with your actual YouTube embed URL
+    embedUrl: "https://www.youtube.com/shorts/iuIxJHecfV8", // Replace with your actual YouTube embed URL
     isHorizontal: false,
   },
   {
     id: "4",
     title: "Video Horizontal",
     description: "Video en formato horizontal",
-    embedUrl: "https://www.youtube.com/embed/jNQXAC9IVRw", // Replace with your actual YouTube embed URL
+    embedUrl: "https://www.youtube.com/watch?v=_kk8fHHmh_M", // Replace with your actual YouTube embed URL
     isHorizontal: true,
   },
 ];
