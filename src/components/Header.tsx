@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -68,9 +69,9 @@ export const Header = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-16 left-0 w-full bg-black/80 text-white"
+            className="absolute top-16 left-0 w-full bg-white/80 backdrop-blur-sm text-black"
           >
-            <ul className="space-y-4 p-4">
+            <ul className="space-y-4 p-4 text-center">
               {menuItems.map((item) => (
                 <li key={item.name}>
                   <a

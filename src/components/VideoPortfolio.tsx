@@ -1,7 +1,7 @@
 
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowLeft } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 type VideoItem = {
@@ -39,7 +39,6 @@ const videoItems: VideoItem[] = [
 export const VideoPortfolio = () => {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
   const videoRefs = useRef<{[key: string]: HTMLVideoElement | null}>({});
 
   const togglePlay = (id: string) => {
@@ -74,18 +73,6 @@ export const VideoPortfolio = () => {
       }, 50);
     }
   };
-
-  const nextVideo = () => {
-    setCurrentIndex((prev) => (prev + 1) % videoItems.length);
-  };
-
-  const prevVideo = () => {
-    setCurrentIndex((prev) => (prev === 0 ? videoItems.length - 1 : prev - 1));
-  };
-
-  // Create arrays of videos based on current index for mobile view
-  const visibleVideos = videoItems.slice(currentIndex, currentIndex + 1);
-  const needsNavigation = videoItems.length > 1;
 
   return (
     <section id="video" className="py-24 px-4 relative overflow-hidden">
@@ -136,24 +123,6 @@ export const VideoPortfolio = () => {
         </motion.p>
 
         <div className="relative">
-          {/* Navigation arrows for both desktop and mobile */}
-          {needsNavigation && (
-            <div className="flex justify-between absolute top-1/2 left-0 right-0 -translate-y-1/2 px-2 z-10">
-              <button 
-                onClick={prevVideo}
-                className="bg-white/10 border border-white/20 text-white p-2 rounded-full hover:bg-white/20 transition-colors"
-              >
-                <ArrowLeft className="w-5 h-5" />
-              </button>
-              <button 
-                onClick={nextVideo}
-                className="bg-white/10 border border-white/20 text-white p-2 rounded-full hover:bg-white/20 transition-colors"
-              >
-                <ArrowRight className="w-5 h-5" />
-              </button>
-            </div>
-          )}
-          
           {/* Desktop View: Grid of videos */}
           <div className="hidden md:grid md:grid-cols-3 gap-8 mb-16">
             {videoItems.map((item, index) => (
@@ -199,51 +168,48 @@ export const VideoPortfolio = () => {
             ))}
           </div>
 
-          {/* Mobile View with Navigation Arrows */}
-          <div className="md:hidden relative">
-            <div className="flex justify-center">
-              {visibleVideos.map((item) => (
-                <motion.div
-                  key={item.id}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="w-full max-w-xs"
-                >
-                  <div className="relative overflow-hidden rounded-lg bg-black/20 backdrop-blur-sm border border-white/10">
-                    <AspectRatio ratio={9/16} className="bg-black">
-                      {activeVideo === item.id ? (
-                        <video 
-                          ref={el => { videoRefs.current[item.id] = el }}
-                          src={item.videoUrl} 
-                          poster={item.thumbnailUrl}
-                          className="object-cover w-full h-full cursor-pointer"
-                          playsInline
-                          loop
-                          onClick={() => togglePlay(item.id)}
-                          onEnded={() => setIsPlaying(false)}
-                          onError={() => {
-                            console.error(`Error with video: ${item.videoUrl}`);
-                            setIsPlaying(false);
-                          }}
-                        />
-                      ) : (
-                        <img 
-                          src={item.thumbnailUrl} 
-                          alt={item.title}
-                          className="object-cover w-full h-full opacity-80 cursor-pointer"
-                          onClick={() => togglePlay(item.id)}
-                        />
-                      )}
-                    </AspectRatio>
-                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-                      <h3 className="text-xl font-bold text-white">{item.title}</h3>
-                      <p className="text-white/70 text-sm">{item.description}</p>
-                    </div>
+          {/* Mobile View with all videos stacked */}
+          <div className="md:hidden space-y-8">
+            {videoItems.map((item) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="w-full max-w-xs mx-auto"
+              >
+                <div className="relative overflow-hidden rounded-lg bg-black/20 backdrop-blur-sm border border-white/10">
+                  <AspectRatio ratio={9/16} className="bg-black">
+                    {activeVideo === item.id ? (
+                      <video 
+                        ref={el => { videoRefs.current[item.id] = el }}
+                        src={item.videoUrl} 
+                        poster={item.thumbnailUrl}
+                        className="object-cover w-full h-full cursor-pointer"
+                        playsInline
+                        loop
+                        onClick={() => togglePlay(item.id)}
+                        onEnded={() => setIsPlaying(false)}
+                        onError={() => {
+                          console.error(`Error with video: ${item.videoUrl}`);
+                          setIsPlaying(false);
+                        }}
+                      />
+                    ) : (
+                      <img 
+                        src={item.thumbnailUrl} 
+                        alt={item.title}
+                        className="object-cover w-full h-full opacity-80 cursor-pointer"
+                        onClick={() => togglePlay(item.id)}
+                      />
+                    )}
+                  </AspectRatio>
+                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                    <h3 className="text-xl font-bold text-white">{item.title}</h3>
+                    <p className="text-white/70 text-sm">{item.description}</p>
                   </div>
-                </motion.div>
-              ))}
-            </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
 
