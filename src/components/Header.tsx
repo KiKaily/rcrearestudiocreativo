@@ -62,8 +62,8 @@ export const Header = () => {
         </motion.button>
       </div>
 
-      {/* Gradient fade effect between header and content */}
-      <div className="h-6 w-full bg-gradient-to-b from-transparent/40 to-transparent pointer-events-none"></div>
+      {/* Enhanced gradient fade effect between header and content - much smoother transition */}
+      <div className="h-16 w-full bg-gradient-to-b from-transparent/60 via-transparent/30 to-transparent pointer-events-none"></div>
 
       <AnimatePresence>
         {isOpen && (
@@ -72,9 +72,9 @@ export const Header = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-16 left-0 w-full bg-white/40 backdrop-blur-sm text-white"
+            className="absolute top-16 left-0 w-full bg-white/60 backdrop-blur-sm text-white"
           >
-            <ul className="space-y-10 p-4 text-center">
+            <ul className="space-y-20 p-4 text-center">
               {menuItems.map((item) => (
                 <li key={item.name}>
                   <a
