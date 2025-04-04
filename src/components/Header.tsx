@@ -40,8 +40,8 @@ export const Header = () => {
   }, [isOpen]);
 
   return (
-    <header className="fixed w-full z-50 bg-transparent backdrop-blur-sm">
-      <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+    <header className="fixed w-full z-50 bg-transparent">
+      <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center backdrop-blur-sm">
         <motion.a
           href="#hero"
           onClick={handleScrollToSection("#hero")}
@@ -62,6 +62,9 @@ export const Header = () => {
         </motion.button>
       </div>
 
+      {/* Gradient fade effect between header and content */}
+      <div className="h-6 w-full bg-gradient-to-b from-transparent/40 to-transparent pointer-events-none"></div>
+
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -69,9 +72,9 @@ export const Header = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-16 left-0 w-full bg-white/25 backdrop-blur-sm text-white"
+            className="absolute top-16 left-0 w-full bg-white/40 backdrop-blur-sm text-white"
           >
-            <ul className="space-y-6 p-4 text-center">
+            <ul className="space-y-10 p-4 text-center">
               {menuItems.map((item) => (
                 <li key={item.name}>
                   <a
