@@ -13,17 +13,17 @@ type VideoItem = {
 
 const videoItems: VideoItem[] = [
   {
-    id: "1",
-    title: "Video Portfolio",
-    description: "Una selección de clips grabados para otros trabajos",
-    embedUrl: "https://www.youtube.com/embed/zhMRi2sR3ls", // Replace with your actual YouTube embed URL
-    isHorizontal: false,
-  },
-  {
     id: "2",
     title: "10 Anys d'arts amb caliu",
     description: "Reel resumen de evento",
     embedUrl: "https://www.youtube.com/embed/NBMx4Dhvul0", // Replace with your actual Vimeo embed URL
+    isHorizontal: false,
+  },
+  {
+    id: "1",
+    title: "Video Portfolio",
+    description: "Una selección de clips grabados para otros trabajos",
+    embedUrl: "https://www.youtube.com/embed/zhMRi2sR3ls", // Replace with your actual YouTube embed URL
     isHorizontal: false,
   },
   {
