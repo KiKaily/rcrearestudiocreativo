@@ -63,7 +63,7 @@ export const Header = () => {
       </div>
 
       {/* Gradient fade effect between header and content - white shadow instead of black */}
-      <div className="h-6 w-full bg-gradient-to-b from-white/40 to-transparent pointer-events-none"></div>
+      <div className="h-6 w-full bg-gradient-to-b from-white/20 to-transparent pointer-events-none"></div>
 
       <AnimatePresence>
         {isOpen && (
@@ -72,7 +72,7 @@ export const Header = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-16 left-0 w-full bg-white/60 backdrop-blur-sm text-white"
+            className="absolute top-[4.25rem] left-0 w-full bg-white/60 backdrop-blur-sm text-white"
           >
             <ul className="py-8 px-4 text-center space-y-10">
               {menuItems.map((item, index) => (
