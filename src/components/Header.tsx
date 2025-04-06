@@ -40,8 +40,8 @@ export const Header = () => {
   }, [isOpen]);
 
   return (
-    <header className="fixed w-full z-50 bg-transparent">
-      <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center backdrop-blur-sm">
+    <header className="fixed w-full z-50">
+      <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center backdrop-blur-lg bg-white/10">
         <motion.a
           href="#hero"
           onClick={handleScrollToSection("#hero")}
@@ -72,7 +72,7 @@ export const Header = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-[4.25rem] left-0 w-full bg-white/60 backdrop-blur-sm text-white"
+            className="absolute top-[calc(4rem+6px)] left-0 w-full bg-white/60 backdrop-blur-lg text-white"
           >
             <ul className="py-8 px-4 text-center space-y-10">
               {menuItems.map((item, index) => (
