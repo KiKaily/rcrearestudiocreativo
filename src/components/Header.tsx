@@ -86,7 +86,7 @@ export const Header = () => {
                   <a
                     href={item.href}
                     onClick={handleScrollToSection(item.href)}
-                    className="hover:underline block"
+                    className="hover:underline blur-[0.5px] hover:blur-0 transition-all duration-300"
                   >
                     {item.name}
                   </a>
