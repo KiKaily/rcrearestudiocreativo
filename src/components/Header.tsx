@@ -41,25 +41,28 @@ export const Header = () => {
 
   return (
     <header className="fixed w-full z-50">
-      <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center backdrop-blur-lg bg-white/10">
-        <motion.a
-          href="#hero"
-          onClick={handleScrollToSection("#hero")}
-          className="h-8 md:h-12 w-24 md:w-32 relative"
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 400, damping: 10 }}
-        >
-          <img src="./logo.png" alt="Logo" className="w-full h-full object-contain" />
-        </motion.a>
+      {/* Modified the backdrop-blur to apply to the entire header width */}
+      <div className="w-full backdrop-blur-lg bg-white/10">
+        <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+          <motion.a
+            href="#hero"
+            onClick={handleScrollToSection("#hero")}
+            className="h-8 md:h-12 w-24 md:w-32 relative"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          >
+            <img src="./logo.png" alt="Logo" className="w-full h-full object-contain" />
+          </motion.a>
 
-        <motion.button
-          onClick={() => setIsOpen(!isOpen)}
-          className="text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </motion.button>
+          <motion.button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </motion.button>
+        </div>
       </div>
 
       {/* Gradient fade effect between header and content - white shadow instead of black */}

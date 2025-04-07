@@ -1,6 +1,5 @@
 
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 type VideoItem = {
@@ -181,22 +180,7 @@ export const VideoPortfolio = () => {
           </div>
         </div>
 
-        <motion.div 
-          className="text-center mt-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <a 
-            href="https://www.instagram.com/rcrear.estudio/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-white mx-auto border border-white/30 py-2 px-6 rounded-full hover:bg-white/10 transition-all duration-300"
-          >
-            <span>Ver más en instagram</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
-        </motion.div>
+        {/* Removed the "Ver más en instagram" button that was here */}
       </div>
     </section>
   );
