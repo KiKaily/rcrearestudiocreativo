@@ -25,7 +25,6 @@ const photoItems = [
   { id: "19", title: "CieloHierba", thumbnailUrl: "./fotos/19.jpg" },
   { id: "20", title: "Caracolito", thumbnailUrl: "./fotos/20.jpg" },
   { id: "22", title: "Caracol", thumbnailUrl: "./fotos/22.jpg" },
-  { id: "23", title: "Poste", thumbnailUrl: "./fotos/23.jpg" },
   { id: "24", title: "Zippo", thumbnailUrl: "./fotos/24.jpg" },
   { id: "26", title: "Vela", thumbnailUrl: "./fotos/26.jpg" },
   { id: "27", title: "Musgo", thumbnailUrl: "./fotos/27.jpg" },
