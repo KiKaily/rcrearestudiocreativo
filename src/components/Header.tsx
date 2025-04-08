@@ -41,8 +41,8 @@ export const Header = () => {
 
   return (
     <header className="fixed w-full z-50">
-      {/* Added strong backdrop-blur effect to properly blur content underneath */}
-      <div className="w-full backdrop-blur-lg bg-transparent">
+      {/* Modified the backdrop-blur to apply to the entire header width */}
+      <div className="w-full backdrop-blur-lg bg-white/10">
         <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
           <motion.a
             href="#hero"
@@ -65,28 +65,19 @@ export const Header = () => {
         </div>
       </div>
 
-      {/* Light gradient fade effect */}
-      <div className="h-6 w-full bg-gradient-to-b from-transparent to-transparent pointer-events-none"></div>
+      {/* Gradient fade effect between header and content - white shadow instead of black */}
+      <div className="h-6 w-full bg-gradient-to-b from-white/20 to-transparent pointer-events-none"></div>
 
       <AnimatePresence>
         {isOpen && (
           <motion.div
             ref={menuRef}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 flex items-center justify-center"
-            onClick={(e) => {
-              // Close when clicking the backdrop but not the menu itself
-              if (e.target === e.currentTarget) {
-                setIsOpen(false);
-              }
-            }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="absolute top-[calc(4rem+6px)] left-0 w-full bg-white/60 backdrop-blur-lg text-white"
           >
-            {/* Added backdrop blur with semi-transparent background */}
-            <div className="absolute inset-0 backdrop-blur-lg bg-black/30" onClick={() => setIsOpen(false)}></div>
-            
-            <ul className="py-8 px-4 text-center space-y-10 bg-black/50 backdrop-blur-md rounded-lg relative z-10">
+            <ul className="py-8 px-4 text-center space-y-10">
               {menuItems.map((item, index) => (
                 <li 
                   key={item.name} 
@@ -98,7 +89,7 @@ export const Header = () => {
                   <a
                     href={item.href}
                     onClick={handleScrollToSection(item.href)}
-                    className="text-white hover:underline block font-bold text-xl"
+                    className="hover:underline block"
                   >
                     {item.name}
                   </a>

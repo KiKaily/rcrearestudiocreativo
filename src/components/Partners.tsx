@@ -8,9 +8,9 @@ const partners = [
     link: "https://www.leonardomoscoso.com/"
   },
   {
-    name: "Cristina Minguillón",
-    image: "./cm_blanco.png",
-    link: "https://www.instagram.com/crisminguillon/"
+    name: "El Roure",
+    image: "./roure_blanco.png",
+    link: "https://www.elroure.org/es"
   },
   {
     name: "Begoña González",
@@ -18,9 +18,9 @@ const partners = [
     link: "https://www.instagram.com/begona_educacionviva/"
   },
   {
-    name: "El Roure",
-    image: "./roure_blanco.png",
-    link: "https://www.elroure.org/es"
+    name: "Cristina Minguillón",
+    image: "./cm_blanco.png",
+    link: "https://www.instagram.com/crisminguillon/"
   },
   {
     name: "Ajuntament",
