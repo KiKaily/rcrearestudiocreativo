@@ -83,10 +83,10 @@ export const Header = () => {
               }
             }}
           >
-            {/* Added backdrop blur with semi-transparent background */}
+            {/* Updated background to white with 40% opacity and made it larger by padding */}
             <div className="absolute inset-0 backdrop-blur-lg bg-black/30" onClick={() => setIsOpen(false)}></div>
             
-            <ul className="py-8 px-4 text-center space-y-10 bg-black/50 backdrop-blur-md rounded-lg relative z-10">
+            <ul className="py-10 px-8 text-center space-y-10 bg-white/40 backdrop-blur-md rounded-lg relative z-10 scale-130 transform">
               {menuItems.map((item, index) => (
                 <li 
                   key={item.name} 
