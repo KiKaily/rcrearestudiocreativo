@@ -41,8 +41,8 @@ export const Header = () => {
 
   return (
     <header className="fixed w-full z-50">
-      {/* Modified the backdrop-blur to apply to the entire header width */}
-      <div className="w-full backdrop-blur-lg bg-white/10">
+      {/* Modified the backdrop-blur and background opacity for the entire header */}
+      <div className="w-full backdrop-blur-lg bg-black/40">
         <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
           <motion.a
             href="#hero"
@@ -66,16 +66,16 @@ export const Header = () => {
       </div>
 
       {/* Gradient fade effect between header and content - white shadow instead of black */}
-      <div className="h-6 w-full bg-gradient-to-b from-white/20 to-transparent pointer-events-none"></div>
+      <div className="h-6 w-full bg-gradient-to-b from-black/20 to-transparent pointer-events-none"></div>
 
       <AnimatePresence>
         {isOpen && (
           <motion.div
             ref={menuRef}
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-[calc(4rem+6px)] left-0 w-full bg-white/60 backdrop-blur-lg text-white"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute top-[calc(4rem+8px)] left-0 w-full bg-black/80 backdrop-blur-lg"
           >
             <ul className="py-8 px-4 text-center space-y-10">
               {menuItems.map((item, index) => (
@@ -89,7 +89,7 @@ export const Header = () => {
                   <a
                     href={item.href}
                     onClick={handleScrollToSection(item.href)}
-                    className="hover:underline block"
+                    className="text-white hover:underline block"
                   >
                     {item.name}
                   </a>
