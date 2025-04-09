@@ -69,45 +69,43 @@ export const Header = () => {
       <div className="h-6 w-full bg-gradient-to-b from-transparent to-transparent pointer-events-none"></div>
 
       <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            ref={menuRef}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 flex items-center justify-center"
-            onClick={(e) => {
-              // Close when clicking the backdrop but not the menu itself
-              if (e.target === e.currentTarget) {
-                setIsOpen(false);
-              }
-            }}
-          >
-            {/* Updated background to white with 40% opacity and made it larger by padding */}
-            <div className="absolute inset-0 backdrop-blur-lg bg-black/30" onClick={() => setIsOpen(false)}></div>
-            
-            <ul className="py-14 px-12 text-center space-y-10 bg-white/40 backdrop-blur-md rounded-lg relative z-10 scale-130 transform">
-              {menuItems.map((item, index) => (
-                <li 
-                  key={item.name} 
-                  className={`
-                    ${index === 0 ? 'pt-4' : ''}
-                    ${index === menuItems.length - 1 ? 'pb-4' : ''}
-                  `}
-                >
-                  <a
-                    href={item.href}
-                    onClick={handleScrollToSection(item.href)}
-                    className="text-white hover:underline block font-bold text-xl"
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
+  {isOpen && (
+    <motion.div
+      ref={menuRef}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 flex items-center justify-center"
+      onClick={(e) => {
+        // Close when clicking the backdrop but not the menu itself
+        if (e.target === e.currentTarget) {
+          setIsOpen(false);
+        }
+      }}
+    >
+      {/* Blurred background */}
+      <div
+        className="absolute inset-0 backdrop-blur-md bg-black/50"
+        onClick={() => setIsOpen(false)}
+      ></div>
+
+      {/* Menu content */}
+      <ul className="py-14 px-12 text-center space-y-10 bg-white/10 backdrop-blur-lg rounded-lg relative z-10">
+        {menuItems.map((item, index) => (
+          <li key={item.name}>
+            <a
+              href={item.href}
+              onClick={handleScrollToSection(item.href)}
+              className="text-white hover:underline block font-bold text-xl"
+            >
+              {item.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </motion.div>
+  )}
+</AnimatePresence>
     </header>
   );
 };
