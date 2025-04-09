@@ -1,7 +1,10 @@
 
 import { motion } from "framer-motion";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export const Hero = () => {
+  const isMobile = useIsMobile();
+
   return (
     <section className="min-h-screen flex items-center justify-center pt-16">
       <motion.div
@@ -10,9 +13,9 @@ export const Hero = () => {
         transition={{ duration: 0.8 }}
         className="w-full max-w-6xl px-4"
       >
-        <div className="max-w-[35rem] mx-auto flex flex-col items-center">
+        <div className="relative max-w-[35rem] mx-auto">
           <motion.div
-            className="w-64 h-64 md:w-[35rem] md:h-[35rem] mx-8"
+            className="w-64 h-64 md:w-[35rem] md:h-[35rem] mx-auto"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             drag
@@ -30,8 +33,14 @@ export const Hero = () => {
               }}
             />
           </motion.div>
+          
+          {/* Repositioned text to be higher and aligned left relative to the logo */}
           <motion.div 
-            className="text-white text-xl md:text-2xl w-full text-left space-y-2 mt-2"
+            className={`
+              text-white absolute 
+              ${isMobile ? 'text-sm bottom-5 left-0' : 'text-xl md:text-2xl bottom-12 left-0'}
+              w-full text-left space-y-2
+            `}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
