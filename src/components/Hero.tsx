@@ -14,6 +14,25 @@ export const Hero = () => {
         className="w-full max-w-6xl px-4"
       >
         <div className="relative max-w-[35rem] mx-auto">
+          {/* Text repositioned above logo on mobile */}
+          <motion.div 
+            className={`
+              text-white
+              ${isMobile 
+                ? 'text-sm absolute top-[-40px] left-0' 
+                : 'text-xl md:text-2xl absolute bottom-12 left-0'}
+              w-full text-left space-y-2
+            `}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            whileHover={{ scale: 1.02 }}
+          >
+            <p className="font-bold">estudio creativo</p>
+            <p>diseño gráfico, web, foto y video</p>
+            <p>comunicación honesta</p>
+          </motion.div>
+          
           <motion.div
             className="w-64 h-64 md:w-[35rem] md:h-[35rem] mx-auto"
             whileHover={{ scale: 1.05 }}
@@ -32,23 +51,6 @@ export const Hero = () => {
                 imgElement.src = 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e';
               }}
             />
-          </motion.div>
-          
-          {/* Repositioned text to be higher and aligned left relative to the logo */}
-          <motion.div 
-            className={`
-              text-white absolute 
-              ${isMobile ? 'text-sm bottom-5 left-0' : 'text-xl md:text-2xl bottom-12 left-0'}
-              w-full text-left space-y-2
-            `}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            whileHover={{ scale: 1.02 }}
-          >
-            <p className="font-bold">estudio creativo</p>
-            <p>diseño gráfico, web, foto y video</p>
-            <p>comunicación honesta</p>
           </motion.div>
         </div>
       </motion.div>
