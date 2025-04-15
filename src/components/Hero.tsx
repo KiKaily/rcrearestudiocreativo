@@ -35,20 +35,27 @@ export const Hero = () => {
           </motion.div>
           
           <motion.div 
-            className={`
-              text-white absolute 
-              ${isMobile ? 'text-sm bottom-5 pl-4 left-0' : 'text-xl md:text-2xl bottom-12 left-0'}
-              w-full text-left space-y-2
-            `}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            whileHover={{ scale: 1.02 }}
-          >
-            <p className="font-bold">estudio creativo</p>
-            <p>diseño gráfico, web, foto y video</p>
-            <p>comunicación honesta</p>
-          </motion.div>
+  className={`
+    text-white absolute 
+    ${isMobile ? 'flex flex-row items-center text-sm bottom-5 left-0 pl-4' : 'text-xl md:text-2xl bottom-12 left-0'}
+    w-full text-left space-y-2 ${isMobile ? 'space-y-0 space-x-2' : ''}
+  `}
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.3 }}
+  whileHover={{ scale: 1.02 }}
+>
+  <img 
+    src="./logo.png" 
+    alt="Logo" 
+    className={`w-12 h-12 object-contain ${isMobile ? 'mr-2' : 'hidden'}`}
+  />
+  <div>
+    <p className="font-bold">estudio creativo</p>
+    <p>diseño gráfico, web, foto y video</p>
+    <p>comunicación honesta</p>
+  </div>
+</motion.div>
         </div>
       </motion.div>
     </section>
