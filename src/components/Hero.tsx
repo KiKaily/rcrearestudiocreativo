@@ -37,8 +37,8 @@ export const Hero = () => {
           <motion.div 
   className={`
     text-white absolute 
-    ${isMobile ? 'flex flex-row items-center text-sm bottom-5 left-0 pl-4' : 'text-xl md:text-2xl bottom-12 left-0'}
-    w-full text-left space-y-2 ${isMobile ? 'space-y-0 space-x-2' : ''}
+    ${isMobile ? 'flex flex-row items-center text-sm bottom-5 left-0' : 'text-xl md:text-2xl bottom-12 left-0'}
+    w-full text-left space-y-2 ${isMobile ? 'space-y-0 space-x-6' : ''}
   `}
   initial={{ opacity: 0, y: 20 }}
   animate={{ opacity: 1, y: 0 }}
