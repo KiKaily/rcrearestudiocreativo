@@ -23,7 +23,7 @@ export const Hero = () => {
             <img
               src="./logo.png"
               alt="Logo"
-              className="w-32 h-32 md:w-48 md:h-48 object-contain mx-auto"
+              className="w-auto h-100 md:w-48 md:h-48 object-contain mx-auto"
             />
           </motion.div>
 
