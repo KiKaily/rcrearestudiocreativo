@@ -41,11 +41,6 @@ export const Hero = () => {
   transition={{ delay: 0.3 }}
   whileHover={{ scale: 1.02 }}
 >
-  <img 
-    src="./logo.png" 
-    alt="Logo" 
-    className={`w-12 h-12 object-contain ${isMobile ? 'mr-2' : 'hidden'}`}
-  />
   <div>
     <p className="font-bold">estudio creativo</p>
     <p>diseño gráfico, web, foto y video</p>
