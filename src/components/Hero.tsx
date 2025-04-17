@@ -14,21 +14,22 @@ export const Hero = () => {
         className="w-full max-w-6xl px-4"
       >
         <div className="relative max-w-[35rem] mx-auto">
-          <motion.div
-            className="w-64 h-64 md:w-[35rem] md:h-[35rem] mx-auto"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            drag
-            dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-            dragElastic={0.1}
-          >
-            <img 
-              src="./logo.png" 
-              alt="Logo" 
-              className="w-full h-full object-contain"
-              }}
-            />
-          </motion.div>
+        <motion.div
+  className="w-64 h-64 md:w-[35rem] md:h-[35rem] mx-auto"
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  drag
+  dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+  dragElastic={0.1}
+>
+  {!isMobile && (
+    <img 
+      src="./logo.png" 
+      alt="Logo" 
+      className="w-full h-full object-contain"
+    />
+  )}
+</motion.div>
           
           <motion.div 
   className={`
