@@ -14,7 +14,7 @@ export const Hero = () => {
         className="w-full max-w-6xl px-4"
       >
         <div className="relative max-w-[35rem] mx-auto">
-        <motion.div
+          <motion.div
   className="w-64 h-64 md:w-[35rem] md:h-[35rem] mx-auto"
   whileHover={{ scale: 1.05 }}
   whileTap={{ scale: 0.95 }}
