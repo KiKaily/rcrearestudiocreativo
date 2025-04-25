@@ -36,7 +36,7 @@ export const Hero = () => {
               ${isMobile ? 'text-sm bottom-5 left-0' : 'text-xl md:text-2xl bottom-12 left-0'}
               w-full text-left space-y-2
             `}
-            style={{ left: '50%', transform: 'translateX(-50%)' }}
+            style={{ left: '20%', transform: 'translateX(-20%)' }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
