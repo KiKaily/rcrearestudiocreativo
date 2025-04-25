@@ -37,8 +37,8 @@ export const Hero = () => {
               space-y-2
             `}
             style={{
-              left: '0', // Aligns the text with the left edge of the parent container
-              transform: 'translateX(0)', // Removes centering
+              left: '50%', // Aligns the text relative to the image
+              transform: 'translateX(-50%)', // Centers the text relative to the image
             }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
