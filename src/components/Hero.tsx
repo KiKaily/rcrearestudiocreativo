@@ -30,24 +30,24 @@ export const Hero = () => {
           </motion.div>
 
           {/* Text Section */}
-          <motion.div 
-            className={`
-              text-white absolute 
-              ${isMobile ? 'text-sm bottom-5 left-0' : 'text-xl md:text-2xl bottom-12 left-0'}
-              w-full text-left space-y-2
-            `}
-            style={{ left: '20%', transform: 'translateX(-20%)' }}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            whileHover={{ scale: 1.02 }}
-          >
-            <div className="max-w-[35rem] mx-auto">
-              <p className="font-bold">estudio creativo</p>
-              <p>diseño gráfico, web, foto y video</p>
-              <p>comunicación honesta</p>
-            </div>
-          </motion.div>
+          <motion.div
+  className={`
+    text-white absolute 
+    ${isMobile ? 'text-sm bottom-5' : 'text-xl md:text-2xl bottom-12'}
+    w-full text-left space-y-2
+  `}
+  style={{ left: 0 }} // Aligns the text with the left side of the parent container
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.3 }}
+  whileHover={{ scale: 1.02 }}
+>
+  <div className="max-w-[35rem] mx-auto">
+    <p className="font-bold">estudio creativo</p>
+    <p>diseño gráfico, web, foto y video</p>
+    <p>comunicación honesta</p>
+  </div>
+</motion.div>
         </div>
       </motion.div>
     </section>
