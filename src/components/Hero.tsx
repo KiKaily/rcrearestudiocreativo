@@ -34,15 +34,15 @@ export const Hero = () => {
   className={`
     text-white absolute 
     ${isMobile ? 'text-sm bottom-5' : 'text-xl md:text-2xl bottom-12'}
-    w-full text-left space-y-2
+    space-y-2
   `}
-  style={{ left: 0 }} // Aligns the text with the left side of the parent container
+  style={{ left: '50%', transform: 'translateX(-50%)' }} // Centers the text relative to the image
   initial={{ opacity: 0, y: 20 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ delay: 0.3 }}
   whileHover={{ scale: 1.02 }}
 >
-  <div className="max-w-[35rem] mx-auto">
+  <div className="max-w-[35rem]">
     <p className="font-bold">estudio creativo</p>
     <p>diseño gráfico, web, foto y video</p>
     <p>comunicación honesta</p>
