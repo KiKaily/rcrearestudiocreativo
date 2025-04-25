@@ -5,8 +5,8 @@ export const Hero = () => {
   const isMobile = useIsMobile();
 
   return (
-    <section className="min-h-screen flex items-center justify-center pt-16">
-      <div className="w-full max-w-6xl px-0 relative"> {/* Removed container padding */}
+    <section className="hero-section min-h-screen flex items-center justify-center pt-16">
+      <div className="w-full max-w-6xl px-0 relative">
         {/* Logo Section */}
         <motion.div
           className="w-64 h-64 md:w-[35rem] md:h-[35rem] mx-auto relative"

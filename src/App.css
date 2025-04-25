@@ -5,6 +5,11 @@
   text-align: center;
 }
 
+.hero-section {
+  padding: 0;
+  text-align: left; /* Ensure text alignment is not centered */
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
