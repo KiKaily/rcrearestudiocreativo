@@ -24,21 +24,23 @@ export const Hero = () => {
 
           {/* Text Section */}
           <motion.div
-            className={`
-              text-white 
-              ${isMobile ? 'text-sm mt-2' : 'text-xl md:text-2xl mt-4'}
-              space-y-2
-            `}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-          >
-            <div className="max-w-[35rem]">
-              <p className="font-bold">estudio creativo</p>
-              <p>diseño gráfico, web, foto y video</p>
-              <p>comunicación honesta</p>
-            </div>
-          </motion.div>
+  className={`
+    text-white 
+    text-sm sm:text-base md:text-xl lg:text-2xl 
+    mt-1 sm:mt-2 md:mt-3 lg:mt-4
+    space-y-2
+  `}
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.3 }}
+>
+  <div className="max-w-[35rem]">
+    <p className="font-bold">estudio creativo</p>
+    <p>diseño gráfico, web, foto y video</p>
+    <p>comunicación honesta</p>
+  </div>
+</motion.div>
+
         </div>
       </div>
     </section>
