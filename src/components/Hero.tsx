@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 export const Hero = () => {
   const isMobile = useIsMobile();
