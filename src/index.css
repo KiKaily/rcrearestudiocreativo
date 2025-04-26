@@ -99,3 +99,21 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes gradient-slow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-slow {
+  background: linear-gradient(-45deg, #000000, #0d0d0d, #000000);
+  background-size: 400% 400%;
+  animation: gradient-slow 25s ease infinite;
+}
+html {
+  scroll-behavior: smooth;
+}
