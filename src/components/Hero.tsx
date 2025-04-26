@@ -28,7 +28,7 @@ export const Hero = () => {
             className={`
               text-white
               ${isMobile ? 'text-sm' : 'text-xl md:text-2xl'}
-              mt-[-0.1rem] 
+              mt-[-0.0rem] 
               space-y-1
             `}
             initial={{ opacity: 0, y: 20 }}
