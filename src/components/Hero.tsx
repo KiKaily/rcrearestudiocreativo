@@ -10,13 +10,13 @@ export const Hero = () => {
         {/* Logo Section with Tilt Hover Effect */}
         <motion.div
           className="w-64 h-64 md:w-[35rem] md:h-[35rem] mx-auto relative"
-          whileHover={{ scale: 1.05, rotate: 10 }} // Tilt effect added
+          whileHover={{ scale: 1.05, rotate: 10 }}
           whileTap={{ scale: 0.95 }}
         >
           <img 
             src="./logo.png" 
             alt="Logo" 
-            className="w-full h-full object-contain"
+            className="w-full h-full object-contain align-bottom" // <-- Added align-bottom
           />
         </motion.div>
 
@@ -24,8 +24,8 @@ export const Hero = () => {
         <motion.div
           className={`
             text-white absolute 
-            ${isMobile ? 'text-sm bottom-4 left-4' : 'text-xl md:text-2xl bottom-8 left-1/2'}
-            space-y-2
+            ${isMobile ? 'text-sm bottom-1 left-4' : 'text-xl md:text-2xl bottom-2 left-1/2'} // <-- bottom-1 and bottom-2
+            space-y-1 // <-- reduced space between lines
           `}
           style={{
             transform: isMobile ? 'none' : 'translateX(-50%)',
@@ -36,8 +36,8 @@ export const Hero = () => {
         >
           <div className="max-w-[35rem]">
             <p className="font-bold">estudio creativo</p>
-            <p className="font-normal">diseño gráfico, web, foto y video</p> {/* Normal font */}
-            <p className="italic">comunicación honesta</p> {/* Italic font */}
+            <p className="font-normal">diseño gráfico, web, foto y video</p>
+            <p className="italic opacity-90">comunicación honesta</p> {/* 90% opacity */}
           </div>
         </motion.div>
       </div>
