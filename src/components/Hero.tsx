@@ -27,7 +27,7 @@ export const Hero = () => {
   className={`
     text-white 
     text-sm sm:text-base md:text-xl lg:text-2xl 
-    mt-1 sm:mt-1 md:mt-2 lg:mt-3
+    mt-1 sm:mt-0 md:mt-0 lg:mt-1
     space-y-2
   `}
   initial={{ opacity: 0, y: 20 }}
