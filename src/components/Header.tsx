@@ -1,119 +1,77 @@
+"use client";
 
-import { useState, useEffect, useRef } from "react";
-import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
-
-  const menuItems = [
-    { name: "inicio", href: "#hero" },
-    { name: "diseño gráfico y web", href: "#portfolio" },
-    { name: "foto", href: "#foto" },
-    { name: "video", href: "#video" },
-    { name: "nosotros", href: "#team" },
-    { name: "hemos trabajado con", href: "#partners" },
-  ];
-
-  const handleScrollToSection = (href: string) => (e: React.MouseEvent) => {
-    e.preventDefault();
-    const targetId = href.replace("#", "");
-    const element = document.getElementById(targetId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsOpen(false); // Close the menu after clicking
-    }
-  };
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node) && isOpen) {
-        setIsOpen(false);
-      }
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
     };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden"; // Prevent background scroll
+    } else {
+      document.body.style.overflow = "";
+    }
   }, [isOpen]);
 
   return (
-    <header className="fixed w-full z-50">
-      {/* Added strong backdrop-blur effect to properly blur content underneath */}
-      <div className="w-full backdrop-blur-lg bg-transparent">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-          <motion.a
-            href="#hero"
-            onClick={handleScrollToSection("#hero")}
-            className="h-8 md:h-12 w-24 md:w-32 relative"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          >
-            <img src="./logo.png" alt="Logo" className="w-full h-full object-contain" />
-          </motion.a>
+    <header
+      className={`fixed top-0 left-0 w-full z-50 ${
+        isScrolled || isOpen ? "backdrop-blur-md" : "backdrop-blur-sm"
+      } transition-all duration-500`}
+    >
+      <div className="max-w-6xl mx-auto px-4 py-6 flex items-center justify-between">
+        <Link href="/">
+          <img src="/logo.png" alt="Logo" className="h-8 w-auto" />
+        </Link>
 
-          <motion.button
-            onClick={() => setIsOpen(!isOpen)}
-            className="text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </motion.button>
-        </div>
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex space-x-8 text-white text-lg">
+          <Link href="#portfolio" className="hover:underline">Portfolio</Link>
+          <Link href="#team" className="hover:underline">Team</Link>
+          <Link href="#partners" className="hover:underline">Partners</Link>
+          <Link href="#contact" className="hover:underline">Contacto</Link>
+        </nav>
+
+        {/* Mobile Hamburger */}
+        <button
+          className="md:hidden text-white focus:outline-none z-50 relative"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? (
+            <span className="text-3xl">&times;</span> // X icon
+          ) : (
+            <svg className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          )}
+        </button>
       </div>
 
-      {/* Light gradient fade effect */}
-      <div className="h-6 w-full bg-gradient-to-b from-transparent to-transparent pointer-events-none"></div>
-
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            ref={menuRef}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 flex items-center justify-center"
-            onClick={(e) => {
-              // Close when clicking the backdrop but not the menu itself
-              if (e.target === e.currentTarget) {
-                setIsOpen(false);
-              }
-            }}
+            transition={{ duration: 0.5 }}
+            className="fixed inset-0 bg-white/70 backdrop-blur-md flex flex-col items-center justify-center space-y-8 text-black text-2xl z-40"
           >
-            {/* Blurred background with progressive blur */}
-            <motion.div
-              className="absolute inset-0 bg-white/50"
-              initial={{ backdropFilter: "blur(0px)" }}
-              animate={{ backdropFilter: "blur(10px)" }}
-              exit={{ backdropFilter: "blur(0px)" }}
-              transition={{ duration: 0.3 }}
-              onClick={() => setIsOpen(false)}
-            ></motion.div>
-
-            {/* Menu content */}
-            <motion.ul 
-              className="py-14 px-12 text-center space-y-10 bg-white/10 backdrop-blur-lg rounded-lg relative z-10"
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              {menuItems.map((item, index) => (
-                <li key={item.name}>
-                  <a
-                    href={item.href}
-                    onClick={handleScrollToSection(item.href)}
-                    className="text-white hover:underline block font-bold text-xl"
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              ))}
-            </motion.ul>
+            <Link href="#portfolio" onClick={() => setIsOpen(false)}>Portfolio</Link>
+            <Link href="#team" onClick={() => setIsOpen(false)}>Team</Link>
+            <Link href="#partners" onClick={() => setIsOpen(false)}>Partners</Link>
+            <Link href="#contact" onClick={() => setIsOpen(false)}>Contacto</Link>
           </motion.div>
         )}
       </AnimatePresence>
