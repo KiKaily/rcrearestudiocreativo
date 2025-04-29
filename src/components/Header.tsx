@@ -21,12 +21,8 @@ const Header = () => {
   }, [isOpen]);
 
   return (
-    <header
-      className={`
-        fixed top-0 left-0 w-full z-50 transition-all duration-500
-        ${isScrolled || isOpen ? 'bg-white/10 backdrop-blur-md' : 'bg-transparent'}
-      `}
-    >
+    <header className="fixed top-0 left-0 w-full z-50 transition-all duration-500">
+      {/* Main Header Section */}
       <div className="max-w-6xl mx-auto px-4 py-6 flex items-center justify-between">
         <Link to="/">
           <img src="/logo.png" alt="Logo" className="h-8 w-auto" />
@@ -40,52 +36,57 @@ const Header = () => {
           <a href="#contacto" className="hover:underline">Contacto</a>
         </nav>
 
-        {/* Mobile Toggle Button */}
+        {/* Mobile Hamburger Button */}
         <button
           className="md:hidden text-white focus:outline-none z-[70] relative"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <span className="text-3xl">
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="text-3xl absolute top-0 right-0"
+          >
             {isOpen ? '×' : (
               <svg className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             )}
-          </span>
+          </motion.span>
         </button>
       </div>
 
-      {/* Blur Background */}
+      {/* Blur Overlay and Background */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            key="blur-overlay"
-            initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
-            animate={{ opacity: 1, backdropFilter: 'blur(12px)' }}
-            exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
-            transition={{ duration: 0.5 }}
-            className="fixed inset-0 bg-black/30 z-40"
-            style={{ WebkitBackdropFilter: 'blur(12px)' }}
-          />
-        )}
-      </AnimatePresence>
+          <>
+            {/* Background Blur */}
+            <motion.div
+              key="blur-overlay"
+              initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+              animate={{ opacity: 1, backdropFilter: 'blur(10px)' }}
+              exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+              transition={{ duration: 0.5 }}
+              className="fixed inset-0 bg-black/30 z-40"
+              style={{ WebkitBackdropFilter: 'blur(10px)' }}
+            />
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            key="menu"
-            initial={{ opacity: 0, backgroundColor: 'rgba(255, 255, 255, 0)' }}
-            animate={{ opacity: 1, backgroundColor: 'rgba(255, 255, 255, 0.7)' }}
-            exit={{ opacity: 0, backgroundColor: 'rgba(255, 255, 255, 0)' }}
-            transition={{ duration: 0.5 }}
-            className="fixed inset-0 flex flex-col items-center justify-center space-y-8 text-black text-2xl z-[60]"
-          >
-            <a href="#portfolio" onClick={() => setIsOpen(false)}>Portfolio</a>
-            <a href="#team" onClick={() => setIsOpen(false)}>Team</a>
-            <a href="#partners" onClick={() => setIsOpen(false)}>Partners</a>
-            <a href="#contacto" onClick={() => setIsOpen(false)}>Contacto</a>
-          </motion.div>
+            {/* Menu Overlay */}
+            <motion.div
+              key="menu"
+              initial={{ opacity: 0, backgroundColor: 'rgba(255, 255, 255, 0)' }}
+              animate={{ opacity: 1, backgroundColor: 'rgba(255, 255, 255, 0.7)' }}
+              exit={{ opacity: 0, backgroundColor: 'rgba(255, 255, 255, 0)' }}
+              transition={{ duration: 0.5 }}
+              className="fixed inset-0 flex flex-col items-center justify-center space-y-8 text-white text-2xl z-[60]"
+            >
+              <a href="#portfolio" onClick={() => setIsOpen(false)}>Portfolio</a>
+              <a href="#team" onClick={() => setIsOpen(false)}>Team</a>
+              <a href="#partners" onClick={() => setIsOpen(false)}>Partners</a>
+              <a href="#contacto" onClick={() => setIsOpen(false)}>Contacto</a>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>
