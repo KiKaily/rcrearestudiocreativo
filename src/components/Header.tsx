@@ -1,94 +1,58 @@
-'use client';
-
-import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-  }, [isOpen]);
+  const navItems = [
+    { label: "Portfolio", href: "#portfolio" },
+    { label: "Team", href: "#team" },
+    { label: "Partners", href: "#partners" },
+    { label: "Contacto", href: "#contacto" },
+  ];
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 transition-all duration-500">
-      {/* Main Header Section */}
-      <div className="max-w-6xl mx-auto px-4 py-6 flex items-center justify-between">
-        <Link to="/">
-          <img src="/logo.png" alt="Logo" className="h-8 w-auto" />
-        </Link>
+    <header className="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-md px-4 py-3">
+      <div className="flex justify-between items-center max-w-7xl mx-auto">
+        <a href="/" className="text-white text-xl font-bold">rcrea</a>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8 text-white text-lg">
-          <a href="#portfolio" className="hover:underline">Portfolio</a>
-          <a href="#team" className="hover:underline">Team</a>
-          <a href="#partners" className="hover:underline">Partners</a>
-          <a href="#contacto" className="hover:underline">Contacto</a>
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex space-x-6 text-white text-lg">
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="hover:text-gray-300 transition"
+            >
+              {item.label}
+            </a>
+          ))}
         </nav>
 
-        {/* Mobile Hamburger Button */}
+        {/* Mobile Button */}
         <button
-          className="md:hidden text-white focus:outline-none z-[70] relative"
           onClick={() => setIsOpen(!isOpen)}
+          className="text-white md:hidden z-50"
         >
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="text-3xl absolute top-0 right-0"
-          >
-            {isOpen ? '×' : (
-              <svg className="h-8 w-8" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
-          </motion.span>
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
-      {/* Blur Overlay and Background */}
-      <AnimatePresence>
-        {isOpen && (
-          <>
-            {/* Background Blur */}
-            <motion.div
-              key="blur-overlay"
-              initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
-              animate={{ opacity: 1, backdropFilter: 'blur(10px)' }}
-              exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
-              transition={{ duration: 0.5 }}
-              className="fixed inset-0 bg-black/30 z-40"
-              style={{ WebkitBackdropFilter: 'blur(10px)' }}
-            />
-
-            {/* Menu Overlay */}
-            <motion.div
-              key="menu"
-              initial={{ opacity: 0, backgroundColor: 'rgba(255, 255, 255, 0)' }}
-              animate={{ opacity: 1, backgroundColor: 'rgba(255, 255, 255, 0.7)' }}
-              exit={{ opacity: 0, backgroundColor: 'rgba(255, 255, 255, 0)' }}
-              transition={{ duration: 0.5 }}
-              className="fixed inset-0 flex flex-col items-center justify-center space-y-8 text-white text-2xl z-[60]"
+      {/* Mobile Menu Overlay */}
+      {isOpen && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex flex-col justify-center items-center space-y-8 text-white text-2xl z-40">
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={() => setIsOpen(false)}
+              className="hover:text-gray-300 transition"
             >
-              <a href="#portfolio" onClick={() => setIsOpen(false)}>Portfolio</a>
-              <a href="#team" onClick={() => setIsOpen(false)}>Team</a>
-              <a href="#partners" onClick={() => setIsOpen(false)}>Partners</a>
-              <a href="#contacto" onClick={() => setIsOpen(false)}>Contacto</a>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+              {item.label}
+            </a>
+          ))}
+        </div>
+      )}
     </header>
   );
 };
