@@ -31,4 +31,16 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            whileInView={{ opacity: 1 }} // Asegura que solo se anime cuando es
+            whileInView={{ opacity: 1 }} // Asegura que solo se anime cuando esté visible
+          >
+            <div className="max-w-[35rem]">
+              <p className="font-bold">estudio creativo</p>
+              <p className="font-normal">diseño gráfico, web, foto y video</p>
+              <p className="italic opacity-90">comunicación honesta</p>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
