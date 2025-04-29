@@ -5,7 +5,8 @@ import { Portfolio } from "@/components/Portfolio";
 import { Team } from "@/components/Team";
 import { Partners } from "@/components/Partners";
 import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
+import Header from "@/components/Header";
+
 import { VideoPortfolio } from "@/components/VideoPortfolio";
 import { PhotoGallery } from "@/components/PhotoGallery";
 
