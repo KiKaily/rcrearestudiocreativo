@@ -34,10 +34,13 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8 text-white text-lg">
-          <a href="#portfolio" className="hover:underline">Portfolio</a>
-          <a href="#team" className="hover:underline">Team</a>
-          <a href="#partners" className="hover:underline">Partners</a>
-          <a href="#contacto" className="hover:underline">Contacto</a>
+          <a href="#Portfolio" className="hover:underline">portfolio</a>
+          <a href="#PhotoGallery" className="hover:underline">foto</a>
+          <a href="#VideoPortfolio" className="hover:underline">video</a>
+          <a href="#Team" className="hover:underline">nosotros</a>
+          <a href="#Partners" className="hover:underline">hemos trabajado con</a>
+          <a href="#Footer" className="hover:underline">contacto</a>
+
         </nav>
 
         {/* Mobile Toggle Button */}
