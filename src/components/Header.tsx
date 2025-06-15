@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -71,7 +70,6 @@ export const Header = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            ref={menuRef}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -83,7 +81,7 @@ export const Header = () => {
               }
             }}
           >
-            {/* Backdrop with synchronized blur and fade */}
+            {/* Backdrop with gradual 2.5 second blur transition */}
             <motion.div
               className="absolute inset-0"
               initial={{ 
@@ -101,20 +99,20 @@ export const Header = () => {
                 backdropFilter: "blur(0px)",
                 backgroundColor: "rgba(255, 255, 255, 0)"
               }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
+              transition={{ duration: 2.5, ease: "easeOut" }}
               onClick={() => setIsOpen(false)}
               style={{
                 WebkitBackdropFilter: "blur(16px)"
               }}
             />
 
-            {/* Menu content - appears slightly after backdrop starts */}
+            {/* Menu content - appears quickly while backdrop blurs slowly */}
             <motion.ul 
               className="py-14 px-12 text-center space-y-10 bg-white/10 backdrop-blur-lg rounded-lg relative z-10"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.25, delay: 0.05, ease: "easeOut" }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
             >
               {menuItems.map((item) => (
                 <li key={item.name}>
