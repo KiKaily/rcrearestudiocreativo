@@ -82,7 +82,7 @@ export const Header = () => {
               }
             }}
           >
-            {/* Backdrop with gradual 2.5 second blur transition */}
+            {/* Backdrop with gradual 1.5 second blur transition */}
             <motion.div
               className="absolute inset-0"
               initial={{ 
@@ -100,7 +100,7 @@ export const Header = () => {
                 backdropFilter: "blur(0px)",
                 backgroundColor: "rgba(255, 255, 255, 0)"
               }}
-              transition={{ duration: 2.5, ease: "easeOut" }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
               onClick={() => setIsOpen(false)}
               style={{
                 WebkitBackdropFilter: "blur(16px)"
