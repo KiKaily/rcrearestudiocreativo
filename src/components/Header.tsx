@@ -115,11 +115,11 @@ export const Header = () => {
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
             >
-              {/* Bottom layer - medium dark grey */}
-              <div className="absolute inset-0 bg-gray-600 backdrop-blur-lg rounded-lg"></div>
+              {/* Bottom layer - medium dark grey with 40% opacity */}
+              <div className="absolute inset-0 bg-gray-600/40 rounded-lg"></div>
               
               {/* Top layer - white with 15% opacity */}
-              <div className="absolute inset-0 bg-white/15 backdrop-blur-lg rounded-lg"></div>
+              <div className="absolute inset-0 bg-white/15 rounded-lg"></div>
               
               {/* Menu items */}
               <ul className="relative z-10 space-y-10">
