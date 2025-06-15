@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -108,7 +109,7 @@ export const Header = () => {
 
             {/* Menu content - appears quickly while backdrop blurs slowly */}
             <motion.ul 
-              className="py-14 px-12 text-center space-y-10 bg-white/10 backdrop-blur-lg rounded-lg relative z-10"
+              className="py-14 px-12 text-center space-y-10 bg-white/30 backdrop-blur-lg rounded-lg relative z-10"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
