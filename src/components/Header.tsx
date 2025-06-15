@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -76,22 +75,28 @@ export const Header = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 flex items-center justify-center"
+            className="fixed inset-0 flex items-center justify-center z-50"
             onClick={(e) => {
-              // Close when clicking the backdrop but not the menu itself
               if (e.target === e.currentTarget) {
                 setIsOpen(false);
               }
             }}
           >
-            {/* Blurred background with progressive blur */}
+            {/* Blurred + faded backdrop */}
             <motion.div
-              className="absolute inset-0 bg-white/50"
-              initial={{ backdropFilter: "blur(0px)" }}
-              animate={{ backdropFilter: "blur(10px)" }}
-              exit={{ backdropFilter: "blur(0px)" }}
+              // Animate both blur and opacity together
+              className="absolute inset-0 bg-white/40 backdrop-blur-lg"
+              initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
+              animate={{ opacity: 1, backdropFilter: "blur(16px)" }}
+              exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
               transition={{ duration: 0.3 }}
+              // Prevent backdrop click bubbling to menu content
               onClick={() => setIsOpen(false)}
+              style={{
+                WebkitBackdropFilter: "blur(16px)",
+                backdropFilter: "blur(16px)",
+                transition: "opacity 0.3s, backdrop-filter 0.3s"
+              }}
             ></motion.div>
 
             {/* Menu content */}
@@ -102,7 +107,7 @@ export const Header = () => {
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.2 }}
             >
-              {menuItems.map((item, index) => (
+              {menuItems.map((item) => (
                 <li key={item.name}>
                   <a
                     href={item.href}
