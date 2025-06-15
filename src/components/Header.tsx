@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -74,7 +75,7 @@ export const Header = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.25 }}
             className="fixed inset-0 flex items-center justify-center z-50"
             onClick={(e) => {
               if (e.target === e.currentTarget) {
@@ -82,30 +83,38 @@ export const Header = () => {
               }
             }}
           >
-            {/* Blurred + faded backdrop */}
+            {/* Backdrop with synchronized blur and fade */}
             <motion.div
-              // Animate both blur and opacity together
-              className="absolute inset-0 bg-white/40 backdrop-blur-lg"
-              initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-              animate={{ opacity: 1, backdropFilter: "blur(16px)" }}
-              exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
-              transition={{ duration: 0.3 }}
-              // Prevent backdrop click bubbling to menu content
+              className="absolute inset-0"
+              initial={{ 
+                opacity: 0,
+                backdropFilter: "blur(0px)",
+                backgroundColor: "rgba(255, 255, 255, 0)"
+              }}
+              animate={{ 
+                opacity: 1,
+                backdropFilter: "blur(16px)",
+                backgroundColor: "rgba(255, 255, 255, 0.4)"
+              }}
+              exit={{ 
+                opacity: 0,
+                backdropFilter: "blur(0px)",
+                backgroundColor: "rgba(255, 255, 255, 0)"
+              }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
               onClick={() => setIsOpen(false)}
               style={{
-                WebkitBackdropFilter: "blur(16px)",
-                backdropFilter: "blur(16px)",
-                transition: "opacity 0.3s, backdrop-filter 0.3s"
+                WebkitBackdropFilter: "blur(16px)"
               }}
-            ></motion.div>
+            />
 
-            {/* Menu content */}
+            {/* Menu content - appears slightly after backdrop starts */}
             <motion.ul 
               className="py-14 px-12 text-center space-y-10 bg-white/10 backdrop-blur-lg rounded-lg relative z-10"
-              initial={{ scale: 0.95, opacity: 0 }}
+              initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ duration: 0.2 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.25, delay: 0.05, ease: "easeOut" }}
             >
               {menuItems.map((item) => (
                 <li key={item.name}>
