@@ -81,7 +81,7 @@ export const Header = () => {
               }
             }}
           >
-            {/* Backdrop with gradual 1.5 second blur transition */}
+            {/* Backdrop */}
             <motion.div
               className="absolute inset-0"
               initial={{ 
@@ -106,21 +106,19 @@ export const Header = () => {
               }}
             />
 
-            {/* Dual-layer menu backgrounds, now perfectly aligned and matched in size/position */}
+            {/* Menu modal with perfectly aligned backgrounds and balanced padding */}
             <motion.div
-              className="py-14 px-12 text-center space-y-10 rounded-lg relative z-10"
+              className="pt-10 pb-10 px-12 text-center rounded-lg relative z-10"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
               ref={menuRef}
             >
-              {/* Single layer for both backgrounds, perfectly aligned */}
               <div className="absolute inset-0 rounded-lg pointer-events-none">
                 <div className="absolute inset-0 rounded-lg bg-gray-600" style={{ opacity: 0.4 }}></div>
                 <div className="absolute inset-0 rounded-lg bg-white" style={{ opacity: 0.15 }}></div>
               </div>
-              {/* Menu items */}
               <ul className="relative z-10 space-y-10">
                 {[
                   { name: "inicio", href: "#hero" },
