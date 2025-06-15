@@ -107,26 +107,35 @@ export const Header = () => {
               }}
             />
 
-            {/* Menu content - appears quickly while backdrop blurs slowly */}
-            <motion.ul 
-              className="py-14 px-12 text-center space-y-10 bg-white/30 backdrop-blur-lg rounded-lg relative z-10"
+            {/* Menu content with dual-layer background */}
+            <motion.div
+              className="py-14 px-12 text-center space-y-10 rounded-lg relative z-10"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
             >
-              {menuItems.map((item) => (
-                <li key={item.name}>
-                  <a
-                    href={item.href}
-                    onClick={handleScrollToSection(item.href)}
-                    className="text-white hover:underline block font-bold text-xl"
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              ))}
-            </motion.ul>
+              {/* Bottom layer - medium dark grey */}
+              <div className="absolute inset-0 bg-gray-600 backdrop-blur-lg rounded-lg"></div>
+              
+              {/* Top layer - white with 15% opacity */}
+              <div className="absolute inset-0 bg-white/15 backdrop-blur-lg rounded-lg"></div>
+              
+              {/* Menu items */}
+              <ul className="relative z-10 space-y-10">
+                {menuItems.map((item) => (
+                  <li key={item.name}>
+                    <a
+                      href={item.href}
+                      onClick={handleScrollToSection(item.href)}
+                      className="text-white hover:underline block font-bold text-xl"
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
