@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -107,27 +106,42 @@ export const Header = () => {
               }}
             />
 
-            {/* Menu content with dual-layer background */}
+            {/* Dual-layer menu backgrounds, now perfectly aligned and matched in size/position */}
             <motion.div
               className="py-14 px-12 text-center space-y-10 rounded-lg relative z-10"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
+              ref={menuRef}
             >
-              {/* Bottom layer - medium dark grey with 40% opacity */}
-              <div className="absolute inset-0 bg-gray-600/40 rounded-lg"></div>
-              
-              {/* Top layer - white with 15% opacity */}
-              <div className="absolute inset-0 bg-white/15 rounded-lg"></div>
-              
+              {/* Single layer for both backgrounds, perfectly aligned */}
+              <div className="absolute inset-0 rounded-lg pointer-events-none">
+                <div className="absolute inset-0 rounded-lg bg-gray-600" style={{ opacity: 0.4 }}></div>
+                <div className="absolute inset-0 rounded-lg bg-white" style={{ opacity: 0.15 }}></div>
+              </div>
               {/* Menu items */}
               <ul className="relative z-10 space-y-10">
-                {menuItems.map((item) => (
+                {[
+                  { name: "inicio", href: "#hero" },
+                  { name: "diseño gráfico y web", href: "#portfolio" },
+                  { name: "foto", href: "#foto" },
+                  { name: "video", href: "#video" },
+                  { name: "nosotros", href: "#team" },
+                  { name: "hemos trabajado con", href: "#partners" },
+                ].map((item) => (
                   <li key={item.name}>
                     <a
                       href={item.href}
-                      onClick={handleScrollToSection(item.href)}
+                      onClick={((href: string) => (e: React.MouseEvent) => {
+                        e.preventDefault();
+                        const targetId = href.replace("#", "");
+                        const element = document.getElementById(targetId);
+                        if (element) {
+                          element.scrollIntoView({ behavior: "smooth" });
+                          setIsOpen(false);
+                        }
+                      })(item.href)}
                       className="text-white hover:underline block font-bold text-xl"
                     >
                       {item.name}
