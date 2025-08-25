@@ -17,7 +17,7 @@ const photoItems = [
   { id: "9", title: "Flores de Bach", thumbnailUrl: "./fotos/9.jpg" },
   { id: "10", title: "Playa", thumbnailUrl: "./fotos/10.jpg" },
   { id: "11", title: "Castillo", thumbnailUrl: "./fotos/11.jpg" },
-  { id: "13", title: "ParejaAlhambra", thumbnailUrl: "./fotos/13.jpg" },
+  { id: "13", title: "Auriculoterapia", thumbnailUrl: "./fotos/13.jpg" },
   { id: "14", title: "Reflexología", thumbnailUrl: "./fotos/14.jpg" },
   { id: "15", title: "Lavanda", thumbnailUrl: "./fotos/15.jpg" },
   { id: "16", title: "Burbuja", thumbnailUrl: "./fotos/16.jpg" },
