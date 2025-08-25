@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { Lightbox } from "./Lightbox";
 
 const gifItems = [
   { id: "1", title: "Arts amb caliu", thumbnailUrl: "./artsambcaliureel.jpg" },
@@ -14,6 +16,18 @@ const gifItems = [
 ];
 
 export const VideoGifs = () => {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [selectedGif, setSelectedGif] = useState<{ src: string; alt: string; title: string } | null>(null);
+
+  const openLightbox = (item: { id: string; title: string; thumbnailUrl: string }) => {
+    setSelectedGif({
+      src: item.thumbnailUrl,
+      alt: item.title,
+      title: item.title
+    });
+    setLightboxOpen(true);
+  };
+
   return (
     <div className="mt-16">
       <motion.h3 
@@ -32,7 +46,8 @@ export const VideoGifs = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4, delay: index * 0.1 }}
-            className="aspect-square relative overflow-hidden rounded-lg group"
+            className="aspect-square relative overflow-hidden rounded-lg group cursor-pointer"
+            onClick={() => openLightbox(item)}
           >
             <img 
               src={item.thumbnailUrl} 
@@ -47,6 +62,17 @@ export const VideoGifs = () => {
           </motion.div>
         ))}
       </div>
+
+      {/* Lightbox */}
+      {selectedGif && (
+        <Lightbox
+          isOpen={lightboxOpen}
+          onClose={() => setLightboxOpen(false)}
+          src={selectedGif.src}
+          alt={selectedGif.alt}
+          title={selectedGif.title}
+        />
+      )}
     </div>
   );
 };

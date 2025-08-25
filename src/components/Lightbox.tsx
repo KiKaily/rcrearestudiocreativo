@@ -1,0 +1,80 @@
+import { motion, AnimatePresence } from "framer-motion";
+import { X } from "lucide-react";
+import { useEffect } from "react";
+
+interface LightboxProps {
+  isOpen: boolean;
+  onClose: () => void;
+  src: string;
+  alt: string;
+  title?: string;
+}
+
+export const Lightbox = ({ isOpen, onClose, src, alt, title }: LightboxProps) => {
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("keydown", handleEscape);
+      document.body.style.overflow = "hidden";
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen, onClose]);
+
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          onClick={onClose}
+        >
+          {/* Blurred backdrop */}
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-md" />
+          
+          {/* Content */}
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+            transition={{ type: "spring", duration: 0.3 }}
+            className="relative max-w-4xl max-h-[90vh] w-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button
+              onClick={onClose}
+              className="absolute -top-12 right-0 z-10 p-2 text-white hover:text-gray-300 transition-colors"
+            >
+              <X size={24} />
+            </button>
+            
+            {/* Image */}
+            <img
+              src={src}
+              alt={alt}
+              className="w-full h-full object-contain rounded-lg shadow-2xl"
+            />
+            
+            {/* Title */}
+            {title && (
+              <div className="absolute bottom-0 left-0 right-0 bg-black/70 text-white p-4 rounded-b-lg">
+                <h3 className="text-lg font-medium text-center">{title}</h3>
+              </div>
+            )}
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};

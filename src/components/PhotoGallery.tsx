@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useState } from "react";
+import { Lightbox } from "./Lightbox";
 
 // Sample photo items
 const photoItems = [
@@ -41,6 +42,17 @@ export const PhotoGallery = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const photosPerPage = 15; // Reduced from 20 to 15 to fit 3 rows (5 photos per row)
   const totalPages = Math.ceil(photoItems.length / photosPerPage);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [selectedPhoto, setSelectedPhoto] = useState<{ src: string; alt: string; title: string } | null>(null);
+
+  const openLightbox = (photo: { id: string; title: string; thumbnailUrl: string }) => {
+    setSelectedPhoto({
+      src: photo.thumbnailUrl,
+      alt: photo.title,
+      title: photo.title
+    });
+    setLightboxOpen(true);
+  };
   
   const nextPage = () => {
     setCurrentPage((prev) => (prev + 1) % totalPages);
@@ -111,7 +123,8 @@ export const PhotoGallery = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="aspect-square relative overflow-hidden group"
+                className="aspect-square relative overflow-hidden group cursor-pointer"
+                onClick={() => openLightbox(item)}
               >
                 <img 
                   src={item.thumbnailUrl} 
@@ -149,6 +162,17 @@ export const PhotoGallery = () => {
             </div>
           )}
         </div>
+
+        {/* Lightbox */}
+        {selectedPhoto && (
+          <Lightbox
+            isOpen={lightboxOpen}
+            onClose={() => setLightboxOpen(false)}
+            src={selectedPhoto.src}
+            alt={selectedPhoto.alt}
+            title={selectedPhoto.title}
+          />
+        )}
       </div>
     </section>
   );
