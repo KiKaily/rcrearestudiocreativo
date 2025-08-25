@@ -13,7 +13,7 @@ const photoItems = [
   { id: "6", title: "Cera", thumbnailUrl: "./fotos/6.jpg" },
   { id: "7", title: "Cortina", thumbnailUrl: "./fotos/7.jpg" },
   { id: "8", title: "Flor", thumbnailUrl: "./fotos/8.jpg" },
-  { id: "9", title: "Girasoles", thumbnailUrl: "./fotos/9.jpg" },
+  { id: "9", title: "Flores de Bach", thumbnailUrl: "./fotos/9.jpg" },
   { id: "10", title: "Playa", thumbnailUrl: "./fotos/10.jpg" },
   { id: "11", title: "Castillo", thumbnailUrl: "./fotos/11.jpg" },
   { id: "13", title: "ParejaAlhambra", thumbnailUrl: "./fotos/13.jpg" },
