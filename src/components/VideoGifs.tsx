@@ -8,11 +8,6 @@ const gifItems = [
   { id: "3", title: "Testimonio Débora", thumbnailUrl: "./deborareel.jpg" },
   { id: "4", title: "Mary Pepper", thumbnailUrl: "./marypepper.jpg" },
   { id: "5", title: "Cristina", thumbnailUrl: "./cris.jpg" },
-  { id: "6", title: "Noel", thumbnailUrl: "./noel.jpg" },
-  { id: "7", title: "Evento Cultural", thumbnailUrl: "./fotos/1.jpg" },
-  { id: "8", title: "Sesión Retrato", thumbnailUrl: "./fotos/2.jpg" },
-  { id: "9", title: "Video Promocional", thumbnailUrl: "./fotos/3.jpg" },
-  { id: "10", title: "Documental", thumbnailUrl: "./fotos/4.jpg" },
 ];
 
 export const VideoGifs = () => {
