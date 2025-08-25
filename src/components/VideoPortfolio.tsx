@@ -1,6 +1,7 @@
 
 import { motion } from "framer-motion";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { VideoGifs } from "./VideoGifs";
 
 type VideoItem = {
   id: string;
@@ -180,7 +181,7 @@ export const VideoPortfolio = () => {
           </div>
         </div>
 
-        {/* Removed the "Ver más en instagram" button that was here */}
+        <VideoGifs />
       </div>
     </section>
   );

@@ -8,6 +8,7 @@ export const Header = () => {
 
   const menuItems = [
     { name: "inicio", href: "#hero" },
+    { name: "servicios", href: "#services" },
     { name: "diseño gráfico y web", href: "#portfolio" },
     { name: "foto", href: "#foto" },
     { name: "video", href: "#video" },
@@ -122,6 +123,7 @@ export const Header = () => {
               <ul className="relative z-10 space-y-10">
                 {[
                   { name: "inicio", href: "#hero" },
+                  { name: "servicios", href: "#services" },
                   { name: "diseño gráfico y web", href: "#portfolio" },
                   { name: "foto", href: "#foto" },
                   { name: "video", href: "#video" },
