@@ -181,7 +181,7 @@ export const VideoPortfolio = () => {
           </div>
         </div>
 
-        <VideoGifs />
+        {/* <VideoGifs /> */}
       </div>
     </section>
   );
