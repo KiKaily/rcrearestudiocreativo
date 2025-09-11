@@ -40,7 +40,7 @@ const partners = [
   {
     name: "Maitashi Natural Care",
     image: "./maitashi_blanco.png",
-    link: "#"
+    link: "https://www.instagram.com/maitashi.therapies/?locale=it"
   }
 ];
 
