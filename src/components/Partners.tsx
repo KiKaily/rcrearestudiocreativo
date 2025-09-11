@@ -36,6 +36,11 @@ const partners = [
     name: "La Casita",
     image: "./casita_blanco.png",
     link: "#"
+  },
+  {
+    name: "Maitashi Natural Care",
+    image: "./maitashi_blanco.png",
+    link: "#"
   }
 ];
 
