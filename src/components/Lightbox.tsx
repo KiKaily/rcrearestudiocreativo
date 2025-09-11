@@ -36,11 +36,33 @@ export const Lightbox = ({ isOpen, onClose, src, alt, title }: LightboxProps) =>
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
+          transition={{ duration: 0.25 }}
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
           onClick={onClose}
         >
           {/* Blurred backdrop */}
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-md" />
+          <motion.div
+            className="absolute inset-0"
+            initial={{ 
+              opacity: 0,
+              backdropFilter: "blur(0px)",
+              backgroundColor: "rgba(0, 0, 0, 0)"
+            }}
+            animate={{ 
+              opacity: 1,
+              backdropFilter: "blur(16px)",
+              backgroundColor: "rgba(0, 0, 0, 0.6)"
+            }}
+            exit={{ 
+              opacity: 0,
+              backdropFilter: "blur(0px)",
+              backgroundColor: "rgba(0, 0, 0, 0)"
+            }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+            style={{
+              WebkitBackdropFilter: "blur(16px)"
+            }}
+          />
           
           {/* Content */}
           <motion.div
