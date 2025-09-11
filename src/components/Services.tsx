@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 const services = [
   {
     title: "diseño gráfico",
-    description: "Creamos identidades visuales auténticas que conectan con tu audiencia"
+    description: "Creamos identidades visuales auténticas que te representan y conectan con tu audiencia"
   },
   {
     title: "web",
-    description: "Desarrollamos experiencias digitales intuitivas y responsivas"
+    description: "Desarrollamos experiencias digitales intuitivas y personalizadas"
   },
   {
     title: "foto",
@@ -15,7 +15,7 @@ const services = [
   },
   {
     title: "video",
-    description: "Contamos historias visuales que emocionan y conectan"
+    description: "Ofrecemos grabación, edición y montaje de video con un enfoque genuino"
   }
 ];
 
