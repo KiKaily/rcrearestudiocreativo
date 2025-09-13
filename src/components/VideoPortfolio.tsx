@@ -1,7 +1,7 @@
 
 import { motion } from "framer-motion";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { VideoGifs } from "./VideoGifs";
+
 
 type VideoItem = {
   id: string;
@@ -114,6 +114,7 @@ export const VideoPortfolio = () => {
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                         className="w-full h-full"
+                        loading="lazy"
                       />
                     </AspectRatio>
                     <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
@@ -141,6 +142,7 @@ export const VideoPortfolio = () => {
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                       className="w-full h-full"
+                      loading="lazy"
                     />
                   </AspectRatio>
                   <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
@@ -169,6 +171,7 @@ export const VideoPortfolio = () => {
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                       className="w-full h-full"
+                      loading="lazy"
                     />
                   </AspectRatio>
                   <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
@@ -181,7 +184,7 @@ export const VideoPortfolio = () => {
           </div>
         </div>
 
-        {/* <VideoGifs /> */}
+        
       </div>
     </section>
   );

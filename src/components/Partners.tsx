@@ -58,18 +58,20 @@ export const Partners = () => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: index * 0.1 }}
-              className="flex items-center justify-center"
+              className="aspect-square flex items-center justify-center p-4"
             >
               <a 
                 href={partner.link} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="transition-transform duration-300 hover:scale-105"
+                className="transition-transform duration-300 hover:scale-105 w-full h-full flex items-center justify-center"
               >
                 <img
                   src={partner.image}
                   alt={partner.name}
-                  className="max-h-12"
+                  className="max-w-full max-h-full object-contain"
+                  loading="lazy"
+                  decoding="async"
                 />
               </a>
             </motion.div>

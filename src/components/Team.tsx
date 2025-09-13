@@ -64,6 +64,8 @@ export const Team = () => {
                   src={member.image}
                   alt={member.name}
                   className="w-full h-full object-cover rounded-full"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <h3 className="text-2xl font-bold text-white mb-2">
@@ -73,12 +75,12 @@ export const Team = () => {
               <div className="flex justify-center gap-4 mb-4">
                 {member.social.linkedin && (
                   <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer">
-                    <img src="./linkedin.svg" alt="LinkedIn" className="w-6 h-6 fill-white" />
+                    <img src="./linkedin.svg" alt="LinkedIn" className="w-6 h-6 fill-white" loading="lazy" />
                   </a>
                 )}
                 {member.social.youtube && (
                   <a href={member.social.youtube} target="_blank" rel="noopener noreferrer">
-                    <img src="./youtube.svg" alt="YouTube" className="w-6 h-6 fill-white" />
+                    <img src="./youtube.svg" alt="YouTube" className="w-6 h-6 fill-white" loading="lazy" />
                   </a>
                 )}
                 {member.social.behance && (
