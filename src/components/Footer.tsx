@@ -37,6 +37,7 @@ export const Footer = () => {
           <h3 className="text-xl font-bold mb-4 text-white">secciones</h3>
           <ul className="space-y-2">
             <li><a href="#hero" onClick={handleScrollToSection('#hero')} className="hover:underline">inicio</a></li>
+            <li><a href="#services" onClick={handleScrollToSection('#services')} className="hover:underline">servicios</a></li>
             <li><a href="#portfolio" onClick={handleScrollToSection('#portfolio')} className="hover:underline">diseño gráfico y web</a></li>
             <li><a href="#foto" onClick={handleScrollToSection('#foto')} className="hover:underline">foto</a></li>
             <li><a href="#video" onClick={handleScrollToSection('#video')} className="hover:underline">video</a></li>
