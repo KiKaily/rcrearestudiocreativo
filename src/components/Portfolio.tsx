@@ -7,7 +7,7 @@ const projects = [
   {
     title: "Leonardo Moscoso",
     description: "diseño de marca, web, redes sociales",
-    image: "./leonardo.png",
+    image: "./leonardo.webp",
     link: "https://www.leonardomoscoso.com/", // Add the link here
   },
   {
@@ -25,19 +25,19 @@ const projects = [
   {
     title: "Librería Macondo",
     description: "diseño de marca",
-    image: "./macondo.png",
+    image: "./macondo.webp",
     link: "", // Add the link here
   },
   {
     title: "Experiencia Educativa El roure",
     description: "web, diseño gráfico, redes sociales",
-    image: "./elroure.png",
+    image: "./elroure.webp",
     link: "https://www.elroure.org/es", // Add the link here
   },
   {
     title: "Kun Koro",
     description: "diseño de marca, web",
-    image: "./kunkoro.png",
+    image: "./kunkoro.webp",
     link: "https://kunkoro.kiwi/", // Add the link here
   },
 ];

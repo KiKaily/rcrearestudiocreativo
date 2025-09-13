@@ -12,14 +12,14 @@ const photoItems = [
   { id: "3", title: "Abeja", thumbnailUrl: "./fotos/3.jpg" },
   { id: "4", title: "Falda", thumbnailUrl: "./fotos/4.jpg" },
   { id: "5", title: "Zafu", thumbnailUrl: "./fotos/5.jpg" },
-  { id: "6", title: "Auriculoterapia", thumbnailUrl: "./fotos/13.jpg" },
+  { id: "6", title: "Auriculoterapia", thumbnailUrl: "./fotos/13.webp" },
   { id: "7", title: "Cortina", thumbnailUrl: "./fotos/7.jpg" },
   { id: "8", title: "Flor", thumbnailUrl: "./fotos/8.jpg" },
-  { id: "9", title: "Flores de Bach", thumbnailUrl: "./fotos/9.jpg" },
+  { id: "9", title: "Flores de Bach", thumbnailUrl: "./fotos/9.webp" },
   { id: "10", title: "Playa", thumbnailUrl: "./fotos/10.jpg" },
   { id: "11", title: "Castillo", thumbnailUrl: "./fotos/11.jpg" },
   { id: "13", title: "Cera", thumbnailUrl: "./fotos/6.jpg" },
-  { id: "14", title: "Reflexología", thumbnailUrl: "./fotos/14.jpg" },
+  { id: "14", title: "Reflexología", thumbnailUrl: "./fotos/14.webp" },
   { id: "15", title: "Telaraña", thumbnailUrl: "./fotos/34.jpg" },
   { id: "16", title: "Burbuja", thumbnailUrl: "./fotos/16.jpg" },
   { id: "17", title: "Puente", thumbnailUrl: "./fotos/17.jpg" },
@@ -36,7 +36,7 @@ const photoItems = [
   { id: "32", title: "SalyTierra", thumbnailUrl: "./fotos/32.jpg" },
   { id: "33", title: "ParejaAlhambra", thumbnailUrl: "./fotos/33.jpg" },
   { id: "34", title: "Lavanda", thumbnailUrl: "./fotos/15.jpg" },
-  { id: "35", title: "Copas", thumbnailUrl: "./fotos/35.jpg" },
+  { id: "35", title: "Copas", thumbnailUrl: "./fotos/35.webp" },
 ];
 
 export const PhotoGallery = () => {

@@ -8,7 +8,7 @@ const team = [
   {
     name: "Cristina Casas",
     role: "diseñadora gráfica y desarrolladora web",
-    image: "./cris.jpg",
+    image: "./cris.webp",
     description: "Con más de 10 años de experiencia en diseño y dirección creativa, Cristina lidera nuestro equipo de diseño gráfico con profesionalismo, pasión y una visión innovadora. Su enfoque único combina estrategia y creatividad, especializándose en la conexión con la esencia de la marca.",
     social: {
       linkedin: "https://www.linkedin.com/in/cristinacasasdesign/",
@@ -19,7 +19,7 @@ const team = [
   {
     name: "Noel Cresencio",
     role: "creativo, comunicador, fotógrafo y editor de vídeo",
-    image: "./noel.jpg",
+    image: "./noel.webp",
     description: "Responsable de comunicación, web, foto, video y redes sociales. Formado en educación viva, terapeuta psico-corporal y comunicación consciente. Muy autodidacta y multidisciplinar. Solucionador de problemas. Capaz de crear una web sin ser programador. Curioso por naturaleza, de acción eficiente y pensamiento innovador. Apasionado sobre cómo funciona el mundo y las relaciones humanas. Pregúntale sobre cualquier cosa y te podrá decir algo interesante al respecto.",
     social: {
       youtube: "https://www.youtube.com/@narunaru.podcast",
