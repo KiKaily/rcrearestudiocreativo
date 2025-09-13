@@ -3,19 +3,19 @@ import { motion } from "framer-motion";
 const services = [
   {
     title: "diseño gráfico",
-    description: "Creamos identidades visuales auténticas que te representan y conectan con tu audiencia"
+    description: "creamos identidades visuales auténticas que te representan y conectan con tu audiencia"
   },
   {
     title: "web",
-    description: "Desarrollamos experiencias digitales intuitivas y personalizadas"
+    description: "desarrollamos experiencias digitales intuitivas y personalizadas"
   },
   {
     title: "foto",
-    description: "Capturamos momentos únicos con una perspectiva honesta y natural"
+    description: "capturamos momentos únicos con una perspectiva honesta y natural"
   },
   {
     title: "video",
-    description: "Ofrecemos grabación, edición y montaje de video con un enfoque genuino"
+    description: "ofrecemos grabación, edición y montaje de video con un enfoque genuino"
   }
 ];
 
@@ -63,11 +63,11 @@ export const Services = () => {
           </h3>
           <div className="space-y-6">
             <p className="text-white/90 text-lg leading-relaxed">
-              Usamos la comunicación honesta como base de todo nuestro trabajo, priorizando 
+              usamos la comunicación honesta como base de todo nuestro trabajo, priorizando 
               el respeto hacia las personas usuarias del contenido que creamos.
             </p>
             <p className="text-white/80 text-base leading-relaxed">
-              Creemos en la transparencia, la autenticidad y en crear experiencias que 
+              creemos en la transparencia, la autenticidad y en crear experiencias que 
               conecten de manera genuina, sin manipulación ni invasión.
             </p>
           </div>
