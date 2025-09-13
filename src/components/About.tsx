@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 
 export const About = () => {
   const paragraphs = [
-    "Creamos marcas y comunicación con alma, transmitiendo mensajes de forma honesta",
-    "La comunicación honesta se centra en la transparencia y el respeto por el receptor, la no invasión, uso de formas agresivas ni manipulación calculada",
-    "Nuestros procesos destacan por involucrar a las personas detrás de cada marca, dando especial importancia a la presencialidad y a los procesos creativos físicos y tangibles, como valiosas fuentes de imagen e inspiración",
-    "Nos relacionamos con un trato cálido y ofrecemos una visión y trabajo integral",
+    "creamos marcas y comunicación con alma, transmitiendo mensajes de forma honesta",
+    "la comunicación honesta se centra en la transparencia y el respeto por el receptor, la no invasión, uso de formas agresivas ni manipulación calculada",
+    "nuestros procesos destacan por involucrar a las personas detrás de cada marca, dando especial importancia a la presencialidad y a los procesos creativos físicos y tangibles, como valiosas fuentes de imagen e inspiración",
+    "nos relacionamos con un trato cálido y ofrecemos una visión y trabajo integral",
     "diseño de marca, web, gestión de redes sociales, fotografía, vídeo, packaging, asesoramiento...",
   ];
 
