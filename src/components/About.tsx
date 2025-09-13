@@ -6,7 +6,7 @@ export const About = () => {
     "la comunicación honesta se centra en la transparencia y el respeto por el receptor, la no invasión, uso de formas agresivas ni manipulación calculada",
     "nuestros procesos destacan por involucrar a las personas detrás de cada marca, dando especial importancia a la presencialidad y a los procesos creativos físicos y tangibles, como valiosas fuentes de imagen e inspiración",
     "nos relacionamos con un trato cálido y ofrecemos una visión y trabajo integral",
-    "diseño de marca, web, gestión de redes sociales, fotografía, vídeo, packaging, asesoramiento...",
+    "diseño de marca, gráfico, web, fotografía, vídeo, gestión de redes sociales, packaging, asesoramiento...",
   ];
 
   return (
