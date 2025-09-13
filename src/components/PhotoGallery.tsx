@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { Lightbox } from "./Lightbox";
+import { OptimizedImage } from "./OptimizedImage";
 
 // Sample photo items
 const photoItems = [
@@ -126,12 +127,12 @@ export const PhotoGallery = () => {
                 className="aspect-square relative overflow-hidden group cursor-pointer"
                 onClick={() => openLightbox(item)}
               >
-                <img 
-                  src={item.thumbnailUrl} 
+                <OptimizedImage
+                  src={item.thumbnailUrl}
                   alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"
-                  decoding="async"
+                  sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
                 />
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                   <div className="p-2 text-white">

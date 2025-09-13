@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Lightbox } from "./Lightbox";
+import { OptimizedImage } from "./OptimizedImage";
 
 const projects = [
   {
@@ -71,12 +72,12 @@ export const Portfolio = () => {
               onClick={() => openLightbox(project)}
             >
               <div className="aspect-w-16 aspect-h-9">
-                <img
+                <OptimizedImage
                   src={project.image}
                   alt={project.title}
                   className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
                   loading="lazy"
-                  decoding="async"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
               <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">

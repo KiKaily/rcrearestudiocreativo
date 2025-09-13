@@ -1,5 +1,6 @@
 
 import { motion } from "framer-motion";
+import { OptimizedImage } from "./OptimizedImage";
 
 const partners = [
   {
@@ -66,12 +67,12 @@ export const Partners = () => {
                 rel="noopener noreferrer"
                 className="transition-transform duration-300 hover:scale-105 w-full h-full flex items-center justify-center"
               >
-                <img
+                <OptimizedImage
                   src={partner.image}
                   alt={partner.name}
                   className="max-w-full max-h-full object-contain"
                   loading="lazy"
-                  decoding="async"
+                  sizes="(max-width: 768px) 50vw, 25vw"
                 />
               </a>
             </motion.div>

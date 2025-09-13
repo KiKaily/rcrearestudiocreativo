@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { OptimizedImage } from "./OptimizedImage";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -51,7 +52,15 @@ export const Header = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-            <img src="./logo.png" alt="Logo" className="w-full h-full object-contain" />
+            <OptimizedImage 
+              src="./logo.png" 
+              webpSrc="./logo.webp"
+              alt="Logo" 
+              className="w-full h-full object-contain"
+              loading="eager"
+              width={120}
+              height={68}
+            />
           </motion.a>
 
           <motion.button

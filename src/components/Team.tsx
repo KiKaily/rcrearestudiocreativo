@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import { OptimizedImage } from "./OptimizedImage";
 
 const team = [
   {
@@ -60,12 +61,14 @@ export const Team = () => {
               className="text-center"
             >
               <div className="w-48 h-48 mx-auto mb-6 border-2 border-white rounded-full">
-                <img
+                <OptimizedImage
                   src={member.image}
                   alt={member.name}
                   className="w-full h-full object-cover rounded-full"
                   loading="lazy"
-                  decoding="async"
+                  sizes="192px"
+                  width={192}
+                  height={192}
                 />
               </div>
               <h3 className="text-2xl font-bold text-white mb-2">

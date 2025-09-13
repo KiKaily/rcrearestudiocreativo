@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { OptimizedImage } from "./OptimizedImage";
 
 export const Hero = () => {
   const isMobile = useIsMobile();
@@ -15,11 +16,15 @@ export const Hero = () => {
             whileHover={{ scale: 1.05, rotate: 2 }}
             whileTap={{ scale: 0.95 }}
           >
-            <img 
-              src="./logo.png" 
-              alt="Logo" 
-              className="w-full h-auto block" 
-              // VERY IMPORTANT: h-auto, NOT h-full, NOT object-cover
+            <OptimizedImage
+              src="./logo.png"
+              webpSrc="./logo.webp"
+              alt="Logo"
+              className="w-full h-auto block"
+              loading="eager"
+              sizes="(max-width: 768px) 256px, 560px"
+              width={560}
+              height={315}
             />
           </motion.div>
 
