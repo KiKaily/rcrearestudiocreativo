@@ -55,6 +55,14 @@ export const Portfolio = () => {
     setLightboxOpen(true);
   };
 
+  const handleProjectClick = (project: typeof projects[0]) => {
+    if (project.link) {
+      window.open(project.link, '_blank');
+    } else {
+      openLightbox(project);
+    }
+  };
+
   return (
     <section id="portfolio" className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
@@ -69,7 +77,7 @@ export const Portfolio = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2 }}
               className="group relative overflow-hidden rounded-lg cursor-pointer"
-              onClick={() => openLightbox(project)}
+              onClick={() => handleProjectClick(project)}
             >
               <div className="aspect-w-16 aspect-h-9">
                 <OptimizedImage
@@ -85,7 +93,7 @@ export const Portfolio = () => {
                   <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                   <p>{project.description}</p>
                   {project.link && (
-                    <p className="text-sm mt-2 opacity-80">Click para ver en detalle</p>
+                    <p className="text-sm mt-2 opacity-80">Click para ver el proyecto</p>
                   )}
                 </div>
               </div>
