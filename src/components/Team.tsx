@@ -20,7 +20,7 @@ const team = [
     name: "Noel Cresencio",
     role: "creativo, comunicador, fotógrafo y editor de vídeo",
     image: "./noel.webp",
-    description: "Responsable de comunicación, web, foto, video y redes sociales. Formado en educación viva, terapeuta psico-corporal y comunicación consciente. Muy autodidacta y multidisciplinar. Solucionador de problemas. Capaz de crear una web sin ser programador. Curioso por naturaleza, de acción eficiente y pensamiento innovador. Apasionado sobre cómo funciona el mundo y las relaciones humanas. Pregúntale sobre cualquier cosa y te podrá decir algo interesante al respecto.",
+    description: "Responsable de comunicación, web, foto, video y redes sociales. Formado en foto, video e interpretación, así como en educación viva, terapeuta psico-corporal y comunicación consciente. Muy autodidacta y multidisciplinar. Solucionador de problemas. Prompt engineer de IA. Curioso por naturaleza, de acción eficiente y pensamiento innovador. Apasionado sobre cómo funciona el mundo y las relaciones humanas. Pregúntale sobre cualquier cosa y te podrá decir algo interesante al respecto.",
     social: {
       youtube: "https://www.youtube.com/@narunaru.podcast",
       instagram: "https://www.instagram.com/noelcrefoto/"

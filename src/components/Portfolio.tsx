@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Lightbox } from "./Lightbox";
 import { OptimizedImage } from "./OptimizedImage";
 
@@ -7,7 +7,7 @@ const projects = [
   {
     title: "Leonardo Moscoso",
     description: "diseño de marca, web, redes sociales",
-    image: "./leonardo.webp",
+    images: ["./leonardo1.webp", "./leonardo2.webp"],
     link: "https://www.leonardomoscoso.com/", // Add the link here
   },
   {
@@ -19,7 +19,7 @@ const projects = [
   {
     title: "Cristina Minguillón",
     description: "diseño gráfico, redes sociales",
-    image: "./babel.png",
+    images: ["./babel1.png", "./babel2.png"],
     link: "https://www.instagram.com/crisminguillon/", // Add the link here
   },
   {
@@ -31,7 +31,7 @@ const projects = [
   {
     title: "Experiencia Educativa El roure",
     description: "web, diseño gráfico, redes sociales",
-    image: "./elroure.webp",
+    images: ["./elroure1.webp", "./elroure2.webp", "./elroure3.webp", "./elroure4.webp", "./elroure5.webp"],
     link: "https://www.elroure.org/es", // Add the link here
   },
   {
@@ -45,10 +45,36 @@ const projects = [
 export const Portfolio = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<{ src: string; alt: string; title: string } | null>(null);
+  const [imageIndices, setImageIndices] = useState<{ [key: string]: number }>({});
 
-  const openLightbox = (project: { title: string; image: string; description: string }) => {
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setImageIndices((prev) => {
+        const newIndices = { ...prev };
+        projects.forEach((project) => {
+          if ("images" in project && project.images) {
+            const currentIndex = newIndices[project.title] || 0;
+            newIndices[project.title] = (currentIndex + 1) % project.images.length;
+          }
+        });
+        return newIndices;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const getProjectImage = (project: typeof projects[0]) => {
+    if ("images" in project && project.images) {
+      const currentIndex = imageIndices[project.title] || 0;
+      return project.images[currentIndex];
+    }
+    return project.image;
+  };
+
+  const openLightbox = (project: typeof projects[0]) => {
     setSelectedProject({
-      src: project.image,
+      src: getProjectImage(project),
       alt: project.title,
       title: project.title
     });
@@ -81,7 +107,7 @@ export const Portfolio = () => {
             >
               <div className="aspect-w-16 aspect-h-9">
                 <OptimizedImage
-                  src={project.image}
+                  src={getProjectImage(project)}
                   alt={project.title}
                   className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
                   loading="lazy"
