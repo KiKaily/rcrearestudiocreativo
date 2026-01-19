@@ -30,7 +30,7 @@ const projects = [
   },
   {
     title: "Experiencia Educativa El roure",
-    description: "web, diseño gráfico, redes sociales",
+    description: "web, diseño gráfico, redes sociales, revista",
     images: ["./elroure1.webp", "./elroure2.webp", "./elroure3.webp", "./elroure4.webp", "./elroure5.webp"],
     link: "https://www.elroure.org/es", // Add the link here
   },
@@ -59,7 +59,7 @@ export const Portfolio = () => {
         });
         return newIndices;
       });
-    }, 1000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
@@ -109,12 +109,12 @@ export const Portfolio = () => {
                 <OptimizedImage
                   src={getProjectImage(project)}
                   alt={project.title}
-                  className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                  className="object-cover w-full h-full transition-all duration-700 ease-in-out group-hover:scale-105"
                   loading="lazy"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
-              <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out flex items-center justify-center">
                 <div className="text-center text-white p-4">
                   <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                   <p>{project.description}</p>
