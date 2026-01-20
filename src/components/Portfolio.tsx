@@ -19,7 +19,7 @@ const projects = [
   {
     title: "Cristina Minguillón",
     description: "diseño gráfico, redes sociales",
-    images: ["./babel1.png", "./babel2.png"],
+    image: "./babel1.webp",
     link: "https://www.instagram.com/crisminguillon/", // Add the link here
   },
   {
@@ -59,7 +59,7 @@ export const Portfolio = () => {
         });
         return newIndices;
       });
-    }, 3000);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, []);
