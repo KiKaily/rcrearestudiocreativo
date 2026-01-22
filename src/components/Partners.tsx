@@ -26,7 +26,7 @@ const partners = [
   {
     name: "Ajuntament",
     image: "./ajuntament_blanco.png",
-    link: "#"
+    link: ""
   },
   {
     name: "Kun Koro",
@@ -36,7 +36,7 @@ const partners = [
   {
     name: "La Casita",
     image: "./casita_blanco.png",
-    link: "#"
+    link: ""
   },
   {
     name: "Maitashi Natural Care",
