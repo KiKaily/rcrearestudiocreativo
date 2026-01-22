@@ -20,7 +20,7 @@ const projects = [
     title: "Cristina Minguillón",
     description: "diseño gráfico, redes sociales",
     image: "./babel1.webp",
-    link: "https://www.instagram.com/crisminguillon/", // Add the link here
+    link: "", // Add the link here
   },
   {
     title: "Librería Macondo",
@@ -31,8 +31,8 @@ const projects = [
   {
     title: "Experiencia Educativa El roure",
     description: "web, diseño gráfico, redes sociales, revista",
-    images: ["./elroure1.webp", "./elroure2.webp", "./elroure3.webp", "./elroure4.webp", "./elroure5.webp"],
-    link: "https://www.elroure.org/es", // Add the link here
+    images: ["./elroure1.gif", "./elroure2.webp", "./elroure3.webp", "./elroure4.webp", "./elroure5.webp"],
+    link: "", // Add the link here
   },
   {
     title: "Kun Koro",
@@ -46,20 +46,46 @@ export const Portfolio = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<{ src: string; alt: string; title: string } | null>(null);
   const [imageIndices, setImageIndices] = useState<{ [key: string]: number }>({});
+  const [fadeState, setFadeState] = useState<{ [key: string]: boolean }>({});
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setImageIndices((prev) => {
-        const newIndices = { ...prev };
+      // Start fade out
+      setFadeState((prev) => {
+        const newFadeState = { ...prev };
         projects.forEach((project) => {
           if ("images" in project && project.images) {
-            const currentIndex = newIndices[project.title] || 0;
-            newIndices[project.title] = (currentIndex + 1) % project.images.length;
+            newFadeState[project.title] = false;
           }
         });
-        return newIndices;
+        return newFadeState;
       });
-    }, 2000);
+
+      // Change image after fade out
+      setTimeout(() => {
+        setImageIndices((prev) => {
+          const newIndices = { ...prev };
+          projects.forEach((project) => {
+            if ("images" in project && project.images) {
+              const currentIndex = newIndices[project.title] || 0;
+              newIndices[project.title] = (currentIndex + 1) % project.images.length;
+            }
+          });
+          return newIndices;
+        });
+
+        // Start fade in
+        setFadeState((prev) => {
+          const newFadeState = { ...prev };
+          projects.forEach((project) => {
+            if ("images" in project && project.images) {
+              newFadeState[project.title] = true;
+            }
+          });
+          return newFadeState;
+        });
+      }, 600); // Fade out duration
+    }, 3000); // Total cycle time
 
     return () => clearInterval(interval);
   }, []);
@@ -109,7 +135,11 @@ export const Portfolio = () => {
                 <OptimizedImage
                   src={getProjectImage(project)}
                   alt={project.title}
-                  className="object-cover w-full h-full transition-all duration-700 ease-in-out group-hover:scale-105"
+                  className="object-cover w-full h-full group-hover:scale-105"
+                  style={{
+                    transition: 'opacity 600ms ease-in-out, transform 700ms ease-in-out',
+                    opacity: fadeState[project.title] === false ? 0 : 1
+                  }}
                   loading="lazy"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />

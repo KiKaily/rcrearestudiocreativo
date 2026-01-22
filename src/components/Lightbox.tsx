@@ -70,7 +70,7 @@ export const Lightbox = ({ isOpen, onClose, src, alt, title }: LightboxProps) =>
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
             transition={{ type: "spring", duration: 0.3 }}
-            className="relative max-w-4xl max-h-[90vh] w-full"
+            className="relative flex items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close button */}
@@ -85,7 +85,7 @@ export const Lightbox = ({ isOpen, onClose, src, alt, title }: LightboxProps) =>
             <img
               src={src}
               alt={alt}
-              className="w-full h-full object-contain rounded-lg shadow-2xl"
+              className="max-w-[90vw] max-h-[90vh] w-auto h-auto object-contain rounded-lg shadow-2xl"
             />
             
             {/* Title */}
