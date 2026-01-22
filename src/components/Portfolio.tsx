@@ -20,7 +20,7 @@ const projects = [
     title: "Cristina Minguillón",
     description: "diseño gráfico, redes sociales",
     image: "./babel1.webp",
-    link: "https://www.instagram.com/crisminguillon/", // Add the link here
+    link: "", // Add the link here
   },
   {
     title: "Librería Macondo",
@@ -31,8 +31,8 @@ const projects = [
   {
     title: "Experiencia Educativa El roure",
     description: "web, diseño gráfico, redes sociales, revista",
-    images: ["./elroure1.gif", "./elroure2.webp", "./elroure3.webp", "./elroure4.webp"],
-    link: "https://www.elroure.org/es", // Add the link here
+    images: ["./elroure1.gif", "./elroure2.webp", "./elroure3.webp", "./elroure4.webp", "./elroure5.webp"],
+    link: "", // Add the link here
   },
   {
     title: "Kun Koro",
