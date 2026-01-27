@@ -31,7 +31,7 @@ const projects = [
   {
     title: "Experiencia Educativa El roure",
     description: "web, diseño gráfico, redes sociales, revista",
-    images: ["./elroure1.gif", "./elroure2.webp", "./elroure3.webp", "./elroure4.webp", "./elroure5.webp"],
+    images: ["./elroure1.mp4", "./elroure2.webp", "./elroure3.webp", "./elroure4.webp", "./elroure5.webp"],
     link: "", // Add the link here
   },
   {
