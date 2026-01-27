@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Lightbox } from "./Lightbox";
 import { OptimizedImage } from "./OptimizedImage";
+
+const IMAGE_INTERVAL = 4500;
+const FADE_DURATION = 800;
+const isVideoFile = (src: string) => /\.(mp4|webm|ogg)$/i.test(src);
 
 const projects = [
   {
@@ -48,47 +52,44 @@ export const Portfolio = () => {
   const [imageIndices, setImageIndices] = useState<{ [key: string]: number }>({});
   const [fadeState, setFadeState] = useState<{ [key: string]: boolean }>({});
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      // Start fade out
-      setFadeState((prev) => {
-        const newFadeState = { ...prev };
-        projects.forEach((project) => {
-          if ("images" in project && project.images) {
-            newFadeState[project.title] = false;
-          }
-        });
-        return newFadeState;
-      });
+  const advanceMedia = useCallback((projectTitle: string, totalItems: number) => {
+    // Fade out first, then move to the next asset and fade back in
+    setFadeState((prev) => ({ ...prev, [projectTitle]: false }));
 
-      // Change image after fade out
-      setTimeout(() => {
-        setImageIndices((prev) => {
-          const newIndices = { ...prev };
-          projects.forEach((project) => {
-            if ("images" in project && project.images) {
-              const currentIndex = newIndices[project.title] || 0;
-              newIndices[project.title] = (currentIndex + 1) % project.images.length;
-            }
-          });
-          return newIndices;
-        });
+    setTimeout(() => {
+      setImageIndices((prev) => ({
+        ...prev,
+        [projectTitle]: ((prev[projectTitle] || 0) + 1) % totalItems,
+      }));
 
-        // Start fade in
-        setFadeState((prev) => {
-          const newFadeState = { ...prev };
-          projects.forEach((project) => {
-            if ("images" in project && project.images) {
-              newFadeState[project.title] = true;
-            }
-          });
-          return newFadeState;
-        });
-      }, 600); // Fade out duration
-    }, 3000); // Total cycle time
-
-    return () => clearInterval(interval);
+      setFadeState((prev) => ({ ...prev, [projectTitle]: true }));
+    }, FADE_DURATION);
   }, []);
+
+  useEffect(() => {
+    const timeouts: number[] = [];
+
+    projects.forEach((project) => {
+      if (!("images" in project) || !project.images) return;
+
+      const currentIndex = imageIndices[project.title] || 0;
+      const mediaItems = project.images;
+      const currentSrc = mediaItems[currentIndex];
+      const totalItems = mediaItems.length;
+
+      // For videos we wait for the natural end event to advance
+      if (isVideoFile(currentSrc)) return;
+
+      const timeoutId = window.setTimeout(
+        () => advanceMedia(project.title, totalItems),
+        IMAGE_INTERVAL
+      );
+
+      timeouts.push(timeoutId);
+    });
+
+    return () => timeouts.forEach((id) => window.clearTimeout(id));
+  }, [imageIndices, advanceMedia]);
 
   const getProjectImage = (project: typeof projects[0]) => {
     if ("images" in project && project.images) {
@@ -97,8 +98,6 @@ export const Portfolio = () => {
     }
     return project.image;
   };
-
-  const isVideoFile = (src: string) => /\.(mp4|webm|ogg)$/i.test(src);
 
   const openLightbox = (project: typeof projects[0]) => {
     const imageSrc = getProjectImage(project);
@@ -136,31 +135,42 @@ export const Portfolio = () => {
               onClick={() => handleProjectClick(project)}
             >
               <div className="aspect-w-16 aspect-h-9">
-                {isVideoFile(getProjectImage(project)) ? (
-                  <video
-                    src={getProjectImage(project)}
-                    className="object-cover w-full h-full group-hover:scale-105"
-                    style={{
-                      transition: 'opacity 600ms ease-in-out, transform 700ms ease-in-out',
-                      opacity: fadeState[project.title] === false ? 0 : 1
-                    }}
-                    muted
-                    loop
-                    autoPlay
-                  />
-                ) : (
-                  <OptimizedImage
-                    src={getProjectImage(project)}
-                    alt={project.title}
-                    className="object-cover w-full h-full group-hover:scale-105"
-                    style={{
-                      transition: 'opacity 600ms ease-in-out, transform 700ms ease-in-out',
-                      opacity: fadeState[project.title] === false ? 0 : 1
-                    }}
-                    loading="lazy"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                )}
+                {(() => {
+                  const currentSrc = getProjectImage(project);
+                  const isVideo = isVideoFile(currentSrc);
+                  const totalItems = "images" in project && project.images ? project.images.length : 1;
+
+                  if (isVideo) {
+                    return (
+                      <video
+                        src={currentSrc}
+                        className="object-cover w-full h-full group-hover:scale-105"
+                        style={{
+                          transition: `opacity ${FADE_DURATION}ms ease-in-out, transform 900ms cubic-bezier(0.22, 0.61, 0.36, 1)`,
+                          opacity: fadeState[project.title] === false ? 0 : 1
+                        }}
+                        muted
+                        autoPlay
+                        playsInline
+                        onEnded={() => totalItems > 1 && advanceMedia(project.title, totalItems)}
+                      />
+                    );
+                  }
+
+                  return (
+                    <OptimizedImage
+                      src={currentSrc}
+                      alt={project.title}
+                      className="object-cover w-full h-full group-hover:scale-105"
+                      style={{
+                        transition: `opacity ${FADE_DURATION}ms ease-in-out, transform 900ms cubic-bezier(0.22, 0.61, 0.36, 1)`,
+                        opacity: fadeState[project.title] === false ? 0 : 1
+                      }}
+                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  );
+                })()}
               </div>
               <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out flex items-center justify-center">
                 <div className="text-center text-white p-4">
@@ -183,6 +193,7 @@ export const Portfolio = () => {
             src={selectedProject.src}
             alt={selectedProject.alt}
             title={selectedProject.title}
+            isVideo={selectedProject.isVideo}
           />
         )}
       </div>
