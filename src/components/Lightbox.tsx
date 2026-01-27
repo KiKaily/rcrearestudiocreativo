@@ -8,9 +8,10 @@ interface LightboxProps {
   src: string;
   alt: string;
   title?: string;
+  isVideo?: boolean;
 }
 
-export const Lightbox = ({ isOpen, onClose, src, alt, title }: LightboxProps) => {
+export const Lightbox = ({ isOpen, onClose, src, alt, title, isVideo }: LightboxProps) => {
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -81,12 +82,21 @@ export const Lightbox = ({ isOpen, onClose, src, alt, title }: LightboxProps) =>
               <X size={24} />
             </button>
             
-            {/* Image */}
-            <img
-              src={src}
-              alt={alt}
-              className="max-w-[90vw] max-h-[90vh] w-auto h-auto object-contain rounded-lg shadow-2xl"
-            />
+            {/* Media - Image or Video */}
+            {isVideo ? (
+              <video
+                src={src}
+                controls
+                autoPlay
+                className="max-w-[90vw] max-h-[90vh] w-auto h-auto object-contain rounded-lg shadow-2xl"
+              />
+            ) : (
+              <img
+                src={src}
+                alt={alt}
+                className="max-w-[90vw] max-h-[90vh] w-auto h-auto object-contain rounded-lg shadow-2xl"
+              />
+            )}
             
             {/* Title */}
             {title && (

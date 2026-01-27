@@ -44,7 +44,7 @@ const projects = [
 
 export const Portfolio = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<{ src: string; alt: string; title: string } | null>(null);
+  const [selectedProject, setSelectedProject] = useState<{ src: string; alt: string; title: string; isVideo?: boolean } | null>(null);
   const [imageIndices, setImageIndices] = useState<{ [key: string]: number }>({});
   const [fadeState, setFadeState] = useState<{ [key: string]: boolean }>({});
 
@@ -98,11 +98,15 @@ export const Portfolio = () => {
     return project.image;
   };
 
+  const isVideoFile = (src: string) => /\.(mp4|webm|ogg)$/i.test(src);
+
   const openLightbox = (project: typeof projects[0]) => {
+    const imageSrc = getProjectImage(project);
     setSelectedProject({
-      src: getProjectImage(project),
+      src: imageSrc,
       alt: project.title,
-      title: project.title
+      title: project.title,
+      isVideo: isVideoFile(imageSrc)
     });
     setLightboxOpen(true);
   };
@@ -132,17 +136,31 @@ export const Portfolio = () => {
               onClick={() => handleProjectClick(project)}
             >
               <div className="aspect-w-16 aspect-h-9">
-                <OptimizedImage
-                  src={getProjectImage(project)}
-                  alt={project.title}
-                  className="object-cover w-full h-full group-hover:scale-105"
-                  style={{
-                    transition: 'opacity 600ms ease-in-out, transform 700ms ease-in-out',
-                    opacity: fadeState[project.title] === false ? 0 : 1
-                  }}
-                  loading="lazy"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
+                {isVideoFile(getProjectImage(project)) ? (
+                  <video
+                    src={getProjectImage(project)}
+                    className="object-cover w-full h-full group-hover:scale-105"
+                    style={{
+                      transition: 'opacity 600ms ease-in-out, transform 700ms ease-in-out',
+                      opacity: fadeState[project.title] === false ? 0 : 1
+                    }}
+                    muted
+                    loop
+                    autoPlay
+                  />
+                ) : (
+                  <OptimizedImage
+                    src={getProjectImage(project)}
+                    alt={project.title}
+                    className="object-cover w-full h-full group-hover:scale-105"
+                    style={{
+                      transition: 'opacity 600ms ease-in-out, transform 700ms ease-in-out',
+                      opacity: fadeState[project.title] === false ? 0 : 1
+                    }}
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                )}
               </div>
               <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out flex items-center justify-center">
                 <div className="text-center text-white p-4">
